@@ -1,0 +1,7 @@
+feature_set,median_LOGO_AUROC(mean over 5 real-fold seeds),sd_over_seeds,worst_generator(mean over seeds)
+ALL_v1(652),0.766,0.036,0.576
+bpp_only(1),0.276,0.026,0.0
+is_square_only(1),0.75,0.009,0.735
+legacy51,0.672,0.017,0.534
+metadata_all(7),0.83,0.031,0.0
+metadata_geometry(4),0.852,0.027,0.705
