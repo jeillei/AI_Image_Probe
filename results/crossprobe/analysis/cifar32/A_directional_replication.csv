@@ -1,0 +1,5 @@
+real_reference,spearman_effect_vectors,sign_agreement,perm_p_two_sided,null_sd
+aigc_benchmark_real,0.2196506186696538,0.6,0.526,0.3022699098986444
+rrdataset_real,0.2825990279131765,0.3,0.422,0.29680680790251185
+ALL_REAL,0.3017356550002105,0.5,0.442,0.33437871821679027
+SOURCE_SHIFT(aigc_real->rr_real),0.1477525626254718,0.7,,
