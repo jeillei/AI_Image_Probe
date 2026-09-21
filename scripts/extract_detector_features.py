@@ -15,7 +15,12 @@ from scripts.controlled_depth_sweep import row_features
 
 def load(path,size,severity,seed,transform=None,transform_value=None):
  im=ImageOps.exif_transpose(Image.open(path)).convert('RGB')
- if transform: im=apply_condition(im,transform,float(transform_value) if transform_value not in (None,'') else None,seed)
+ if transform:
+  im=apply_condition(im,transform,float(transform_value) if transform_value not in (None,'') else None,seed)
+  # Canonicalize AFTER the condition (apply_condition preserves native size).  Previously this branch skipped
+  # the resize, so non-256px originals would have been extracted at native resolution (protocol break).  For
+  # already-256px images this is an identity, so previously completed rows remain valid.
+  if im.size!=(size,size): im=im.resize((size,size),Image.Resampling.LANCZOS)
  elif severity: im=apply_chain(im,severity,seed,base_size=size)
  else: im=im.resize((size,size),Image.Resampling.LANCZOS)
  return np.asarray(im,dtype=np.float32)/127.5-1

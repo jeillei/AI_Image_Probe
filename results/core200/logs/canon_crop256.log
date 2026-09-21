@@ -1,0 +1,4 @@
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:01,  3.39it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  1.76it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:08<00:00,  1.62s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:08<00:00,  1.36s/it]
+/Users/julianedberthartono/Jelly/SynthImage/.venv/lib/python3.12/site-packages/diffusers/pipelines/pipeline_utils.py:2273: FutureWarning: `enable_vae_slicing` is deprecated and will be removed in version 0.40.0. Calling `enable_vae_slicing()` on a `StableDiffusionPipeline` is deprecated and this method will be removed in a future version. Please use `pipe.vae.enable_slicing()`.
+  deprecate(
+The config attributes {'skip_prk_steps': True} were passed to DDIMInverseScheduler, but are not expected and will be ignored. Please verify your scheduler_config.json configuration file.
