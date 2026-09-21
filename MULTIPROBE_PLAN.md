@@ -67,3 +67,14 @@ uv run python scripts/extract_crossprobe.py --probe church256 --device mps --bat
 # DiT (needs MPS free; ~550 imgs; resumable)
 uv run python scripts/extract_crossprobe.py --probe dit --device mps --batch 2
 ```
+
+## 7. Results so far (measured in this phase)
+
+| probe | real-source AUROC (30 Class-B) | crossed real/fake (confounded corpus) | matched SD1.5-fake vs real (n=60 pairs) |
+|---|---|---|---|
+| SD1.5 (Class-B legacy columns) | 0.752 [0.691, 0.814] (550) / 0.811 (core-200) | 0.585 (550) / 0.528 (core-200) | 0.697 [0.619, 0.783] |
+| CIFAR-10 DDPM-32 | **0.832 [0.784, 0.879]** | 0.507 | **0.816 [0.753, 0.890]** |
+| DiT-XL/2-256 null class | 0.784 [0.695, 0.880] | 0.558 (core-200) | 0.741 [0.663, 0.822] |
+| church-256 (VAE-free, 256 px) | not run (interrupted; see commands) | - | - |
+
+Recommendation stands (DiT first) but the CIFAR-32 result changes its purpose: the low-resolution VAE-free probe is the **essential baseline** any new probe must beat.  Next probe to add is the VAE-free 256-px pixel DDPM, not SDXL.
