@@ -1,7 +1,6 @@
 #!/bin/bash
-# Waits for run_core_jobs.sh, then: content-matched fakes (SD1.5) -> manifest -> v1 features (human caption) -> DiT probe on core-200 + content-matched.
+# (Run after run_core_jobs.sh has finished.)  content-matched fakes (SD1.5) -> manifest -> v1 features (human caption) -> DiT probe on core-200 + content-matched.
 set -u; cd "$(dirname "$0")/.."; mkdir -p results/content_matched/logs
-while pgrep -f run_core_jobs.sh > /dev/null; do sleep 60; done
 echo "[$(date +%T)] follow-up start"
 caffeinate -i uv run python scripts/build_content_matched.py --stage fake --count 60 > results/content_matched/logs/fake.log 2>&1
 uv run python scripts/build_content_matched.py --stage manifest --count 60 > results/content_matched/logs/manifest.log 2>&1

@@ -1,0 +1,43 @@
+variant,family,median_rank_corr_with_BLIP,n
+cond_null(empty),endpoint,0.9949328733218332,6
+cond_null(empty),legacy_geometry,0.9978519462986576,4
+cond_null(empty),legacy_guidance,,0
+cond_null(empty),legacy_noise,0.9941063526588166,18
+cond_null(empty),rich_alignment,0.9723993099827497,75
+cond_null(empty),rich_crosstime,0.9628425710642768,30
+cond_null(empty),rich_guidance_moments,,0
+cond_null(empty),rich_latent_geometry,0.9733668341708543,60
+cond_null(empty),rich_latent_typicality,0.9993488645271047,90
+cond_null(empty),rich_score_dynamics,0.9794502362559065,86
+cond_null(empty),rich_score_fft,0.9876584414610367,36
+cond_null(empty),rich_score_moments,0.9876405566781773,78
+cond_null(empty),rich_score_spatial,0.9908272706817671,30
+cond_null(empty),roundtrip,0.6861396534913373,2
+cond_generic('a photo'),endpoint,0.9951233780844522,6
+cond_generic('a photo'),legacy_geometry,0.9979479486987176,4
+cond_generic('a photo'),legacy_guidance,0.5896902422560566,14
+cond_generic('a photo'),legacy_noise,0.994708617715443,18
+cond_generic('a photo'),rich_alignment,0.3872234305857647,120
+cond_generic('a photo'),rich_crosstime,0.9646073651841297,30
+cond_generic('a photo'),rich_guidance_moments,0.5488629715742894,78
+cond_generic('a photo'),rich_latent_geometry,0.9700135003375085,60
+cond_generic('a photo'),rich_latent_typicality,0.9993456785123537,90
+cond_generic('a photo'),rich_score_dynamics,0.9781144528613216,86
+cond_generic('a photo'),rich_score_fft,0.9868026700667518,36
+cond_generic('a photo'),rich_score_moments,0.9882109407054371,78
+cond_generic('a photo'),rich_score_spatial,0.9914782869571739,30
+cond_generic('a photo'),roundtrip,0.6384977124428112,2
+cond_shuffled(other image's BLIP),endpoint,0.9933338333458337,6
+cond_shuffled(other image's BLIP),legacy_geometry,0.9972451811295284,4
+cond_shuffled(other image's BLIP),legacy_guidance,0.5276344408610216,14
+cond_shuffled(other image's BLIP),legacy_noise,0.9932468311707794,18
+cond_shuffled(other image's BLIP),rich_alignment,0.4159858996474912,120
+cond_shuffled(other image's BLIP),rich_crosstime,0.9557863946598666,30
+cond_shuffled(other image's BLIP),rich_guidance_moments,0.49382503633574654,78
+cond_shuffled(other image's BLIP),rich_latent_geometry,0.964182104552614,60
+cond_shuffled(other image's BLIP),rich_latent_typicality,0.999332365527122,90
+cond_shuffled(other image's BLIP),rich_score_dynamics,0.9724030600765021,86
+cond_shuffled(other image's BLIP),rich_score_fft,0.9845136128403211,36
+cond_shuffled(other image's BLIP),rich_score_moments,0.9853333833345835,78
+cond_shuffled(other image's BLIP),rich_score_spatial,0.9896804920123005,30
+cond_shuffled(other image's BLIP),roundtrip,0.630444761119028,2

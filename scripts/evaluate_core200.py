@@ -33,7 +33,7 @@ for cname, key in CONDS.items():
     print("evaluating", cname)
     for gname in ["ALL_v1", "legacy51", "rich_alignment" if False else "trajectory_noise", "guidance", "latent_endpoint_stats", "spatial", "fft", "crosstime", "roundtrip" if False else "reconstruction_roundtrip"]:
         cols = groups[gname]; a, lo, hi = real_source_auc(d, cols); rec = {"condition": cname, "feature_set": gname, "real_source_auroc": a, "real_source_ci_lo": lo, "real_source_ci_hi": hi}
-        if gname in ("ALL_v1", "legacy51"):
+        if gname in ("ALL_v1", "legacy51", "guidance", "latent_endpoint_stats"):
             m = crossed_matrix(d, cols, srcs, gens, n_boot=300); m.to_csv(OUT / f"crossed_{key or 'baseline'}_{gname}.csv", index=False); rec.update(summarize_matrix(m)); mats[(cname, gname)] = m
         rows.append(rec)
 res = pd.DataFrame(rows); res.to_csv(OUT / "summary.csv", index=False); print(res.round(3).to_string(index=False))

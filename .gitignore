@@ -17,3 +17,10 @@ results/ad_hoc/
 *.safetensors
 *.ckpt
 .env
+# raw per-run feature dumps (regenerable; analysis CSV/PNG/JSON under */analysis are tracked)
+results/core200/*.json
+results/core200/logs/
+results/crossprobe/*.json
+results/content_matched/*.json
+results/content_matched/logs/
+results/*.log
