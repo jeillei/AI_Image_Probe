@@ -1,0 +1,50 @@
+{
+ "ALL_v1": {
+  "macro_mean": 0.68089,
+  "median": 0.6983,
+  "worst": 0.3854000000000001,
+  "frac_above_0.5": 0.95,
+  "frac_ci_lo_above_0.5": 0.75,
+  "frac_ci_hi_below_0.5": 0.0,
+  "mean_tpr@1": 0.06000000000000001,
+  "mean_realized_fpr@1": 0.024250000000000004,
+  "mean_tpr@5": 0.24000000000000005,
+  "mean_realized_fpr@5": 0.08875000000000002
+ },
+ "legacy51": {
+  "macro_mean": 0.6396900000000001,
+  "median": 0.6567000000000001,
+  "worst": 0.36660000000000004,
+  "frac_above_0.5": 0.85,
+  "frac_ci_lo_above_0.5": 0.65,
+  "frac_ci_hi_below_0.5": 0.05,
+  "mean_tpr@1": 0.06400000000000002,
+  "mean_realized_fpr@1": 0.03500000000000001,
+  "mean_tpr@5": 0.17600000000000002,
+  "mean_realized_fpr@5": 0.10175000000000001
+ },
+ "metadata_only": {
+  "macro_mean": 0.65055,
+  "median": 0.7719,
+  "worst": 0.0,
+  "frac_above_0.5": 0.9,
+  "frac_ci_lo_above_0.5": 0.9,
+  "frac_ci_hi_below_0.5": 0.1,
+  "mean_tpr@1": 0.45,
+  "mean_realized_fpr@1": 0.297,
+  "mean_tpr@5": 0.55,
+  "mean_realized_fpr@5": 0.3152499999999999
+ },
+ "metadata_geometry": {
+  "macro_mean": 0.774375,
+  "median": 0.80625,
+  "worst": 0.5575,
+  "frac_above_0.5": 1.0,
+  "frac_ci_lo_above_0.5": 0.9,
+  "frac_ci_hi_below_0.5": 0.0,
+  "mean_tpr@1": 0.35,
+  "mean_realized_fpr@1": 0.21749999999999994,
+  "mean_tpr@5": 0.5,
+  "mean_realized_fpr@5": 0.2435
+ }
+}

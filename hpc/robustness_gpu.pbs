@@ -1,0 +1,39 @@
+#!/bin/bash
+#PBS -N synth_robust
+#PBS -l select=1:ncpus=8:ngpus=1:mem=32gb
+#PBS -l walltime=08:00:00
+#PBS -o /scratch/e1471252/SynthImage_robustness/logs/robustness_gpu.out
+#PBS -e /scratch/e1471252/SynthImage_robustness/logs/robustness_gpu.err
+
+set -euo pipefail
+ROOT=/scratch/e1471252/SynthImage_robustness
+mkdir -p "$ROOT/logs" "$ROOT/hf-cache" "$ROOT/pip-cache"
+cd "$ROOT"
+
+# The runtime and model cache are persistent on scratch.  First execution may
+# install Python packages and fetch public model weights; resumed extractions do
+# not repeat valid condition rows.
+apptainer exec --nv --cleanenv --no-home \
+  --bind "$ROOT:/work" \
+  --bind "$ROOT/hf-cache:/hf-cache" \
+  docker://pytorch/pytorch:2.4.1-cuda12.1-cudnn9-runtime \
+  bash -lc '
+    set -euo pipefail
+    cd /work
+    export HOME=/tmp
+    export PYTHONNOUSERSITE=1
+    export PYTHONPATH=
+    export HF_HOME=/hf-cache
+    export TRANSFORMERS_CACHE=/hf-cache
+    export PIP_CACHE_DIR=/work/pip-cache
+    if [ ! -x /work/venv/bin/python ]; then
+      python -m venv --system-site-packages /work/venv
+    fi
+    source /work/venv/bin/activate
+    python -m pip install --quiet --upgrade pip
+    python -m pip install --quiet "diffusers==0.39.0" "transformers==4.57.6" "accelerate==1.14.0" "huggingface-hub==0.36.2" "safetensors==0.8.0" pandas scikit-learn pyarrow pillow scipy
+    python scripts/extract_detector_features.py \
+      --manifest data/robustness_screen/manifest.csv \
+      --output results/robustness_screen/rich_features.json \
+      --rich --batch-size 8
+  '

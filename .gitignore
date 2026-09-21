@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+# large data / caches / weights
+data/
+hpc/*.log
+*.joblib
+*.tar.gz
+results/features/*.json
+results/robustness_screen/*.json
+results/sd15_*/
+results/pilot*/
+results/rr_*/
+results/ad_hoc/
+*.safetensors
+*.ckpt
+.env

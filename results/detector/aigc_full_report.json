@@ -1,0 +1,109 @@
+{
+  "feature_family": "full",
+  "feature_names": [
+    "eps_mean",
+    "eps_median",
+    "eps_min",
+    "eps_max",
+    "eps_std",
+    "eps_early",
+    "eps_middle",
+    "eps_late",
+    "eps_first_last",
+    "eps_slope",
+    "eps_auc",
+    "eps_late_early",
+    "guidance_mean",
+    "guidance_max",
+    "guidance_std",
+    "guidance_early",
+    "guidance_middle",
+    "guidance_late",
+    "guidance_slope",
+    "guidance_auc",
+    "pixel_roundtrip_mse",
+    "latent_roundtrip_mse",
+    "endpoint_norm_per_dim",
+    "endpoint_mean",
+    "endpoint_var",
+    "endpoint_skew",
+    "endpoint_kurtosis",
+    "endpoint_extreme_fraction",
+    "path_length",
+    "speed_mean",
+    "speed_max",
+    "acceleration_abs_mean"
+  ],
+  "model": "logistic",
+  "n_train": 12,
+  "train": {
+    "n": 12,
+    "auroc": 1.0,
+    "auprc": 1.0,
+    "balanced_accuracy": 1.0,
+    "tpr_at_1pct_fpr": 1.0,
+    "tpr_at_5pct_fpr": 1.0
+  },
+  "validation": {
+    "n": 8,
+    "auroc": 0.875,
+    "auprc": 0.9166666666666666,
+    "balanced_accuracy": 0.75,
+    "tpr_at_1pct_fpr": 0.75,
+    "tpr_at_5pct_fpr": 0.75,
+    "auroc_bootstrap_ci95": [
+      0.4666666666666667,
+      1.0
+    ],
+    "by_generator": {
+      "GLIDE": {
+        "n": 8,
+        "auroc": 0.875,
+        "auprc": 0.9166666666666666,
+        "balanced_accuracy": 0.75,
+        "tpr_at_1pct_fpr": 0.75,
+        "tpr_at_5pct_fpr": 0.75,
+        "auroc_bootstrap_ci95": [
+          0.4666666666666667,
+          1.0
+        ]
+      },
+      "real": {
+        "n": 4
+      }
+    }
+  },
+  "frozen_validation_thresholds": {
+    "0.01": 0.8938826083143766,
+    "0.05": 0.8938826083143766
+  },
+  "test": {
+    "n": 12,
+    "auroc": 0.1875,
+    "auprc": 0.2648809523809524,
+    "balanced_accuracy": 0.25,
+    "tpr_at_1pct_fpr": 0.0,
+    "tpr_at_5pct_fpr": 0.0,
+    "auroc_bootstrap_ci95": [
+      0.0,
+      0.5
+    ],
+    "by_generator": {
+      "DALLE2": {
+        "n": 12,
+        "auroc": 0.1875,
+        "auprc": 0.2648809523809524,
+        "balanced_accuracy": 0.25,
+        "tpr_at_1pct_fpr": 0.0,
+        "tpr_at_5pct_fpr": 0.0,
+        "auroc_bootstrap_ci95": [
+          0.0,
+          0.5
+        ]
+      },
+      "real": {
+        "n": 8
+      }
+    }
+  }
+}
