@@ -32,8 +32,17 @@ if a.stage == "real":
 elif a.stage == "fake":
     import torch
     from diffusers import StableDiffusionPipeline, DDIMScheduler
-    if a.generator != "sd15": sys.exit("only sd15 implemented; see docstring")
-    dev = "mps" if torch.backends.mps.is_available() else "cpu"; pipe = StableDiffusionPipeline.from_pretrained("stable-diffusion-v1-5/stable-diffusion-v1-5", torch_dtype=torch.float16 if dev == "mps" else torch.float32, safety_checker=None, requires_safety_checker=False, local_files_only=True).to(dev)
+    dev = "mps" if torch.backends.mps.is_available() else "cpu"
+    if a.generator == "amused":   # masked-token model, VQGAN decoder: no shared VAE/denoiser with SD1.5 (Addendum 1)
+        from diffusers import AmusedPipeline
+        pipe = AmusedPipeline.from_pretrained("amused/amused-512", variant="fp16", torch_dtype=torch.float16 if dev == "mps" else torch.float32).to(dev); (out / "amused").mkdir(exist_ok=True)
+        for s in sel:
+            dst = out / "amused" / f"{s['content_id']}.png"
+            if dst.exists(): continue
+            g = torch.Generator("cpu").manual_seed(int(hashlib.sha256(s["content_id"].encode()).hexdigest()[:8], 16)); im = pipe(s["caption"], generator=g, height=512, width=512).images[0]; im.convert("RGB").save(dst); print("fake", dst.name, flush=True)
+        sys.exit(0)
+    if a.generator != "sd15": sys.exit("only sd15/amused implemented; see docstring")
+    pipe = StableDiffusionPipeline.from_pretrained("stable-diffusion-v1-5/stable-diffusion-v1-5", torch_dtype=torch.float16 if dev == "mps" else torch.float32, safety_checker=None, requires_safety_checker=False, local_files_only=True).to(dev)
     pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config); pipe.enable_attention_slicing("max"); (out / a.generator).mkdir(exist_ok=True)
     for s in sel:
         dst = out / a.generator / f"{s['content_id']}.png"

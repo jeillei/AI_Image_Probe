@@ -534,3 +534,41 @@ Cell-level bootstrap half-width ~0.16; macro SE >= 0.02 (independence lower boun
 | another image's BLIP caption | 0.609 | 0.519 | **0.513** | 0.780 [0.708, 0.882] |
 
 **Interpretation.**  (1) The bulk of v1 (ALL_v1) is caption-independent: removing text entirely changes the crossed result by -0.013 and *increases* source separability, and 90% of columns have per-feature rank-correlation >= 0.96 with the BLIP baseline under every variant (E73).  So most of the representation is *not* an image-to-text compatibility measurement.  (2) The legacy-51 signature's crossed performance (0.623) collapses without aligned text (0.51-0.55): it was carried by its 14 guidance columns.  (3) The guidance family survives a **constant** prompt ("a photo": 0.633; so it is not caption-content leakage, cf. E67) but is destroyed (0.513, 55% of cells above chance) by a *mismatched* caption: the family responds to coherent-or-neutral conditioning and is corrupted by semantically wrong conditioning (Δ = -0.15, > 5 SE lower bound).  (4) If guidance carries provenance information it is an image-to-*prior response*, not an unconditional trajectory property, and it applies to ~92 of 652 columns.
+
+### E75–E80 — content-matched pilot and controls (60 COCO contents; pre-registered, `PREREGISTRATION_content_matched_v1.md`)
+
+Design: real COCO photo (centre-crop, 512 PNG) vs SD1.5 counterpart generated from the **same human caption** (512 PNG); both classes probed with that human caption; frozen v1; content-grouped CV.  Pre-registration was committed before any counterpart or feature existed; Addendum 1 (aMUSEd) was committed after the SD1.5 result was seen and says so.
+
+| exp | question | result | reading |
+|---|---|---|---|
+| **E75 pre-registered** | H_primary / H_guidance / H_eps / H_transfer | **ALL_v1 0.800 [0.732, 0.879] -> SUPPORTS**; guidance 0.631 [0.548, 0.734] -> **INCONCLUSIVE** (CI-low 0.548 < 0.55); legacy51 0.701 [0.618, 0.785]; H_eps: fake lower in **42/60 pairs**, sign test p = 0.0027 (mean diff -0.014); H_transfer (Stage-B-trained classifier -> matched set) **0.735 [0.644, 0.826]** (mean score real 0.38, fake 0.67). Family AUROCs (exploratory): latent geometry 0.836, cross-time 0.798, trajectory noise 0.779, latent endpoint 0.683, score moments 0.652, spatial 0.626, FFT 0.622, alignment 0.604, round trip 0.549 | with content, caption, size and container matched, SD1.5-on-SD1.5 shows genuine separation.  This is the **most favourable case** (generator = probe) so it is only weakly confirming; the eps-norm lead of E17 replicates (70% of pairs) |
+| E76 VAE-only baseline (exploratory) | is it the SD-VAE decoder fixed point? | VAE encode-decode error, no diffusion: at native 512 px **0.866 [0.807, 0.921]** (fake lower in 92% of pairs); at the probe's 256 px only 0.591 [0.518, 0.662] | a single scalar at 512 px beats the whole trajectory (0.80): decoder fixed-point is a much stronger SD1.5-fake cue than anything in v1; the 256-px probe mostly does *not* see it, so v1's 0.80 is something else |
+| E77 independent probes on the matched set (exploratory, Class-B 30 features) | is the signal probe-specific? | SD1.5 0.697 [0.619, 0.783]; DiT-XL/2 0.741 [0.663, 0.822]; **CIFAR-10 DDPM-32 (VAE-free, 32 px) 0.816 [0.753, 0.890]** | three unrelated priors separate SD1.5 fakes; the best is the 32-px pixel-space one => not decoder- or probe-specific; more consistent with a coarse global "look" of guided generations |
+| E78 coarse-look control (exploratory) | is it just colour/contrast? | 12 global statistics of a 32-px thumbnail: 0.668 [0.582, 0.756] | explains part, not all |
+| E79 SD1.5 x DiT on core-200 (Class-B) | cross-probe replication, confounded corpus | source-shift effect vectors Spearman **0.84** (sign 0.93); real-source AUROC SD1.5 0.811 [0.722, 0.897], DiT 0.784 [0.695, 0.880], CIFAR-32 0.832; real/fake effect vectors Spearman 0.61-0.79 but joint-label permutation p = 0.32-0.66 (null sd 0.19); own crossed AUROC SD1.5 0.528 / DiT 0.558; weight transfer SD->DiT 0.487, DiT->SD 0.550 | a probe-shared **source** axis exists; no probe-shared **synthetic** axis in this corpus |
+| E80 pending (queued, resumable) | residual JPEG-history/upsample asymmetry; non-SD generator | JPEG-75 and band-128 pipelines on both classes; aMUSEd counterparts (Addendum 1); church-256 VAE-free probe | see `results/followup*_driver.log`; NOT reported until complete |
+
+**Caveats that bound E75–E79.**  n = 60 pairs, one generator (probe's own family), one photo source (COCO, JPEG-decoded and up-scaled ~1.07x while fakes are pristine synthetic pixels: a residual acquisition asymmetry that E80 tests), CFG 7.5 gives generations a characteristic saturated/centred look.  No result here shows generalization to an *independent* generator.
+
+### Commands (reproduce / continue)
+```bash
+# audit on cached features (no GPU)
+uv run python scripts/audit_real_source.py; uv run python scripts/crossed_eval.py; uv run python scripts/matched_subset_eval.py
+uv run python scripts/logo_shortcut_baseline.py; uv run python scripts/residualized_eval.py; uv run python scripts/residualized_by_family.py; uv run python scripts/caption_baseline.py
+uv run python scripts/dataset_audit_tables.py
+# core-200 normalization + conditioning (MPS, ~2 h, resumable)
+uv run python scripts/build_core_manifests.py; scripts/run_core_jobs.sh; uv run python scripts/evaluate_core200.py
+# second probes
+uv run python scripts/extract_crossprobe.py --probe cifar32; uv run python scripts/crossprobe_analysis.py
+uv run python scripts/extract_crossprobe.py --probe dit --device mps --manifest data/core200/core200_frozen.csv --output results/crossprobe/dit_core200.json
+uv run python scripts/crossprobe_analysis.py --other results/crossprobe/dit_core200.json --name dit_core200
+# content-matched (pre-registered): real -> fakes -> manifest -> features -> evaluation
+uv run python scripts/build_content_matched.py --stage real --count 60; uv run python scripts/build_content_matched.py --stage fake --count 60; uv run python scripts/build_content_matched.py --stage manifest --count 60
+uv run python scripts/extract_detector_features.py --manifest data/content_matched/manifest.csv --output results/content_matched/v1_humancaption.json --rich --batch-size 2
+uv run python scripts/evaluate_content_matched.py; uv run python scripts/vae_recon_baseline.py; uv run python scripts/thumbnail_baseline.py
+# unfinished (run ONE GPU process at a time; two concurrent MPS jobs stalled here)
+scripts/run_followup2_jobs.sh; scripts/run_followup3_jobs.sh    # JPEG75/band128 on matched set; aMUSEd generator
+uv run python scripts/evaluate_content_matched_multigen.py      # after aMUSEd rows exist
+uv run python scripts/extract_crossprobe.py --probe church256 --device mps --batch 4 --manifest data/content_matched/manifest.csv --output results/crossprobe/church256_content_matched.json
+# robustness screen on HPC (extractor bug fixed in E68): qsub hpc/robustness_gpu.pbs
+```

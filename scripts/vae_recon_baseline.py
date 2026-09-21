@@ -9,7 +9,7 @@ import numpy as np, pandas as pd, torch
 from PIL import Image
 from sklearn.metrics import roc_auc_score
 from diffusers import AutoencoderKL
-dev = "mps" if torch.backends.mps.is_available() else "cpu"; dt = torch.float16 if dev == "mps" else torch.float32
+dev = "cpu"; dt = torch.float32   # MPS fp16 VAE at 512 px hung in testing; CPU fp32 is robust and cheap for a VAE-only pass
 vae = AutoencoderKL.from_pretrained("stable-diffusion-v1-5/stable-diffusion-v1-5", subfolder="vae", torch_dtype=dt, local_files_only=True).to(dev).eval()
 m = pd.read_csv("data/content_matched/manifest.csv"); rows = []
 @torch.inference_mode()
