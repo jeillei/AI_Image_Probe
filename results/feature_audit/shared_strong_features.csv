@@ -1,0 +1,12 @@
+feature,sd15_coef,amused_coef,sd15_abs_rank,amused_abs_rank,family,sd15_sign,amused_sign,sign_agree,min_abs_rank
+rich_score_t1_v_autocorr,0.09066071779548707,0.10657002609933303,61,1,rich_score_spatial,1,1,True,1
+rich_score_t3_v_autocorr,0.07851068491424258,0.09736873490866912,83,3,rich_score_spatial,1,1,True,3
+rich_score_t2_v_autocorr,0.10584722003488284,0.09634982585662868,40,4,rich_score_spatial,1,1,True,4
+rich_latent_t1_skew,-0.08095801678358569,-0.0766314972880918,77,15,rich_latent_typicality,-1,-1,True,15
+rich_latent_t0_skew,-0.0809226300487211,-0.07662472307135935,78,16,rich_latent_typicality,-1,-1,True,16
+rich_latent_t2_extreme3,0.1017078746277483,0.06678223116944285,42,32,rich_latent_typicality,1,1,True,32
+rich_score_consecutive_cos_t4,-0.10088891512476182,-0.06649735845821499,44,33,rich_score_dynamics,-1,-1,True,33
+rich_score_consecutive_cos_late,-0.10088891512476182,-0.06649735845821499,44,33,rich_score_dynamics,-1,-1,True,33
+rich_score_crosscos_4_5,-0.10088891512476182,-0.06649735845821499,44,33,rich_crosstime,-1,-1,True,33
+rich_score_consecutive_cos_max,-0.09915054322371114,-0.06593505957294897,47,39,rich_score_dynamics,-1,-1,True,39
+rich_score_t2_fft_mid,0.07931452119566673,0.04938927971399846,80,79,rich_score_fft,1,1,True,79

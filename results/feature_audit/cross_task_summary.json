@@ -1,0 +1,23 @@
+{
+ "pearson_r": 0.11725735531282275,
+ "pearson_p": 0.0027114431642666294,
+ "spearman_r": 0.14458965399470924,
+ "spearman_p": 0.0002118976514718966,
+ "sign_agreement": 0.5552147239263804,
+ "sign_agreement_null_mean": 0.485478527607362,
+ "sign_agreement_null_sd": 0.019541404723073075,
+ "pearson_null_mean": -0.001173278980855343,
+ "pearson_null_sd": 0.03813255274336208,
+ "top10_overlap_n": 0,
+ "top10_overlap_frac": 0.0,
+ "top10_shared_same_sign": 0,
+ "top25_overlap_n": 0,
+ "top25_overlap_frac": 0.0,
+ "top25_shared_same_sign": 0,
+ "top50_overlap_n": 7,
+ "top50_overlap_frac": 0.14,
+ "top50_shared_same_sign": 6,
+ "n_strong_both_top100": 19,
+ "n_reversed_among_strong_both": 8,
+ "n_shared_same_sign_among_strong_both": 11
+}

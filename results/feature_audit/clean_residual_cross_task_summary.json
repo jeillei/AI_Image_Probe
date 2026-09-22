@@ -1,0 +1,13 @@
+{
+ "n_features": 94,
+ "families": [
+  "legacy_guidance",
+  "rich_guidance_moments",
+  "roundtrip"
+ ],
+ "pearson_r": 0.4901472548704884,
+ "spearman_r": 0.4062204240869848,
+ "sign_agreement": 0.5957446808510638,
+ "top10_overlap_n": 3,
+ "top25_overlap_n": 11
+}

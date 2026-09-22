@@ -1,0 +1,9 @@
+feature,sd15_coef,amused_coef,sd15_abs_rank,amused_abs_rank,family,sd15_sign,amused_sign,sign_agree,min_abs_rank
+rich_score_t0_mean,-0.16148239198309258,0.04840271020773814,8,86,rich_score_moments,-1,1,False,8
+rich_score_t3_nearzero,-0.1522397385037417,0.061308277610915694,9,48,rich_score_moments,-1,1,False,9
+rich_score_t0_kurtosis,0.1438660011442752,-0.05380311404464768,11,71,rich_score_moments,1,-1,False,11
+rich_latent_step_auc,-0.11988380186896999,0.04474643045498525,30,100,rich_latent_geometry,-1,1,False,30
+rich_latent_step_middle,-0.11533533055522142,0.04883024871917534,33,83,rich_latent_geometry,-1,1,False,33
+rich_score_t1_maxabs,-0.1150925301110926,0.04777886262623174,34,89,rich_score_moments,-1,1,False,34
+rich_latent_accel_min,-0.07812306328514247,0.0657336251279274,86,40,rich_latent_geometry,-1,1,False,40
+rich_latent_step_t2,-0.09148983990198768,0.06302907661514873,57,46,rich_latent_geometry,-1,1,False,46

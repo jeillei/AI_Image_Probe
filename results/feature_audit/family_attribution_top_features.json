@@ -1,0 +1,52 @@
+{
+ "sd15_top10": {
+  "rich_guidance_moments": 6,
+  "rich_score_moments": 3,
+  "rich_latent_geometry": 1
+ },
+ "sd15_top30": {
+  "rich_guidance_moments": 11,
+  "rich_latent_geometry": 7,
+  "rich_score_moments": 4,
+  "rich_latent_typicality": 3,
+  "rich_alignment": 2,
+  "legacy_geometry": 2,
+  "roundtrip": 1
+ },
+ "sd15_top50": {
+  "rich_guidance_moments": 13,
+  "rich_latent_geometry": 10,
+  "rich_score_moments": 8,
+  "rich_alignment": 6,
+  "rich_latent_typicality": 4,
+  "rich_score_dynamics": 3,
+  "legacy_geometry": 2,
+  "rich_crosstime": 2,
+  "roundtrip": 1,
+  "rich_score_spatial": 1
+ },
+ "amused_top10": {
+  "rich_score_spatial": 4,
+  "rich_score_fft": 3,
+  "rich_score_dynamics": 2,
+  "rich_latent_typicality": 1
+ },
+ "amused_top30": {
+  "rich_score_fft": 13,
+  "rich_score_spatial": 7,
+  "rich_latent_typicality": 4,
+  "rich_score_dynamics": 3,
+  "rich_latent_geometry": 2,
+  "rich_score_moments": 1
+ },
+ "amused_top50": {
+  "rich_score_fft": 15,
+  "rich_score_spatial": 9,
+  "rich_score_dynamics": 9,
+  "rich_latent_typicality": 6,
+  "rich_latent_geometry": 6,
+  "rich_score_moments": 3,
+  "rich_crosstime": 1,
+  "endpoint": 1
+ }
+}

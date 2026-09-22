@@ -1,0 +1,15 @@
+family,count
+rich_alignment,120
+rich_latent_typicality,90
+rich_score_dynamics,86
+rich_score_moments,78
+rich_guidance_moments,78
+rich_latent_geometry,60
+rich_score_fft,36
+rich_score_spatial,30
+rich_crosstime,30
+legacy_noise,18
+legacy_guidance,14
+endpoint,6
+legacy_geometry,4
+roundtrip,2
