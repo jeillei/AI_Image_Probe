@@ -1,0 +1,5 @@
+{
+ "sign_agreement_rate_10_features": 0.7,
+ "transfer_sd15_to_amused_auroc": 0.5806111111111111,
+ "transfer_amused_to_sd15_auroc": 0.5974722222222224
+}

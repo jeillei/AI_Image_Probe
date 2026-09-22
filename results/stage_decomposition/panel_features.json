@@ -1,0 +1,3602 @@
+[
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000313399.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000313399",
+  "caption": "A hot dog sitting on top of a wrapper next to a receipt",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006174368318170309,
+   "latent_mse_ae": 0.01195526123046875,
+   "lare_t200": 0.40435791015625,
+   "score_norm_step0": 0.25207823514938354,
+   "diffpath_curvature": 0.3887199141709382,
+   "path_length": 0.7832952504615739,
+   "pixel_l1_roundtrip": 0.2218475490808487,
+   "latent_mse_roundtrip": 0.22137931916457126,
+   "lpips_ae": 0.026313653215765953,
+   "lpips_roundtrip": 0.07463575899600983
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000313399.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000313399",
+  "caption": "A hot dog sitting on top of a wrapper next to a receipt",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0013397770235314965,
+   "latent_mse_ae": 0.00975799560546875,
+   "lare_t200": 0.27850341796875,
+   "score_norm_step0": 0.3159882128238678,
+   "diffpath_curvature": 0.36472186894503617,
+   "path_length": 0.8360760602275646,
+   "pixel_l1_roundtrip": 0.13440115749835968,
+   "latent_mse_roundtrip": 0.22153744474667275,
+   "lpips_ae": 0.012742944993078709,
+   "lpips_roundtrip": 0.053660910576581955
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000313399.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000313399",
+  "caption": "A hot dog sitting on top of a wrapper next to a receipt",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0019530224381014705,
+   "latent_mse_ae": 0.00910186767578125,
+   "lare_t200": 0.215484619140625,
+   "score_norm_step0": 0.3508899211883545,
+   "diffpath_curvature": 0.2686494782636385,
+   "path_length": 0.7413143620907878,
+   "pixel_l1_roundtrip": 0.09334782510995865,
+   "latent_mse_roundtrip": 0.09285536396937001,
+   "lpips_ae": 0.02486775442957878,
+   "lpips_roundtrip": 0.04563365876674652
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000396676.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000396676",
+  "caption": "An intersection of a city with pedestrians in the crosswalk",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.040361981838941574,
+   "latent_mse_ae": 0.0180511474609375,
+   "lare_t200": 0.392822265625,
+   "score_norm_step0": 0.24579598009586334,
+   "diffpath_curvature": 0.3466124774259284,
+   "path_length": 0.5626144992785118,
+   "pixel_l1_roundtrip": 0.2167222499847412,
+   "latent_mse_roundtrip": 0.11295788617520547,
+   "lpips_ae": 0.043730467557907104,
+   "lpips_roundtrip": 0.07031752169132233
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000396676.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000396676",
+  "caption": "An intersection of a city with pedestrians in the crosswalk",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.007552973926067352,
+   "latent_mse_ae": 0.0085601806640625,
+   "lare_t200": 0.3394775390625,
+   "score_norm_step0": 0.2719131410121918,
+   "diffpath_curvature": 0.3575648643264882,
+   "path_length": 0.7726809368824247,
+   "pixel_l1_roundtrip": 0.17773102223873138,
+   "latent_mse_roundtrip": 0.1826017694680624,
+   "lpips_ae": 0.019236091524362564,
+   "lpips_roundtrip": 0.05471260845661163
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000396676.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000396676",
+  "caption": "An intersection of a city with pedestrians in the crosswalk",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.017761355265975,
+   "latent_mse_ae": 0.06787109375,
+   "lare_t200": 0.34173583984375,
+   "score_norm_step0": 0.29712632298469543,
+   "diffpath_curvature": 0.3393703814229973,
+   "path_length": 0.5607552340434789,
+   "pixel_l1_roundtrip": 0.2574044167995453,
+   "latent_mse_roundtrip": 0.1495109973748484,
+   "lpips_ae": 0.027666527777910233,
+   "lpips_roundtrip": 0.05770978704094887
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000068005.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000068005",
+  "caption": "a dog with a plate of food on the ground",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004974023904651403,
+   "latent_mse_ae": 0.01107025146484375,
+   "lare_t200": 0.3924560546875,
+   "score_norm_step0": 0.20776472985744476,
+   "diffpath_curvature": 0.391341799637608,
+   "path_length": 0.7006578101638927,
+   "pixel_l1_roundtrip": 0.18809063732624054,
+   "latent_mse_roundtrip": 0.1999848281717605,
+   "lpips_ae": 0.03952407464385033,
+   "lpips_roundtrip": 0.08206339180469513
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000068005.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000068005",
+  "caption": "a dog with a plate of food on the ground",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004413434769958258,
+   "latent_mse_ae": 0.016937255859375,
+   "lare_t200": 0.30401611328125,
+   "score_norm_step0": 0.31237369775772095,
+   "diffpath_curvature": 0.31551647298848806,
+   "path_length": 0.7640197440600031,
+   "pixel_l1_roundtrip": 0.2051936835050583,
+   "latent_mse_roundtrip": 0.2818419905368595,
+   "lpips_ae": 0.0175321027636528,
+   "lpips_roundtrip": 0.05861423909664154
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000068005.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000068005",
+  "caption": "a dog with a plate of food on the ground",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.019859565421938896,
+   "latent_mse_ae": 0.009033203125,
+   "lare_t200": 0.42401123046875,
+   "score_norm_step0": 0.1851680725812912,
+   "diffpath_curvature": 0.3852765287651848,
+   "path_length": 0.6172689602144331,
+   "pixel_l1_roundtrip": 0.29621413350105286,
+   "latent_mse_roundtrip": 0.33626716461124984,
+   "lpips_ae": 0.052278462797403336,
+   "lpips_roundtrip": 0.09831834584474564
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000025138.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000025138",
+  "caption": "A cat standing on top of an open laptop computer",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.008209571242332458,
+   "latent_mse_ae": 0.0162200927734375,
+   "lare_t200": 0.42449951171875,
+   "score_norm_step0": 0.2122613489627838,
+   "diffpath_curvature": 0.39323441587200236,
+   "path_length": 0.6097388197404313,
+   "pixel_l1_roundtrip": 0.2623666524887085,
+   "latent_mse_roundtrip": 0.28363479253558743,
+   "lpips_ae": 0.03981264680624008,
+   "lpips_roundtrip": 0.07538954168558121
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000025138.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000025138",
+  "caption": "A cat standing on top of an open laptop computer",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.00980707909911871,
+   "latent_mse_ae": 0.009674072265625,
+   "lare_t200": 0.28546142578125,
+   "score_norm_step0": 0.349846750497818,
+   "diffpath_curvature": 0.33385457565117405,
+   "path_length": 0.7910152374388351,
+   "pixel_l1_roundtrip": 0.124001145362854,
+   "latent_mse_roundtrip": 0.14580154290942537,
+   "lpips_ae": 0.016834061592817307,
+   "lpips_roundtrip": 0.053231801837682724
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000025138.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000025138",
+  "caption": "A cat standing on top of an open laptop computer",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010828833095729351,
+   "latent_mse_ae": 0.01232147216796875,
+   "lare_t200": 0.30328369140625,
+   "score_norm_step0": 0.3202221095561981,
+   "diffpath_curvature": 0.2898658419442499,
+   "path_length": 0.6369406864600915,
+   "pixel_l1_roundtrip": 0.15871591866016388,
+   "latent_mse_roundtrip": 0.1585285517967845,
+   "lpips_ae": 0.021284297108650208,
+   "lpips_roundtrip": 0.0481775626540184
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000087581.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000087581",
+  "caption": "The wildebeest herd walked through the zebra herd",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.011920370161533356,
+   "latent_mse_ae": 0.01071929931640625,
+   "lare_t200": 0.38360595703125,
+   "score_norm_step0": 0.26003092527389526,
+   "diffpath_curvature": 0.3431335134584437,
+   "path_length": 0.5989584766177456,
+   "pixel_l1_roundtrip": 0.10729867219924927,
+   "latent_mse_roundtrip": 0.05056372284270211,
+   "lpips_ae": 0.048206131905317307,
+   "lpips_roundtrip": 0.06444328278303146
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000087581.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000087581",
+  "caption": "The wildebeest herd walked through the zebra herd",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.019959598779678345,
+   "latent_mse_ae": 0.0172882080078125,
+   "lare_t200": 0.33758544921875,
+   "score_norm_step0": 0.2968396842479706,
+   "diffpath_curvature": 0.3281890652422594,
+   "path_length": 0.7253115901026002,
+   "pixel_l1_roundtrip": 0.1829885095357895,
+   "latent_mse_roundtrip": 0.12141011465671937,
+   "lpips_ae": 0.018370062112808228,
+   "lpips_roundtrip": 0.05104052647948265
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000087581.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000087581",
+  "caption": "The wildebeest herd walked through the zebra herd",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.04919600486755371,
+   "latent_mse_ae": 0.03692626953125,
+   "lare_t200": 0.45318603515625,
+   "score_norm_step0": 0.1955820471048355,
+   "diffpath_curvature": 0.40596189115284786,
+   "path_length": 0.5948861285448875,
+   "pixel_l1_roundtrip": 0.15129454433918,
+   "latent_mse_roundtrip": 0.037442306292493344,
+   "lpips_ae": 0.055886875838041306,
+   "lpips_roundtrip": 0.06493285298347473
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000523517.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000523517",
+  "caption": "A baseball player standing next to to home plate",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0188965555280447,
+   "latent_mse_ae": 0.01129913330078125,
+   "lare_t200": 0.35516357421875,
+   "score_norm_step0": 0.23714600503444672,
+   "diffpath_curvature": 0.3825520707473097,
+   "path_length": 0.5946628866969766,
+   "pixel_l1_roundtrip": 0.1713637113571167,
+   "latent_mse_roundtrip": 0.18628385109622747,
+   "lpips_ae": 0.053571172058582306,
+   "lpips_roundtrip": 0.08783404529094696
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000523517.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000523517",
+  "caption": "A baseball player standing next to to home plate",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0033808026928454638,
+   "latent_mse_ae": 0.0105133056640625,
+   "lare_t200": 0.27899169921875,
+   "score_norm_step0": 0.3599162697792053,
+   "diffpath_curvature": 0.39416633689453956,
+   "path_length": 0.7432618504833359,
+   "pixel_l1_roundtrip": 0.20700912177562714,
+   "latent_mse_roundtrip": 0.2517465865023562,
+   "lpips_ae": 0.011786757037043571,
+   "lpips_roundtrip": 0.04640337824821472
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000523517.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000523517",
+  "caption": "A baseball player standing next to to home plate",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.025489753112196922,
+   "latent_mse_ae": 0.0184326171875,
+   "lare_t200": 0.3895263671875,
+   "score_norm_step0": 0.2472381442785263,
+   "diffpath_curvature": 0.34963864098622416,
+   "path_length": 0.615508999875656,
+   "pixel_l1_roundtrip": 0.22493864595890045,
+   "latent_mse_roundtrip": 0.18597615349208935,
+   "lpips_ae": 0.041040148586034775,
+   "lpips_roundtrip": 0.08114026486873627
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000107839.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000107839",
+  "caption": "A man walks on the beach with his kite",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0035329023376107216,
+   "latent_mse_ae": 0.0234832763671875,
+   "lare_t200": 0.227447509765625,
+   "score_norm_step0": 0.2949351668357849,
+   "diffpath_curvature": 0.2932638225934414,
+   "path_length": 0.8690237781915927,
+   "pixel_l1_roundtrip": 0.0600365586578846,
+   "latent_mse_roundtrip": 0.06298475603259804,
+   "lpips_ae": 0.020795272663235664,
+   "lpips_roundtrip": 0.031155889853835106
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000107839.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000107839",
+  "caption": "A man walks on the beach with his kite",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.002052708761766553,
+   "latent_mse_ae": 0.00720977783203125,
+   "lare_t200": 0.27490234375,
+   "score_norm_step0": 0.31045064330101013,
+   "diffpath_curvature": 0.3395242495674967,
+   "path_length": 0.8907141722558599,
+   "pixel_l1_roundtrip": 0.05467040836811066,
+   "latent_mse_roundtrip": 0.07968918633032412,
+   "lpips_ae": 0.01382417418062687,
+   "lpips_roundtrip": 0.03863904997706413
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000107839.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000107839",
+  "caption": "A man walks on the beach with his kite",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003247019601985812,
+   "latent_mse_ae": 0.0227508544921875,
+   "lare_t200": 0.29144287109375,
+   "score_norm_step0": 0.3237900137901306,
+   "diffpath_curvature": 0.3131193048831422,
+   "path_length": 0.597264277369026,
+   "pixel_l1_roundtrip": 0.061204034835100174,
+   "latent_mse_roundtrip": 0.06037020820088404,
+   "lpips_ae": 0.0350104421377182,
+   "lpips_roundtrip": 0.04866822808980942
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000125997.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000125997",
+  "caption": "A big billboard is painted onto the side of a brick building",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.012610293924808502,
+   "latent_mse_ae": 0.013427734375,
+   "lare_t200": 0.279541015625,
+   "score_norm_step0": 0.3329066038131714,
+   "diffpath_curvature": 0.34975979189142936,
+   "path_length": 0.6709812824496445,
+   "pixel_l1_roundtrip": 0.33247461915016174,
+   "latent_mse_roundtrip": 0.40679150672333103,
+   "lpips_ae": 0.03147769719362259,
+   "lpips_roundtrip": 0.09327137470245361
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000125997.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000125997",
+  "caption": "A big billboard is painted onto the side of a brick building",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.008731421083211899,
+   "latent_mse_ae": 0.0204925537109375,
+   "lare_t200": 0.31640625,
+   "score_norm_step0": 0.2806113362312317,
+   "diffpath_curvature": 0.3915308265858145,
+   "path_length": 0.7437467538638807,
+   "pixel_l1_roundtrip": 0.16842038929462433,
+   "latent_mse_roundtrip": 0.16327495992583307,
+   "lpips_ae": 0.022141698747873306,
+   "lpips_roundtrip": 0.052948758006095886
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000125997.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000125997",
+  "caption": "A big billboard is painted onto the side of a brick building",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.01996936835348606,
+   "latent_mse_ae": 0.0306854248046875,
+   "lare_t200": 0.3428955078125,
+   "score_norm_step0": 0.3420200049877167,
+   "diffpath_curvature": 0.3670032406693682,
+   "path_length": 0.6204108361817597,
+   "pixel_l1_roundtrip": 0.18879146873950958,
+   "latent_mse_roundtrip": 0.10547778013530484,
+   "lpips_ae": 0.03424449637532234,
+   "lpips_roundtrip": 0.054411083459854126
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000304964.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000304964",
+  "caption": "The woman is sitting and looking at something on her mobile phone",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006257642060518265,
+   "latent_mse_ae": 0.01505279541015625,
+   "lare_t200": 0.39068603515625,
+   "score_norm_step0": 0.24872426688671112,
+   "diffpath_curvature": 0.35829082337340373,
+   "path_length": 0.6227175803734228,
+   "pixel_l1_roundtrip": 0.18539011478424072,
+   "latent_mse_roundtrip": 0.20423171470378446,
+   "lpips_ae": 0.037204183638095856,
+   "lpips_roundtrip": 0.10007181018590927
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000304964.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000304964",
+  "caption": "The woman is sitting and looking at something on her mobile phone",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.005739990156143904,
+   "latent_mse_ae": 0.008331298828125,
+   "lare_t200": 0.30438232421875,
+   "score_norm_step0": 0.3356836438179016,
+   "diffpath_curvature": 0.3945535340073739,
+   "path_length": 0.927419602980055,
+   "pixel_l1_roundtrip": 0.21488900482654572,
+   "latent_mse_roundtrip": 0.24879420283347486,
+   "lpips_ae": 0.010037723928689957,
+   "lpips_roundtrip": 0.04948496073484421
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000304964.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000304964",
+  "caption": "The woman is sitting and looking at something on her mobile phone",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.009251604788005352,
+   "latent_mse_ae": 0.010833740234375,
+   "lare_t200": 0.49957275390625,
+   "score_norm_step0": 0.19448962807655334,
+   "diffpath_curvature": 0.37387315849683417,
+   "path_length": 0.6155506178112257,
+   "pixel_l1_roundtrip": 0.218125581741333,
+   "latent_mse_roundtrip": 0.17069563024171475,
+   "lpips_ae": 0.029965344816446304,
+   "lpips_roundtrip": 0.06652995944023132
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000474465.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000474465",
+  "caption": "A guy reaches for a Frisbee at a beach",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.01687774993479252,
+   "latent_mse_ae": 0.01910400390625,
+   "lare_t200": 0.44232177734375,
+   "score_norm_step0": 0.1971612423658371,
+   "diffpath_curvature": 0.3610462242146956,
+   "path_length": 0.5847021985301841,
+   "pixel_l1_roundtrip": 0.10812024027109146,
+   "latent_mse_roundtrip": 0.041627172506478474,
+   "lpips_ae": 0.05270671099424362,
+   "lpips_roundtrip": 0.07017078995704651
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000474465.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000474465",
+  "caption": "A guy reaches for a Frisbee at a beach",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0014852912863716483,
+   "latent_mse_ae": 0.013519287109375,
+   "lare_t200": 0.29351806640625,
+   "score_norm_step0": 0.30873504281044006,
+   "diffpath_curvature": 0.39748530691732104,
+   "path_length": 0.9511830585220582,
+   "pixel_l1_roundtrip": 0.08362744003534317,
+   "latent_mse_roundtrip": 0.11250292330597983,
+   "lpips_ae": 0.012442024424672127,
+   "lpips_roundtrip": 0.0352083221077919
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000474465.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000474465",
+  "caption": "A guy reaches for a Frisbee at a beach",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003835448296740651,
+   "latent_mse_ae": 0.01345062255859375,
+   "lare_t200": 0.334228515625,
+   "score_norm_step0": 0.2716142535209656,
+   "diffpath_curvature": 0.3360384081215838,
+   "path_length": 0.6295496155987983,
+   "pixel_l1_roundtrip": 0.07807840406894684,
+   "latent_mse_roundtrip": 0.05961888714421806,
+   "lpips_ae": 0.029287001118063927,
+   "lpips_roundtrip": 0.04822612181305885
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000214363.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000214363",
+  "caption": "A woman with an umbrella on a bicycle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02252739667892456,
+   "latent_mse_ae": 0.0207061767578125,
+   "lare_t200": 0.4334716796875,
+   "score_norm_step0": 0.24853138625621796,
+   "diffpath_curvature": 0.35841982700353764,
+   "path_length": 0.5279173100020635,
+   "pixel_l1_roundtrip": 0.2818778455257416,
+   "latent_mse_roundtrip": 0.18188152747356223,
+   "lpips_ae": 0.03692929446697235,
+   "lpips_roundtrip": 0.08051998913288116
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000214363.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000214363",
+  "caption": "A woman with an umbrella on a bicycle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.014287229627370834,
+   "latent_mse_ae": 0.0086669921875,
+   "lare_t200": 0.27899169921875,
+   "score_norm_step0": 0.34532710909843445,
+   "diffpath_curvature": 0.3577018858178205,
+   "path_length": 0.8703565118807369,
+   "pixel_l1_roundtrip": 0.14985217154026031,
+   "latent_mse_roundtrip": 0.13391193608252733,
+   "lpips_ae": 0.011276064440608025,
+   "lpips_roundtrip": 0.031893085688352585
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000214363.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000214363",
+  "caption": "A woman with an umbrella on a bicycle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010977484285831451,
+   "latent_mse_ae": 0.019805908203125,
+   "lare_t200": 0.360595703125,
+   "score_norm_step0": 0.2769525647163391,
+   "diffpath_curvature": 0.3128667628154381,
+   "path_length": 0.6003886718606817,
+   "pixel_l1_roundtrip": 0.1478530466556549,
+   "latent_mse_roundtrip": 0.09940567540129454,
+   "lpips_ae": 0.03310634195804596,
+   "lpips_roundtrip": 0.055247776210308075
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000207239.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000207239",
+  "caption": "A professional tennis player serving on a tennis court",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003407259238883853,
+   "latent_mse_ae": 0.007808685302734375,
+   "lare_t200": 0.239654541015625,
+   "score_norm_step0": 0.3170526325702667,
+   "diffpath_curvature": 0.313120158460594,
+   "path_length": 0.6684098104258578,
+   "pixel_l1_roundtrip": 0.1071067675948143,
+   "latent_mse_roundtrip": 0.202463597929618,
+   "lpips_ae": 0.03451698273420334,
+   "lpips_roundtrip": 0.07062281668186188
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000207239.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000207239",
+  "caption": "A professional tennis player serving on a tennis court",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0030801587272435427,
+   "latent_mse_ae": 0.00879669189453125,
+   "lare_t200": 0.31201171875,
+   "score_norm_step0": 0.314780592918396,
+   "diffpath_curvature": 0.35332549646731237,
+   "path_length": 0.7473534269359685,
+   "pixel_l1_roundtrip": 0.14162592589855194,
+   "latent_mse_roundtrip": 0.22806127811178978,
+   "lpips_ae": 0.01659199222922325,
+   "lpips_roundtrip": 0.05751381441950798
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000207239.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000207239",
+  "caption": "A professional tennis player serving on a tennis court",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0024911114014685154,
+   "latent_mse_ae": 0.009796142578125,
+   "lare_t200": 0.3045654296875,
+   "score_norm_step0": 0.33724042773246765,
+   "diffpath_curvature": 0.34271802128706313,
+   "path_length": 0.709946717921777,
+   "pixel_l1_roundtrip": 0.0890771821141243,
+   "latent_mse_roundtrip": 0.1791266620191007,
+   "lpips_ae": 0.01955140195786953,
+   "lpips_roundtrip": 0.05543125420808792
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000552979.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000552979",
+  "caption": "A cat looking inside of a door from the outside",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.019444234669208527,
+   "latent_mse_ae": 0.016937255859375,
+   "lare_t200": 0.3565673828125,
+   "score_norm_step0": 0.2389228492975235,
+   "diffpath_curvature": 0.4218261929806056,
+   "path_length": 0.8644167247671953,
+   "pixel_l1_roundtrip": 0.1615421324968338,
+   "latent_mse_roundtrip": 0.13250786126158043,
+   "lpips_ae": 0.04556281119585037,
+   "lpips_roundtrip": 0.06735440343618393
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000552979.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000552979",
+  "caption": "A cat looking inside of a door from the outside",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003683811752125621,
+   "latent_mse_ae": 0.01227569580078125,
+   "lare_t200": 0.313232421875,
+   "score_norm_step0": 0.2947196662425995,
+   "diffpath_curvature": 0.3677356720749659,
+   "path_length": 0.7968912054092484,
+   "pixel_l1_roundtrip": 0.09006744623184204,
+   "latent_mse_roundtrip": 0.07592639575535554,
+   "lpips_ae": 0.01715206727385521,
+   "lpips_roundtrip": 0.03264982998371124
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000552979.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000552979",
+  "caption": "A cat looking inside of a door from the outside",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010074933059513569,
+   "latent_mse_ae": 0.0325927734375,
+   "lare_t200": 0.3814697265625,
+   "score_norm_step0": 0.23479554057121277,
+   "diffpath_curvature": 0.3697710327417575,
+   "path_length": 0.6470217820717953,
+   "pixel_l1_roundtrip": 0.13997341692447662,
+   "latent_mse_roundtrip": 0.09872052503015828,
+   "lpips_ae": 0.04384665936231613,
+   "lpips_roundtrip": 0.06548003852367401
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000482242.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000482242",
+  "caption": "A man sitting in a chair with a black dog in front of a computer",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.029539650306105614,
+   "latent_mse_ae": 0.0112457275390625,
+   "lare_t200": 0.5032958984375,
+   "score_norm_step0": 0.20778688788414001,
+   "diffpath_curvature": 0.4049504888108307,
+   "path_length": 0.5785316928604066,
+   "pixel_l1_roundtrip": 0.22194063663482666,
+   "latent_mse_roundtrip": 0.13779982649570693,
+   "lpips_ae": 0.041461896151304245,
+   "lpips_roundtrip": 0.08131517469882965
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000482242.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000482242",
+  "caption": "A man sitting in a chair with a black dog in front of a computer",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004289793316274881,
+   "latent_mse_ae": 0.01206207275390625,
+   "lare_t200": 0.2635498046875,
+   "score_norm_step0": 0.343563050031662,
+   "diffpath_curvature": 0.3156557898116027,
+   "path_length": 0.8162853137676531,
+   "pixel_l1_roundtrip": 0.09445515275001526,
+   "latent_mse_roundtrip": 0.08073034386479527,
+   "lpips_ae": 0.010900896042585373,
+   "lpips_roundtrip": 0.02624695375561714
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000482242.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000482242",
+  "caption": "A man sitting in a chair with a black dog in front of a computer",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0034174425527453423,
+   "latent_mse_ae": 0.01120758056640625,
+   "lare_t200": 0.413330078125,
+   "score_norm_step0": 0.26612624526023865,
+   "diffpath_curvature": 0.3308306509666459,
+   "path_length": 0.6873457608971473,
+   "pixel_l1_roundtrip": 0.18677286803722382,
+   "latent_mse_roundtrip": 0.20687005869887498,
+   "lpips_ae": 0.0145791694521904,
+   "lpips_roundtrip": 0.05709267407655716
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000061897.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000061897",
+  "caption": "A man riding a bike down a dark city street",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.025895580649375916,
+   "latent_mse_ae": 0.014678955078125,
+   "lare_t200": 0.4515380859375,
+   "score_norm_step0": 0.22257257997989655,
+   "diffpath_curvature": 0.37467970522497396,
+   "path_length": 0.6116889001367881,
+   "pixel_l1_roundtrip": 0.13489268720149994,
+   "latent_mse_roundtrip": 0.08035601968018864,
+   "lpips_ae": 0.047011613845825195,
+   "lpips_roundtrip": 0.0697173923254013
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000061897.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000061897",
+  "caption": "A man riding a bike down a dark city street",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0025628588628023863,
+   "latent_mse_ae": 0.0137939453125,
+   "lare_t200": 0.35986328125,
+   "score_norm_step0": 0.2687320113182068,
+   "diffpath_curvature": 0.39907010959022376,
+   "path_length": 1.0071291892706367,
+   "pixel_l1_roundtrip": 0.10881435871124268,
+   "latent_mse_roundtrip": 0.15402699236110062,
+   "lpips_ae": 0.015969831496477127,
+   "lpips_roundtrip": 0.051227718591690063
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000061897.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000061897",
+  "caption": "A man riding a bike down a dark city street",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.028957391157746315,
+   "latent_mse_ae": 0.01373291015625,
+   "lare_t200": 0.35052490234375,
+   "score_norm_step0": 0.2716633081436157,
+   "diffpath_curvature": 0.3404473587061505,
+   "path_length": 0.6241334867315448,
+   "pixel_l1_roundtrip": 0.20734907686710358,
+   "latent_mse_roundtrip": 0.14767406388501278,
+   "lpips_ae": 0.04178687930107117,
+   "lpips_roundtrip": 0.07388851046562195
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000263073.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000263073",
+  "caption": "A person on a snow board high up in the air",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.005723781883716583,
+   "latent_mse_ae": 0.0228424072265625,
+   "lare_t200": 0.246337890625,
+   "score_norm_step0": 0.2942328453063965,
+   "diffpath_curvature": 0.3238969400891511,
+   "path_length": 0.9588317967058173,
+   "pixel_l1_roundtrip": 0.08081100881099701,
+   "latent_mse_roundtrip": 0.07978412585957467,
+   "lpips_ae": 0.030958401039242744,
+   "lpips_roundtrip": 0.04750971496105194
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000263073.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000263073",
+  "caption": "A person on a snow board high up in the air",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.001319488394074142,
+   "latent_mse_ae": 0.009521484375,
+   "lare_t200": 0.2579345703125,
+   "score_norm_step0": 0.32250645756721497,
+   "diffpath_curvature": 0.37156701990620306,
+   "path_length": 0.9240512662253555,
+   "pixel_l1_roundtrip": 0.1376466602087021,
+   "latent_mse_roundtrip": 0.3048504645761473,
+   "lpips_ae": 0.010779144242405891,
+   "lpips_roundtrip": 0.05237840861082077
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000263073.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000263073",
+  "caption": "A person on a snow board high up in the air",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0661693587899208,
+   "latent_mse_ae": 0.0123291015625,
+   "lare_t200": 0.5040283203125,
+   "score_norm_step0": 0.17859148979187012,
+   "diffpath_curvature": 0.4288870245693353,
+   "path_length": 0.6191602598846109,
+   "pixel_l1_roundtrip": 0.33408331871032715,
+   "latent_mse_roundtrip": 0.13804358650447882,
+   "lpips_ae": 0.060644082725048065,
+   "lpips_roundtrip": 0.08452548086643219
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000275751.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000275751",
+  "caption": "A red and yellow high speed passenger train rolling along the track",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.04210638627409935,
+   "latent_mse_ae": 0.0202178955078125,
+   "lare_t200": 0.37969970703125,
+   "score_norm_step0": 0.2767956554889679,
+   "diffpath_curvature": 0.36090868102633944,
+   "path_length": 0.6821946293031069,
+   "pixel_l1_roundtrip": 0.23271965980529785,
+   "latent_mse_roundtrip": 0.19156280850485652,
+   "lpips_ae": 0.03573012351989746,
+   "lpips_roundtrip": 0.06691326200962067
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000275751.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000275751",
+  "caption": "A red and yellow high speed passenger train rolling along the track",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.012737126089632511,
+   "latent_mse_ae": 0.01425933837890625,
+   "lare_t200": 0.2823486328125,
+   "score_norm_step0": 0.3434792459011078,
+   "diffpath_curvature": 0.35031265755983615,
+   "path_length": 0.7500391201524292,
+   "pixel_l1_roundtrip": 0.1366393268108368,
+   "latent_mse_roundtrip": 0.08706231796936807,
+   "lpips_ae": 0.01867624744772911,
+   "lpips_roundtrip": 0.03875260800123215
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000275751.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000275751",
+  "caption": "A red and yellow high speed passenger train rolling along the track",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.019685203209519386,
+   "latent_mse_ae": 0.0132598876953125,
+   "lare_t200": 0.33355712890625,
+   "score_norm_step0": 0.29944729804992676,
+   "diffpath_curvature": 0.32985033897084404,
+   "path_length": 0.6755413993552932,
+   "pixel_l1_roundtrip": 0.15618008375167847,
+   "latent_mse_roundtrip": 0.10336220215323516,
+   "lpips_ae": 0.03862679749727249,
+   "lpips_roundtrip": 0.06347263604402542
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000112820.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000112820",
+  "caption": "A red, white and blue train next to satellites",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.027635613456368446,
+   "latent_mse_ae": 0.018829345703125,
+   "lare_t200": 0.38165283203125,
+   "score_norm_step0": 0.27960437536239624,
+   "diffpath_curvature": 0.3691429071547499,
+   "path_length": 0.5654007202725201,
+   "pixel_l1_roundtrip": 0.17443247139453888,
+   "latent_mse_roundtrip": 0.1369783204089004,
+   "lpips_ae": 0.04514410346746445,
+   "lpips_roundtrip": 0.09372179210186005
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000112820.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000112820",
+  "caption": "A red, white and blue train next to satellites",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.01140129566192627,
+   "latent_mse_ae": 0.00922393798828125,
+   "lare_t200": 0.35260009765625,
+   "score_norm_step0": 0.30196550488471985,
+   "diffpath_curvature": 0.3850444204088764,
+   "path_length": 0.7738487147928772,
+   "pixel_l1_roundtrip": 0.22742807865142822,
+   "latent_mse_roundtrip": 0.2099231790184799,
+   "lpips_ae": 0.018527284264564514,
+   "lpips_roundtrip": 0.058016061782836914
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000112820.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000112820",
+  "caption": "A red, white and blue train next to satellites",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.03296318277716637,
+   "latent_mse_ae": 0.0160980224609375,
+   "lare_t200": 0.32623291015625,
+   "score_norm_step0": 0.2670024633407593,
+   "diffpath_curvature": 0.35941693490504406,
+   "path_length": 0.695998770839172,
+   "pixel_l1_roundtrip": 0.17143233120441437,
+   "latent_mse_roundtrip": 0.05979382422775187,
+   "lpips_ae": 0.04081566259264946,
+   "lpips_roundtrip": 0.05194487422704697
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000492271.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000492271",
+  "caption": "A man cutting greens over a pizza in a  box",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02159561775624752,
+   "latent_mse_ae": 0.014190673828125,
+   "lare_t200": 0.45654296875,
+   "score_norm_step0": 0.22908611595630646,
+   "diffpath_curvature": 0.3552646034481938,
+   "path_length": 0.5678016194893594,
+   "pixel_l1_roundtrip": 0.24648417532444,
+   "latent_mse_roundtrip": 0.14658625146383905,
+   "lpips_ae": 0.040429189801216125,
+   "lpips_roundtrip": 0.0789407342672348
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000492271.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000492271",
+  "caption": "A man cutting greens over a pizza in a  box",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0125005217269063,
+   "latent_mse_ae": 0.007289886474609375,
+   "lare_t200": 0.28729248046875,
+   "score_norm_step0": 0.32289692759513855,
+   "diffpath_curvature": 0.3124257302924239,
+   "path_length": 0.7735730378127681,
+   "pixel_l1_roundtrip": 0.1854298859834671,
+   "latent_mse_roundtrip": 0.19417070491482896,
+   "lpips_ae": 0.018829744309186935,
+   "lpips_roundtrip": 0.05346045643091202
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000492271.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000492271",
+  "caption": "A man cutting greens over a pizza in a  box",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.04549356922507286,
+   "latent_mse_ae": 0.0106658935546875,
+   "lare_t200": 0.40216064453125,
+   "score_norm_step0": 0.2646244764328003,
+   "diffpath_curvature": 0.33427533178421037,
+   "path_length": 0.6326962947274342,
+   "pixel_l1_roundtrip": 0.2986835241317749,
+   "latent_mse_roundtrip": 0.22262328688340793,
+   "lpips_ae": 0.03291061520576477,
+   "lpips_roundtrip": 0.0847228467464447
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000097967.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000097967",
+  "caption": "A crowd of people standing in front of a window",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.016364650800824165,
+   "latent_mse_ae": 0.0113525390625,
+   "lare_t200": 0.373046875,
+   "score_norm_step0": 0.2832114100456238,
+   "diffpath_curvature": 0.34079913033315595,
+   "path_length": 0.6710869036042993,
+   "pixel_l1_roundtrip": 0.20459260046482086,
+   "latent_mse_roundtrip": 0.1737649784463385,
+   "lpips_ae": 0.0395507737994194,
+   "lpips_roundtrip": 0.07909674197435379
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000097967.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000097967",
+  "caption": "A crowd of people standing in front of a window",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006741554941982031,
+   "latent_mse_ae": 0.01276397705078125,
+   "lare_t200": 0.36370849609375,
+   "score_norm_step0": 0.299108624458313,
+   "diffpath_curvature": 0.34077292290785044,
+   "path_length": 0.7571182633259184,
+   "pixel_l1_roundtrip": 0.21641723811626434,
+   "latent_mse_roundtrip": 0.22572772846778988,
+   "lpips_ae": 0.011081144213676453,
+   "lpips_roundtrip": 0.052183423191308975
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000097967.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000097967",
+  "caption": "A crowd of people standing in front of a window",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010154820047318935,
+   "latent_mse_ae": 0.013092041015625,
+   "lare_t200": 0.35479736328125,
+   "score_norm_step0": 0.29879945516586304,
+   "diffpath_curvature": 0.2969792518226213,
+   "path_length": 0.6034583568443118,
+   "pixel_l1_roundtrip": 0.2252579927444458,
+   "latent_mse_roundtrip": 0.1584102787523347,
+   "lpips_ae": 0.021811120212078094,
+   "lpips_roundtrip": 0.0596332922577858
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000064779.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000064779",
+  "caption": "There is a stack of plates sitting next to a platter of vegetables",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.027754107490181923,
+   "latent_mse_ae": 0.0085296630859375,
+   "lare_t200": 0.385986328125,
+   "score_norm_step0": 0.3120318651199341,
+   "diffpath_curvature": 0.34976655174014626,
+   "path_length": 0.8025673698296972,
+   "pixel_l1_roundtrip": 0.21051551401615143,
+   "latent_mse_roundtrip": 0.18810445749735943,
+   "lpips_ae": 0.03006714954972267,
+   "lpips_roundtrip": 0.060215309262275696
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000064779.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000064779",
+  "caption": "There is a stack of plates sitting next to a platter of vegetables",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004107281565666199,
+   "latent_mse_ae": 0.00992584228515625,
+   "lare_t200": 0.3433837890625,
+   "score_norm_step0": 0.3074907958507538,
+   "diffpath_curvature": 0.3443547535284489,
+   "path_length": 0.8222662185385594,
+   "pixel_l1_roundtrip": 0.2171359807252884,
+   "latent_mse_roundtrip": 0.24587452209508565,
+   "lpips_ae": 0.01228857971727848,
+   "lpips_roundtrip": 0.054847825318574905
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000064779.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000064779",
+  "caption": "There is a stack of plates sitting next to a platter of vegetables",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.03381767496466637,
+   "latent_mse_ae": 0.0103607177734375,
+   "lare_t200": 0.4561767578125,
+   "score_norm_step0": 0.24685752391815186,
+   "diffpath_curvature": 0.3515089296135669,
+   "path_length": 0.6031226224782984,
+   "pixel_l1_roundtrip": 0.2494882345199585,
+   "latent_mse_roundtrip": 0.13750410230270393,
+   "lpips_ae": 0.03885175287723541,
+   "lpips_roundtrip": 0.06862083822488785
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000532983.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000532983",
+  "caption": "a number of people sitting at tables in a train",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.04350122809410095,
+   "latent_mse_ae": 0.01416778564453125,
+   "lare_t200": 0.452880859375,
+   "score_norm_step0": 0.21690969169139862,
+   "diffpath_curvature": 0.3831958479636115,
+   "path_length": 0.6311421575767583,
+   "pixel_l1_roundtrip": 0.25628960132598877,
+   "latent_mse_roundtrip": 0.11393136816665685,
+   "lpips_ae": 0.04164871573448181,
+   "lpips_roundtrip": 0.06495687365531921
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000532983.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000532983",
+  "caption": "a number of people sitting at tables in a train",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.013767343945801258,
+   "latent_mse_ae": 0.00913238525390625,
+   "lare_t200": 0.3602294921875,
+   "score_norm_step0": 0.29312407970428467,
+   "diffpath_curvature": 0.3931726919189523,
+   "path_length": 0.8170220770114149,
+   "pixel_l1_roundtrip": 0.18957090377807617,
+   "latent_mse_roundtrip": 0.18637427835842507,
+   "lpips_ae": 0.013330080546438694,
+   "lpips_roundtrip": 0.05119996517896652
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000532983.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000532983",
+  "caption": "a number of people sitting at tables in a train",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0313027985394001,
+   "latent_mse_ae": 0.0154571533203125,
+   "lare_t200": 0.45257568359375,
+   "score_norm_step0": 0.2285628318786621,
+   "diffpath_curvature": 0.35303326419045034,
+   "path_length": 0.5630825454033089,
+   "pixel_l1_roundtrip": 0.32817867398262024,
+   "latent_mse_roundtrip": 0.2719029772523349,
+   "lpips_ae": 0.03231478109955788,
+   "lpips_roundtrip": 0.08986960351467133
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000454478.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000454478",
+  "caption": "A woman laying on a bed pointing at a pony picture on a pillow",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.011134547181427479,
+   "latent_mse_ae": 0.01012420654296875,
+   "lare_t200": 0.42413330078125,
+   "score_norm_step0": 0.2521972060203552,
+   "diffpath_curvature": 0.37776742037063643,
+   "path_length": 0.7089631485142713,
+   "pixel_l1_roundtrip": 0.17554636299610138,
+   "latent_mse_roundtrip": 0.10066036674209786,
+   "lpips_ae": 0.04322119057178497,
+   "lpips_roundtrip": 0.06825581938028336
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000454478.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000454478",
+  "caption": "A woman laying on a bed pointing at a pony picture on a pillow",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0021011834032833576,
+   "latent_mse_ae": 0.00698089599609375,
+   "lare_t200": 0.30340576171875,
+   "score_norm_step0": 0.2975139319896698,
+   "diffpath_curvature": 0.3988359198240034,
+   "path_length": 0.9119151852815326,
+   "pixel_l1_roundtrip": 0.10014442354440689,
+   "latent_mse_roundtrip": 0.11060657609414726,
+   "lpips_ae": 0.011921146884560585,
+   "lpips_roundtrip": 0.040406014770269394
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000454478.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000454478",
+  "caption": "A woman laying on a bed pointing at a pony picture on a pillow",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0019145687110722065,
+   "latent_mse_ae": 0.006732940673828125,
+   "lare_t200": 0.3367919921875,
+   "score_norm_step0": 0.2796536684036255,
+   "diffpath_curvature": 0.3129780365688993,
+   "path_length": 0.6997065623791586,
+   "pixel_l1_roundtrip": 0.1331956535577774,
+   "latent_mse_roundtrip": 0.12035154414248,
+   "lpips_ae": 0.015971628949046135,
+   "lpips_roundtrip": 0.04324568808078766
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000241867.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000241867",
+  "caption": "A orange and cream colored bus parked outside a small market",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.024806678295135498,
+   "latent_mse_ae": 0.0220794677734375,
+   "lare_t200": 0.384033203125,
+   "score_norm_step0": 0.2592165768146515,
+   "diffpath_curvature": 0.3430724746784484,
+   "path_length": 0.6939611670782369,
+   "pixel_l1_roundtrip": 0.24314534664154053,
+   "latent_mse_roundtrip": 0.18740902714546415,
+   "lpips_ae": 0.028158532455563545,
+   "lpips_roundtrip": 0.07448276877403259
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000241867.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000241867",
+  "caption": "A orange and cream colored bus parked outside a small market",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010016724467277527,
+   "latent_mse_ae": 0.01202392578125,
+   "lare_t200": 0.32061767578125,
+   "score_norm_step0": 0.3216492235660553,
+   "diffpath_curvature": 0.3521056525806947,
+   "path_length": 0.8281573900586569,
+   "pixel_l1_roundtrip": 0.1397179812192917,
+   "latent_mse_roundtrip": 0.11364375295578813,
+   "lpips_ae": 0.015962829813361168,
+   "lpips_roundtrip": 0.038904398679733276
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000241867.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000241867",
+  "caption": "A orange and cream colored bus parked outside a small market",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.016448097303509712,
+   "latent_mse_ae": 0.0166778564453125,
+   "lare_t200": 0.3367919921875,
+   "score_norm_step0": 0.289633184671402,
+   "diffpath_curvature": 0.3040203753800454,
+   "path_length": 0.6171771420563714,
+   "pixel_l1_roundtrip": 0.1310136467218399,
+   "latent_mse_roundtrip": 0.07479975904083991,
+   "lpips_ae": 0.03275064006447792,
+   "lpips_roundtrip": 0.05086469650268555
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000172279.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000172279",
+  "caption": "A tall green and blue sculpture sitting in a park next to a skateboarder",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.059580933302640915,
+   "latent_mse_ae": 0.0126953125,
+   "lare_t200": 0.4686279296875,
+   "score_norm_step0": 0.21091240644454956,
+   "diffpath_curvature": 0.3808673440221762,
+   "path_length": 0.6567752767387489,
+   "pixel_l1_roundtrip": 0.21880458295345306,
+   "latent_mse_roundtrip": 0.1257518656246935,
+   "lpips_ae": 0.04521004110574722,
+   "lpips_roundtrip": 0.07592655718326569
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000172279.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000172279",
+  "caption": "A tall green and blue sculpture sitting in a park next to a skateboarder",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004236544948071241,
+   "latent_mse_ae": 0.0133056640625,
+   "lare_t200": 0.285400390625,
+   "score_norm_step0": 0.3095502257347107,
+   "diffpath_curvature": 0.324440162624167,
+   "path_length": 0.8023356917914959,
+   "pixel_l1_roundtrip": 0.12823010981082916,
+   "latent_mse_roundtrip": 0.13221028361719694,
+   "lpips_ae": 0.01493337843567133,
+   "lpips_roundtrip": 0.039323590695858
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000172279.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000172279",
+  "caption": "A tall green and blue sculpture sitting in a park next to a skateboarder",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.024901574477553368,
+   "latent_mse_ae": 0.0163421630859375,
+   "lare_t200": 0.414794921875,
+   "score_norm_step0": 0.24219273030757904,
+   "diffpath_curvature": 0.3451263979392883,
+   "path_length": 0.6268781613682446,
+   "pixel_l1_roundtrip": 0.13743522763252258,
+   "latent_mse_roundtrip": 0.038931653875969585,
+   "lpips_ae": 0.04850561171770096,
+   "lpips_roundtrip": 0.05615157634019852
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000417373.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000417373",
+  "caption": "A computer is turned on with its mouse in a cluttered office area",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02774824947118759,
+   "latent_mse_ae": 0.01445770263671875,
+   "lare_t200": 0.47918701171875,
+   "score_norm_step0": 0.23002487421035767,
+   "diffpath_curvature": 0.3969136837250907,
+   "path_length": 0.5948603082569871,
+   "pixel_l1_roundtrip": 0.23784153163433075,
+   "latent_mse_roundtrip": 0.15262933895009628,
+   "lpips_ae": 0.040068119764328,
+   "lpips_roundtrip": 0.08555057644844055
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000417373.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000417373",
+  "caption": "A computer is turned on with its mouse in a cluttered office area",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0189118180423975,
+   "latent_mse_ae": 0.01132965087890625,
+   "lare_t200": 0.41455078125,
+   "score_norm_step0": 0.28277045488357544,
+   "diffpath_curvature": 0.3960336915983187,
+   "path_length": 0.6828587458514481,
+   "pixel_l1_roundtrip": 0.24099422991275787,
+   "latent_mse_roundtrip": 0.22333952498689835,
+   "lpips_ae": 0.015396904200315475,
+   "lpips_roundtrip": 0.06277094036340714
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000417373.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000417373",
+  "caption": "A computer is turned on with its mouse in a cluttered office area",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.013006177730858326,
+   "latent_mse_ae": 0.030792236328125,
+   "lare_t200": 0.34515380859375,
+   "score_norm_step0": 0.3120885193347931,
+   "diffpath_curvature": 0.3223382346236323,
+   "path_length": 0.6169229309607382,
+   "pixel_l1_roundtrip": 0.33111676573753357,
+   "latent_mse_roundtrip": 0.4376696179517382,
+   "lpips_ae": 0.023183424025774002,
+   "lpips_roundtrip": 0.09008193016052246
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000249534.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000249534",
+  "caption": "A plate of chicken sticks with radishes and cucumbers",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.007165560964494944,
+   "latent_mse_ae": 0.007293701171875,
+   "lare_t200": 0.4803466796875,
+   "score_norm_step0": 0.22235353291034698,
+   "diffpath_curvature": 0.4058651460976169,
+   "path_length": 0.6758249223701364,
+   "pixel_l1_roundtrip": 0.262868195772171,
+   "latent_mse_roundtrip": 0.2314749905416097,
+   "lpips_ae": 0.03237386792898178,
+   "lpips_roundtrip": 0.06562568247318268
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000249534.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000249534",
+  "caption": "A plate of chicken sticks with radishes and cucumbers",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0028427718207240105,
+   "latent_mse_ae": 0.0081024169921875,
+   "lare_t200": 0.28759765625,
+   "score_norm_step0": 0.3342185318470001,
+   "diffpath_curvature": 0.31182679607409886,
+   "path_length": 0.8356375079266566,
+   "pixel_l1_roundtrip": 0.11524205654859543,
+   "latent_mse_roundtrip": 0.10908821146330488,
+   "lpips_ae": 0.00953730195760727,
+   "lpips_roundtrip": 0.03041194938123226
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000249534.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000249534",
+  "caption": "A plate of chicken sticks with radishes and cucumbers",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.008628449402749538,
+   "latent_mse_ae": 0.010528564453125,
+   "lare_t200": 0.37286376953125,
+   "score_norm_step0": 0.2489617019891739,
+   "diffpath_curvature": 0.37908097136518015,
+   "path_length": 0.7226044550300115,
+   "pixel_l1_roundtrip": 0.24126572906970978,
+   "latent_mse_roundtrip": 0.1804273427711679,
+   "lpips_ae": 0.024150289595127106,
+   "lpips_roundtrip": 0.06168259680271149
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000078176.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000078176",
+  "caption": "People standing behind a clock in a clock tower filled with massive golden bells",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.029873160645365715,
+   "latent_mse_ae": 0.015625,
+   "lare_t200": 0.40057373046875,
+   "score_norm_step0": 0.28133469820022583,
+   "diffpath_curvature": 0.34597698740428984,
+   "path_length": 0.6935188171956819,
+   "pixel_l1_roundtrip": 0.27460232377052307,
+   "latent_mse_roundtrip": 0.2584814847740436,
+   "lpips_ae": 0.02749522775411606,
+   "lpips_roundtrip": 0.08118900656700134
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000078176.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000078176",
+  "caption": "People standing behind a clock in a clock tower filled with massive golden bells",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.012398297898471355,
+   "latent_mse_ae": 0.0092620849609375,
+   "lare_t200": 0.33795166015625,
+   "score_norm_step0": 0.28130945563316345,
+   "diffpath_curvature": 0.35137320916117853,
+   "path_length": 0.8710400696039751,
+   "pixel_l1_roundtrip": 0.1643182784318924,
+   "latent_mse_roundtrip": 0.14940964826102826,
+   "lpips_ae": 0.013144662603735924,
+   "lpips_roundtrip": 0.03867232799530029
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000078176.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000078176",
+  "caption": "People standing behind a clock in a clock tower filled with massive golden bells",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.04688393697142601,
+   "latent_mse_ae": 0.0131378173828125,
+   "lare_t200": 0.43634033203125,
+   "score_norm_step0": 0.20925679802894592,
+   "diffpath_curvature": 0.33721117614691226,
+   "path_length": 0.548814981049596,
+   "pixel_l1_roundtrip": 0.28079238533973694,
+   "latent_mse_roundtrip": 0.17305116957572533,
+   "lpips_ae": 0.04049494117498398,
+   "lpips_roundtrip": 0.0805220976471901
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000371529.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000371529",
+  "caption": "A woman with her hand on the seat of an automatic toilet in a display",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.012235086411237717,
+   "latent_mse_ae": 0.0105438232421875,
+   "lare_t200": 0.428955078125,
+   "score_norm_step0": 0.24830448627471924,
+   "diffpath_curvature": 0.357461897729871,
+   "path_length": 0.6156987613408327,
+   "pixel_l1_roundtrip": 0.24984478950500488,
+   "latent_mse_roundtrip": 0.23572004128777535,
+   "lpips_ae": 0.03592536598443985,
+   "lpips_roundtrip": 0.10075097531080246
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000371529.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000371529",
+  "caption": "A woman with her hand on the seat of an automatic toilet in a display",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0029075879137963057,
+   "latent_mse_ae": 0.01073455810546875,
+   "lare_t200": 0.3216552734375,
+   "score_norm_step0": 0.3056216835975647,
+   "diffpath_curvature": 0.3451640738953563,
+   "path_length": 0.7588880705354956,
+   "pixel_l1_roundtrip": 0.14224500954151154,
+   "latent_mse_roundtrip": 0.1731176677325141,
+   "lpips_ae": 0.012394791468977928,
+   "lpips_roundtrip": 0.04423866420984268
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000371529.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000371529",
+  "caption": "A woman with her hand on the seat of an automatic toilet in a display",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003849814413115382,
+   "latent_mse_ae": 0.0159454345703125,
+   "lare_t200": 0.3118896484375,
+   "score_norm_step0": 0.3005552291870117,
+   "diffpath_curvature": 0.2813134209078576,
+   "path_length": 0.5911461341234338,
+   "pixel_l1_roundtrip": 0.245031476020813,
+   "latent_mse_roundtrip": 0.320485224733671,
+   "lpips_ae": 0.02404472604393959,
+   "lpips_roundtrip": 0.08962836861610413
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000389869.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000389869",
+  "caption": "a person walks along a beach as some bird play in the water",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.026264622807502747,
+   "latent_mse_ae": 0.01229095458984375,
+   "lare_t200": 0.46905517578125,
+   "score_norm_step0": 0.20524901151657104,
+   "diffpath_curvature": 0.3921226996471367,
+   "path_length": 0.6422184678375847,
+   "pixel_l1_roundtrip": 0.1801600605249405,
+   "latent_mse_roundtrip": 0.08616871274563395,
+   "lpips_ae": 0.05178099125623703,
+   "lpips_roundtrip": 0.07571738958358765
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000389869.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000389869",
+  "caption": "a person walks along a beach as some bird play in the water",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.001523402868770063,
+   "latent_mse_ae": 0.01114654541015625,
+   "lare_t200": 0.29669189453125,
+   "score_norm_step0": 0.2817327082157135,
+   "diffpath_curvature": 0.3878928259746718,
+   "path_length": 0.9118031365168929,
+   "pixel_l1_roundtrip": 0.0541212372481823,
+   "latent_mse_roundtrip": 0.07052116044885876,
+   "lpips_ae": 0.017236731946468353,
+   "lpips_roundtrip": 0.03518764674663544
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000389869.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000389869",
+  "caption": "a person walks along a beach as some bird play in the water",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004760077688843012,
+   "latent_mse_ae": 0.0438232421875,
+   "lare_t200": 0.34002685546875,
+   "score_norm_step0": 0.2938961982727051,
+   "diffpath_curvature": 0.36729620308855626,
+   "path_length": 0.6075161339259173,
+   "pixel_l1_roundtrip": 0.11283186078071594,
+   "latent_mse_roundtrip": 0.14017530381896343,
+   "lpips_ae": 0.029329601675271988,
+   "lpips_roundtrip": 0.06267697364091873
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000074591.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000074591",
+  "caption": "A box with a variety leafy green and root vegetables in it",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.013704323209822178,
+   "latent_mse_ae": 0.0106048583984375,
+   "lare_t200": 0.47088623046875,
+   "score_norm_step0": 0.21325896680355072,
+   "diffpath_curvature": 0.4048120266577138,
+   "path_length": 0.5630752563887815,
+   "pixel_l1_roundtrip": 0.16049624979496002,
+   "latent_mse_roundtrip": 0.10633732689349981,
+   "lpips_ae": 0.05219104140996933,
+   "lpips_roundtrip": 0.07689511775970459
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000074591.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000074591",
+  "caption": "A box with a variety leafy green and root vegetables in it",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003901941701769829,
+   "latent_mse_ae": 0.0100555419921875,
+   "lare_t200": 0.29302978515625,
+   "score_norm_step0": 0.35442402958869934,
+   "diffpath_curvature": 0.3334004292779492,
+   "path_length": 0.8502174230998321,
+   "pixel_l1_roundtrip": 0.12818294763565063,
+   "latent_mse_roundtrip": 0.17837958639651422,
+   "lpips_ae": 0.010450320318341255,
+   "lpips_roundtrip": 0.03940945863723755
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000074591.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000074591",
+  "caption": "A box with a variety leafy green and root vegetables in it",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.018717238679528236,
+   "latent_mse_ae": 0.0233306884765625,
+   "lare_t200": 0.36114501953125,
+   "score_norm_step0": 0.2802833616733551,
+   "diffpath_curvature": 0.3114432351331876,
+   "path_length": 0.6822138997998415,
+   "pixel_l1_roundtrip": 0.1517023742198944,
+   "latent_mse_roundtrip": 0.08029061439053739,
+   "lpips_ae": 0.03503182902932167,
+   "lpips_roundtrip": 0.05071559175848961
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000468778.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000468778",
+  "caption": "A bunch of teddy bears with umbrellas sitting on display",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02339610643684864,
+   "latent_mse_ae": 0.00989532470703125,
+   "lare_t200": 0.4696044921875,
+   "score_norm_step0": 0.21558025479316711,
+   "diffpath_curvature": 0.39628564580199516,
+   "path_length": 0.5731117159814577,
+   "pixel_l1_roundtrip": 0.24442361295223236,
+   "latent_mse_roundtrip": 0.16815582859428757,
+   "lpips_ae": 0.04198291525244713,
+   "lpips_roundtrip": 0.09198020398616791
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000468778.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000468778",
+  "caption": "A bunch of teddy bears with umbrellas sitting on display",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004233561921864748,
+   "latent_mse_ae": 0.01132965087890625,
+   "lare_t200": 0.38311767578125,
+   "score_norm_step0": 0.258156418800354,
+   "diffpath_curvature": 0.3943590355787181,
+   "path_length": 0.7462307157906914,
+   "pixel_l1_roundtrip": 0.15446753799915314,
+   "latent_mse_roundtrip": 0.14245531040306494,
+   "lpips_ae": 0.019324891269207,
+   "lpips_roundtrip": 0.051533084362745285
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000468778.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000468778",
+  "caption": "A bunch of teddy bears with umbrellas sitting on display",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02379648946225643,
+   "latent_mse_ae": 0.01033782958984375,
+   "lare_t200": 0.4652099609375,
+   "score_norm_step0": 0.2199956476688385,
+   "diffpath_curvature": 0.3728277948583994,
+   "path_length": 0.5956343142097468,
+   "pixel_l1_roundtrip": 0.2621918022632599,
+   "latent_mse_roundtrip": 0.20215020278001208,
+   "lpips_ae": 0.03882407024502754,
+   "lpips_roundtrip": 0.08591436594724655
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000218855.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000218855",
+  "caption": "A bunch of people are sitting around while a guy plays a video game",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02359636314213276,
+   "latent_mse_ae": 0.013763427734375,
+   "lare_t200": 0.473388671875,
+   "score_norm_step0": 0.2379835844039917,
+   "diffpath_curvature": 0.3709590992384939,
+   "path_length": 0.5591097655445962,
+   "pixel_l1_roundtrip": 0.22537334263324738,
+   "latent_mse_roundtrip": 0.14275209256849938,
+   "lpips_ae": 0.03960608318448067,
+   "lpips_roundtrip": 0.08611173927783966
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000218855.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000218855",
+  "caption": "A bunch of people are sitting around while a guy plays a video game",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.005186059046536684,
+   "latent_mse_ae": 0.01367950439453125,
+   "lare_t200": 0.3779296875,
+   "score_norm_step0": 0.25960013270378113,
+   "diffpath_curvature": 0.40052939810419125,
+   "path_length": 0.8965341166632064,
+   "pixel_l1_roundtrip": 0.22667314112186432,
+   "latent_mse_roundtrip": 0.3331137593197038,
+   "lpips_ae": 0.01421999093145132,
+   "lpips_roundtrip": 0.04956590756773949
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000218855.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000218855",
+  "caption": "A bunch of people are sitting around while a guy plays a video game",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.019877856597304344,
+   "latent_mse_ae": 0.01500701904296875,
+   "lare_t200": 0.4490966796875,
+   "score_norm_step0": 0.2473449558019638,
+   "diffpath_curvature": 0.3415571529361251,
+   "path_length": 0.5479991137955584,
+   "pixel_l1_roundtrip": 0.1667887568473816,
+   "latent_mse_roundtrip": 0.07966241668250024,
+   "lpips_ae": 0.033241868019104004,
+   "lpips_roundtrip": 0.05722681060433388
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000556130.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000556130",
+  "caption": "A baseball player hopes to be safe while sliding into base",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.034578245133161545,
+   "latent_mse_ae": 0.0186004638671875,
+   "lare_t200": 0.366943359375,
+   "score_norm_step0": 0.28293082118034363,
+   "diffpath_curvature": 0.344277384836023,
+   "path_length": 0.6249823332626027,
+   "pixel_l1_roundtrip": 0.2022794932126999,
+   "latent_mse_roundtrip": 0.10399134973333155,
+   "lpips_ae": 0.048156797885894775,
+   "lpips_roundtrip": 0.06779411435127258
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000556130.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000556130",
+  "caption": "A baseball player hopes to be safe while sliding into base",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0087582403793931,
+   "latent_mse_ae": 0.007175445556640625,
+   "lare_t200": 0.3284912109375,
+   "score_norm_step0": 0.3042997419834137,
+   "diffpath_curvature": 0.3570033515666597,
+   "path_length": 0.9096623176427359,
+   "pixel_l1_roundtrip": 0.20302219688892365,
+   "latent_mse_roundtrip": 0.2628691944345327,
+   "lpips_ae": 0.0167209655046463,
+   "lpips_roundtrip": 0.05822533369064331
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000556130.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000556130",
+  "caption": "A baseball player hopes to be safe while sliding into base",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.00492525240406394,
+   "latent_mse_ae": 0.00943756103515625,
+   "lare_t200": 0.29241943359375,
+   "score_norm_step0": 0.36645272374153137,
+   "diffpath_curvature": 0.2884041605896407,
+   "path_length": 0.7359415940941754,
+   "pixel_l1_roundtrip": 0.1153319850564003,
+   "latent_mse_roundtrip": 0.16891809852894163,
+   "lpips_ae": 0.01819710060954094,
+   "lpips_roundtrip": 0.056214675307273865
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000040102.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000040102",
+  "caption": "Two giraffe standing next to each other on a grassy field",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.06634410470724106,
+   "latent_mse_ae": 0.01470184326171875,
+   "lare_t200": 0.47723388671875,
+   "score_norm_step0": 0.16637179255485535,
+   "diffpath_curvature": 0.3757022273800722,
+   "path_length": 0.5866515707596895,
+   "pixel_l1_roundtrip": 0.23469579219818115,
+   "latent_mse_roundtrip": 0.06029781268241702,
+   "lpips_ae": 0.06621874868869781,
+   "lpips_roundtrip": 0.078065887093544
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000040102.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000040102",
+  "caption": "Two giraffe standing next to each other on a grassy field",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.009756069630384445,
+   "latent_mse_ae": 0.014801025390625,
+   "lare_t200": 0.29107666015625,
+   "score_norm_step0": 0.3064839541912079,
+   "diffpath_curvature": 0.34149412119270334,
+   "path_length": 0.811525016888108,
+   "pixel_l1_roundtrip": 0.08614350110292435,
+   "latent_mse_roundtrip": 0.05627517471299992,
+   "lpips_ae": 0.01813669316470623,
+   "lpips_roundtrip": 0.03598025441169739
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000040102.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000040102",
+  "caption": "Two giraffe standing next to each other on a grassy field",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02320774830877781,
+   "latent_mse_ae": 0.01007843017578125,
+   "lare_t200": 0.24609375,
+   "score_norm_step0": 0.353366881608963,
+   "diffpath_curvature": 0.27880954363843236,
+   "path_length": 0.6595478999711124,
+   "pixel_l1_roundtrip": 0.11711225658655167,
+   "latent_mse_roundtrip": 0.056211326187697384,
+   "lpips_ae": 0.02918657287955284,
+   "lpips_roundtrip": 0.03844120353460312
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000341118.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000341118",
+  "caption": "A person is on a living room couch watching TV and there is a stuffed panda bear and a purse on the table",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.014878216199576855,
+   "latent_mse_ae": 0.048095703125,
+   "lare_t200": 0.355712890625,
+   "score_norm_step0": 0.2768982946872711,
+   "diffpath_curvature": 0.3261183369979882,
+   "path_length": 0.6163384594083888,
+   "pixel_l1_roundtrip": 0.1839020699262619,
+   "latent_mse_roundtrip": 0.13826367254672262,
+   "lpips_ae": 0.031496405601501465,
+   "lpips_roundtrip": 0.06415218859910965
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000341118.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000341118",
+  "caption": "A person is on a living room couch watching TV and there is a stuffed panda bear and a purse on the table",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.001640021800994873,
+   "latent_mse_ae": 0.007068634033203125,
+   "lare_t200": 0.379638671875,
+   "score_norm_step0": 0.2832429111003876,
+   "diffpath_curvature": 0.3695910974717507,
+   "path_length": 0.7904557414805172,
+   "pixel_l1_roundtrip": 0.1385614275932312,
+   "latent_mse_roundtrip": 0.1778015975515243,
+   "lpips_ae": 0.012565530836582184,
+   "lpips_roundtrip": 0.04952167719602585
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000341118.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000341118",
+  "caption": "A person is on a living room couch watching TV and there is a stuffed panda bear and a purse on the table",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003918502479791641,
+   "latent_mse_ae": 0.00908660888671875,
+   "lare_t200": 0.38128662109375,
+   "score_norm_step0": 0.27107277512550354,
+   "diffpath_curvature": 0.3332935997705617,
+   "path_length": 0.6734876531667011,
+   "pixel_l1_roundtrip": 0.13707809150218964,
+   "latent_mse_roundtrip": 0.10491134948949982,
+   "lpips_ae": 0.01902434229850769,
+   "lpips_roundtrip": 0.04197308048605919
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000228722.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000228722",
+  "caption": "A cook preparing fresh pizza in a kitchen",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.026007184758782387,
+   "latent_mse_ae": 0.01507568359375,
+   "lare_t200": 0.461181640625,
+   "score_norm_step0": 0.23023788630962372,
+   "diffpath_curvature": 0.3803242481672052,
+   "path_length": 0.6549276564871717,
+   "pixel_l1_roundtrip": 0.20033510029315948,
+   "latent_mse_roundtrip": 0.10566338061426858,
+   "lpips_ae": 0.03503575921058655,
+   "lpips_roundtrip": 0.05479973554611206
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000228722.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000228722",
+  "caption": "A cook preparing fresh pizza in a kitchen",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.016526654362678528,
+   "latent_mse_ae": 0.00820159912109375,
+   "lare_t200": 0.38787841796875,
+   "score_norm_step0": 0.2611100971698761,
+   "diffpath_curvature": 0.3728682730661585,
+   "path_length": 0.7050947552058936,
+   "pixel_l1_roundtrip": 0.21168887615203857,
+   "latent_mse_roundtrip": 0.19204268512023415,
+   "lpips_ae": 0.02350059151649475,
+   "lpips_roundtrip": 0.062341950833797455
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000228722.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000228722",
+  "caption": "A cook preparing fresh pizza in a kitchen",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.007448835764080286,
+   "latent_mse_ae": 0.0076904296875,
+   "lare_t200": 0.37109375,
+   "score_norm_step0": 0.27280867099761963,
+   "diffpath_curvature": 0.316010242701623,
+   "path_length": 0.6937223443283409,
+   "pixel_l1_roundtrip": 0.1661127656698227,
+   "latent_mse_roundtrip": 0.13810773746122304,
+   "lpips_ae": 0.0182550810277462,
+   "lpips_roundtrip": 0.046654511243104935
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000579673.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000579673",
+  "caption": "An umbrella sitting over a tray of food",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.007569084409624338,
+   "latent_mse_ae": 0.01442718505859375,
+   "lare_t200": 0.28900146484375,
+   "score_norm_step0": 0.3164646029472351,
+   "diffpath_curvature": 0.33363852679862316,
+   "path_length": 0.7514042187107063,
+   "pixel_l1_roundtrip": 0.10721832513809204,
+   "latent_mse_roundtrip": 0.07671175905341118,
+   "lpips_ae": 0.024808606132864952,
+   "lpips_roundtrip": 0.04180381819605827
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000579673.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000579673",
+  "caption": "An umbrella sitting over a tray of food",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006146758329123259,
+   "latent_mse_ae": 0.01318359375,
+   "lare_t200": 0.2791748046875,
+   "score_norm_step0": 0.35545459389686584,
+   "diffpath_curvature": 0.3427111179594965,
+   "path_length": 0.7766211625251204,
+   "pixel_l1_roundtrip": 0.11099052429199219,
+   "latent_mse_roundtrip": 0.21854198897231553,
+   "lpips_ae": 0.014443260617554188,
+   "lpips_roundtrip": 0.04509612172842026
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000579673.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000579673",
+  "caption": "An umbrella sitting over a tray of food",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.023354241624474525,
+   "latent_mse_ae": 0.0139617919921875,
+   "lare_t200": 0.40350341796875,
+   "score_norm_step0": 0.26538366079330444,
+   "diffpath_curvature": 0.3404243282028261,
+   "path_length": 0.6191667056170131,
+   "pixel_l1_roundtrip": 0.16185881197452545,
+   "latent_mse_roundtrip": 0.06067692213116184,
+   "lpips_ae": 0.03849782049655914,
+   "lpips_roundtrip": 0.05286503955721855
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000508167.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000508167",
+  "caption": "A young boy holding a Wii game controller",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0009731717873364687,
+   "latent_mse_ae": 0.036285400390625,
+   "lare_t200": 0.34765625,
+   "score_norm_step0": 0.2946578562259674,
+   "diffpath_curvature": 0.3077490259906033,
+   "path_length": 0.7220093078821712,
+   "pixel_l1_roundtrip": 0.1461046189069748,
+   "latent_mse_roundtrip": 0.18246966195396702,
+   "lpips_ae": 0.012978078797459602,
+   "lpips_roundtrip": 0.06629462540149689
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000508167.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000508167",
+  "caption": "A young boy holding a Wii game controller",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003937128931283951,
+   "latent_mse_ae": 0.0085906982421875,
+   "lare_t200": 0.3128662109375,
+   "score_norm_step0": 0.3178649842739105,
+   "diffpath_curvature": 0.3150368870811505,
+   "path_length": 0.7074885246013457,
+   "pixel_l1_roundtrip": 0.10284334421157837,
+   "latent_mse_roundtrip": 0.10341167267302388,
+   "lpips_ae": 0.016554052010178566,
+   "lpips_roundtrip": 0.040146905928850174
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000508167.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000508167",
+  "caption": "A young boy holding a Wii game controller",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006293978542089462,
+   "latent_mse_ae": 0.010711669921875,
+   "lare_t200": 0.35491943359375,
+   "score_norm_step0": 0.30745792388916016,
+   "diffpath_curvature": 0.29965093138844884,
+   "path_length": 0.6585137494033843,
+   "pixel_l1_roundtrip": 0.14427068829536438,
+   "latent_mse_roundtrip": 0.07399761663421048,
+   "lpips_ae": 0.021139860153198242,
+   "lpips_roundtrip": 0.037202950567007065
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000377427.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000377427",
+  "caption": "A man at a table with several dishes of food",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.023402834311127663,
+   "latent_mse_ae": 0.00980377197265625,
+   "lare_t200": 0.51104736328125,
+   "score_norm_step0": 0.19774803519248962,
+   "diffpath_curvature": 0.38598435026640054,
+   "path_length": 0.6594211974361568,
+   "pixel_l1_roundtrip": 0.19486470520496368,
+   "latent_mse_roundtrip": 0.10715700293512906,
+   "lpips_ae": 0.04041210189461708,
+   "lpips_roundtrip": 0.0659189224243164
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000377427.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000377427",
+  "caption": "A man at a table with several dishes of food",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.01573360152542591,
+   "latent_mse_ae": 0.00974273681640625,
+   "lare_t200": 0.31939697265625,
+   "score_norm_step0": 0.32312628626823425,
+   "diffpath_curvature": 0.333698232911149,
+   "path_length": 0.7797441290065587,
+   "pixel_l1_roundtrip": 0.17130257189273834,
+   "latent_mse_roundtrip": 0.15316901924101534,
+   "lpips_ae": 0.017917778342962265,
+   "lpips_roundtrip": 0.04001963883638382
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000377427.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000377427",
+  "caption": "A man at a table with several dishes of food",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.023500507697463036,
+   "latent_mse_ae": 0.0171051025390625,
+   "lare_t200": 0.39288330078125,
+   "score_norm_step0": 0.2478220909833908,
+   "diffpath_curvature": 0.30733214363046124,
+   "path_length": 0.6852192507279655,
+   "pixel_l1_roundtrip": 0.22026501595973969,
+   "latent_mse_roundtrip": 0.16154629159306383,
+   "lpips_ae": 0.028090255334973335,
+   "lpips_roundtrip": 0.06158977001905441
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000293452.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000293452",
+  "caption": "Three birds are looking around while on the ground",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.017207395285367966,
+   "latent_mse_ae": 0.013153076171875,
+   "lare_t200": 0.4263916015625,
+   "score_norm_step0": 0.22963063418865204,
+   "diffpath_curvature": 0.37444781446258923,
+   "path_length": 0.56521871271075,
+   "pixel_l1_roundtrip": 0.15614604949951172,
+   "latent_mse_roundtrip": 0.12401458475780704,
+   "lpips_ae": 0.05153750628232956,
+   "lpips_roundtrip": 0.07522639632225037
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000293452.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000293452",
+  "caption": "Three birds are looking around while on the ground",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0017844806425273418,
+   "latent_mse_ae": 0.0086669921875,
+   "lare_t200": 0.2960205078125,
+   "score_norm_step0": 0.2939044237136841,
+   "diffpath_curvature": 0.3428271547097301,
+   "path_length": 0.7964626621242279,
+   "pixel_l1_roundtrip": 0.19364821910858154,
+   "latent_mse_roundtrip": 0.3843073252289304,
+   "lpips_ae": 0.012895401567220688,
+   "lpips_roundtrip": 0.05804484337568283
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000293452.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000293452",
+  "caption": "Three birds are looking around while on the ground",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.022063245996832848,
+   "latent_mse_ae": 0.0149993896484375,
+   "lare_t200": 0.41473388671875,
+   "score_norm_step0": 0.19399623572826385,
+   "diffpath_curvature": 0.3967951747408345,
+   "path_length": 0.5622568242006003,
+   "pixel_l1_roundtrip": 0.17018751800060272,
+   "latent_mse_roundtrip": 0.08432316754517202,
+   "lpips_ae": 0.06022130325436592,
+   "lpips_roundtrip": 0.07177363336086273
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000176606.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000176606",
+  "caption": "A goat alongside a house, trying to go through the bushes",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.03776420280337334,
+   "latent_mse_ae": 0.01323699951171875,
+   "lare_t200": 0.42822265625,
+   "score_norm_step0": 0.19328002631664276,
+   "diffpath_curvature": 0.381856726486423,
+   "path_length": 0.6357149671428753,
+   "pixel_l1_roundtrip": 0.22450469434261322,
+   "latent_mse_roundtrip": 0.11034934706158808,
+   "lpips_ae": 0.055042050778865814,
+   "lpips_roundtrip": 0.07714866101741791
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000176606.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000176606",
+  "caption": "A goat alongside a house, trying to go through the bushes",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.007044984493404627,
+   "latent_mse_ae": 0.01033782958984375,
+   "lare_t200": 0.3687744140625,
+   "score_norm_step0": 0.25757119059562683,
+   "diffpath_curvature": 0.3679325358254803,
+   "path_length": 0.8092376153066443,
+   "pixel_l1_roundtrip": 0.11544471234083176,
+   "latent_mse_roundtrip": 0.09774880763384108,
+   "lpips_ae": 0.02791004627943039,
+   "lpips_roundtrip": 0.04794619604945183
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000176606.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000176606",
+  "caption": "A goat alongside a house, trying to go through the bushes",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.027066273614764214,
+   "latent_mse_ae": 0.015838623046875,
+   "lare_t200": 0.4237060546875,
+   "score_norm_step0": 0.20385511219501495,
+   "diffpath_curvature": 0.3762520507250344,
+   "path_length": 0.604098032327886,
+   "pixel_l1_roundtrip": 0.18989239633083344,
+   "latent_mse_roundtrip": 0.10447223034136034,
+   "lpips_ae": 0.0534723624587059,
+   "lpips_roundtrip": 0.07684437185525894
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000158250.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000158250",
+  "caption": "A bird walks on sand during the day",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003022466553375125,
+   "latent_mse_ae": 0.008544921875,
+   "lare_t200": 0.28192138671875,
+   "score_norm_step0": 0.28960296511650085,
+   "diffpath_curvature": 0.3293024318627667,
+   "path_length": 0.6948933262518107,
+   "pixel_l1_roundtrip": 0.07255963981151581,
+   "latent_mse_roundtrip": 0.08016541621582467,
+   "lpips_ae": 0.030380669981241226,
+   "lpips_roundtrip": 0.058727964758872986
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000158250.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000158250",
+  "caption": "A bird walks on sand during the day",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.001941366703249514,
+   "latent_mse_ae": 0.00936126708984375,
+   "lare_t200": 0.2698974609375,
+   "score_norm_step0": 0.30081453919410706,
+   "diffpath_curvature": 0.3237251484648593,
+   "path_length": 0.9112174007646574,
+   "pixel_l1_roundtrip": 0.06890357285737991,
+   "latent_mse_roundtrip": 0.07237372571556283,
+   "lpips_ae": 0.01456969790160656,
+   "lpips_roundtrip": 0.035360097885131836
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000158250.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000158250",
+  "caption": "A bird walks on sand during the day",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.009983181022107601,
+   "latent_mse_ae": 0.01305389404296875,
+   "lare_t200": 0.34027099609375,
+   "score_norm_step0": 0.3057068884372711,
+   "diffpath_curvature": 0.3920203198516068,
+   "path_length": 0.6213419231903445,
+   "pixel_l1_roundtrip": 0.0716920867562294,
+   "latent_mse_roundtrip": 0.04791642105224407,
+   "lpips_ae": 0.04226003587245941,
+   "lpips_roundtrip": 0.05471932515501976
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000194780.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000194780",
+  "caption": "A picture of a plane taking off from miles away from the airport",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004734232556074858,
+   "latent_mse_ae": 0.0115966796875,
+   "lare_t200": 0.380126953125,
+   "score_norm_step0": 0.2491898089647293,
+   "diffpath_curvature": 0.3778176050037016,
+   "path_length": 0.8505100072263064,
+   "pixel_l1_roundtrip": 0.07216864824295044,
+   "latent_mse_roundtrip": 0.06342816033117843,
+   "lpips_ae": 0.02612227015197277,
+   "lpips_roundtrip": 0.04274957627058029
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000194780.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000194780",
+  "caption": "A picture of a plane taking off from miles away from the airport",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0028625763952732086,
+   "latent_mse_ae": 0.013275146484375,
+   "lare_t200": 0.30474853515625,
+   "score_norm_step0": 0.327800989151001,
+   "diffpath_curvature": 0.3702390654798323,
+   "path_length": 0.828782981859814,
+   "pixel_l1_roundtrip": 0.11383198946714401,
+   "latent_mse_roundtrip": 0.13095648099045948,
+   "lpips_ae": 0.014875570312142372,
+   "lpips_roundtrip": 0.038233160972595215
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000194780.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000194780",
+  "caption": "A picture of a plane taking off from miles away from the airport",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006733851041644812,
+   "latent_mse_ae": 0.0256500244140625,
+   "lare_t200": 0.28021240234375,
+   "score_norm_step0": 0.3371732532978058,
+   "diffpath_curvature": 0.2711989381670354,
+   "path_length": 0.6277087124156653,
+   "pixel_l1_roundtrip": 0.06997176259756088,
+   "latent_mse_roundtrip": 0.03637109609312483,
+   "lpips_ae": 0.022466737776994705,
+   "lpips_roundtrip": 0.03155873715877533
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000389308.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000389308",
+  "caption": "Various parts and games for a Nintendo Wii on a bed",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.011205370537936687,
+   "latent_mse_ae": 0.01242828369140625,
+   "lare_t200": 0.38507080078125,
+   "score_norm_step0": 0.275554358959198,
+   "diffpath_curvature": 0.36643826217051234,
+   "path_length": 0.7229370719401177,
+   "pixel_l1_roundtrip": 0.18384088575839996,
+   "latent_mse_roundtrip": 0.1545519319022407,
+   "lpips_ae": 0.03095240332186222,
+   "lpips_roundtrip": 0.07931181788444519
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000389308.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000389308",
+  "caption": "Various parts and games for a Nintendo Wii on a bed",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.004697453696280718,
+   "latent_mse_ae": 0.01142120361328125,
+   "lare_t200": 0.3416748046875,
+   "score_norm_step0": 0.3264450132846832,
+   "diffpath_curvature": 0.37332542619416254,
+   "path_length": 0.7364541338048629,
+   "pixel_l1_roundtrip": 0.23127926886081696,
+   "latent_mse_roundtrip": 0.22349747573366055,
+   "lpips_ae": 0.010964472778141499,
+   "lpips_roundtrip": 0.051642149686813354
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000389308.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000389308",
+  "caption": "Various parts and games for a Nintendo Wii on a bed",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010122019797563553,
+   "latent_mse_ae": 0.029754638671875,
+   "lare_t200": 0.31158447265625,
+   "score_norm_step0": 0.31433090567588806,
+   "diffpath_curvature": 0.2855812868402883,
+   "path_length": 0.6208580870799071,
+   "pixel_l1_roundtrip": 0.12990742921829224,
+   "latent_mse_roundtrip": 0.10904222246985533,
+   "lpips_ae": 0.0307818241417408,
+   "lpips_roundtrip": 0.057424865663051605
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000172553.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000172553",
+  "caption": "a small girl and two giraffes and some trees",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.026101214811205864,
+   "latent_mse_ae": 0.01274871826171875,
+   "lare_t200": 0.30224609375,
+   "score_norm_step0": 0.31458166241645813,
+   "diffpath_curvature": 0.3147702659611481,
+   "path_length": 0.6782862751091099,
+   "pixel_l1_roundtrip": 0.15149295330047607,
+   "latent_mse_roundtrip": 0.13803973446687,
+   "lpips_ae": 0.027611643075942993,
+   "lpips_roundtrip": 0.05243734270334244
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000172553.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000172553",
+  "caption": "a small girl and two giraffes and some trees",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.009137124754488468,
+   "latent_mse_ae": 0.00771331787109375,
+   "lare_t200": 0.31817626953125,
+   "score_norm_step0": 0.2902436852455139,
+   "diffpath_curvature": 0.3374553556487657,
+   "path_length": 0.8172138007912171,
+   "pixel_l1_roundtrip": 0.19940800964832306,
+   "latent_mse_roundtrip": 0.21515952495826185,
+   "lpips_ae": 0.01726171374320984,
+   "lpips_roundtrip": 0.06941508501768112
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000172553.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000172553",
+  "caption": "a small girl and two giraffes and some trees",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.015357427299022675,
+   "latent_mse_ae": 0.015106201171875,
+   "lare_t200": 0.4093017578125,
+   "score_norm_step0": 0.21987679600715637,
+   "diffpath_curvature": 0.41366895437950957,
+   "path_length": 0.5975982555958292,
+   "pixel_l1_roundtrip": 0.20186226069927216,
+   "latent_mse_roundtrip": 0.15707925147803187,
+   "lpips_ae": 0.049881454557180405,
+   "lpips_roundtrip": 0.08733478933572769
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000500316.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000500316",
+  "caption": "A woman riding a pair of skis and reaching towards a dog",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.023274963721632957,
+   "latent_mse_ae": 0.01325225830078125,
+   "lare_t200": 0.4722900390625,
+   "score_norm_step0": 0.19866129755973816,
+   "diffpath_curvature": 0.3725785667391021,
+   "path_length": 0.6580579554975293,
+   "pixel_l1_roundtrip": 0.19371171295642853,
+   "latent_mse_roundtrip": 0.10385627196228082,
+   "lpips_ae": 0.05453396588563919,
+   "lpips_roundtrip": 0.07641036808490753
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000500316.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000500316",
+  "caption": "A woman riding a pair of skis and reaching towards a dog",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.007671903353184462,
+   "latent_mse_ae": 0.0091705322265625,
+   "lare_t200": 0.327392578125,
+   "score_norm_step0": 0.3187338709831238,
+   "diffpath_curvature": 0.3675403915008487,
+   "path_length": 0.8641476605013485,
+   "pixel_l1_roundtrip": 0.14432686567306519,
+   "latent_mse_roundtrip": 0.15520887192447208,
+   "lpips_ae": 0.014716526493430138,
+   "lpips_roundtrip": 0.040432050824165344
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000500316.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000500316",
+  "caption": "A woman riding a pair of skis and reaching towards a dog",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.03187428042292595,
+   "latent_mse_ae": 0.0155181884765625,
+   "lare_t200": 0.45684814453125,
+   "score_norm_step0": 0.21436071395874023,
+   "diffpath_curvature": 0.3584632798686656,
+   "path_length": 0.6768320030658659,
+   "pixel_l1_roundtrip": 0.1831514984369278,
+   "latent_mse_roundtrip": 0.11112846829403972,
+   "lpips_ae": 0.041014164686203,
+   "lpips_roundtrip": 0.07147227227687836
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000438505.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000438505",
+  "caption": "Bagels stuffed with eggs served on a plate",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.010875426232814789,
+   "latent_mse_ae": 0.01348876953125,
+   "lare_t200": 0.41259765625,
+   "score_norm_step0": 0.2559627294540405,
+   "diffpath_curvature": 0.37367556472158703,
+   "path_length": 0.7050186397963027,
+   "pixel_l1_roundtrip": 0.20712368190288544,
+   "latent_mse_roundtrip": 0.2123479221682142,
+   "lpips_ae": 0.034972868859767914,
+   "lpips_roundtrip": 0.07894492149353027
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000438505.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000438505",
+  "caption": "Bagels stuffed with eggs served on a plate",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.005078096408396959,
+   "latent_mse_ae": 0.0087890625,
+   "lare_t200": 0.34063720703125,
+   "score_norm_step0": 0.2762505114078522,
+   "diffpath_curvature": 0.3521886173006168,
+   "path_length": 0.8524714183549434,
+   "pixel_l1_roundtrip": 0.09413599222898483,
+   "latent_mse_roundtrip": 0.08450804418742425,
+   "lpips_ae": 0.016233794391155243,
+   "lpips_roundtrip": 0.034028902649879456
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000438505.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000438505",
+  "caption": "Bagels stuffed with eggs served on a plate",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.01734546571969986,
+   "latent_mse_ae": 0.00913238525390625,
+   "lare_t200": 0.4437255859375,
+   "score_norm_step0": 0.22711224853992462,
+   "diffpath_curvature": 0.35421262682130045,
+   "path_length": 0.7082269025363273,
+   "pixel_l1_roundtrip": 0.22690653800964355,
+   "latent_mse_roundtrip": 0.1524588346617269,
+   "lpips_ae": 0.029673097655177116,
+   "lpips_roundtrip": 0.06313635408878326
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000079446.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000079446",
+  "caption": "Three piece fixture bathroom with window over the bathtub",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.015390180051326752,
+   "latent_mse_ae": 0.0282135009765625,
+   "lare_t200": 0.333740234375,
+   "score_norm_step0": 0.31902721524238586,
+   "diffpath_curvature": 0.3255094800776438,
+   "path_length": 0.6904294059037877,
+   "pixel_l1_roundtrip": 0.14824390411376953,
+   "latent_mse_roundtrip": 0.1036524205473846,
+   "lpips_ae": 0.027431586757302284,
+   "lpips_roundtrip": 0.05438695847988129
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000079446.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000079446",
+  "caption": "Three piece fixture bathroom with window over the bathtub",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0027277041226625443,
+   "latent_mse_ae": 0.01424407958984375,
+   "lare_t200": 0.27734375,
+   "score_norm_step0": 0.310481995344162,
+   "diffpath_curvature": 0.3160001526808829,
+   "path_length": 0.6607760096330764,
+   "pixel_l1_roundtrip": 0.10021569579839706,
+   "latent_mse_roundtrip": 0.0821168654319109,
+   "lpips_ae": 0.016196293756365776,
+   "lpips_roundtrip": 0.04724636301398277
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000079446.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000079446",
+  "caption": "Three piece fixture bathroom with window over the bathtub",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003647544188424945,
+   "latent_mse_ae": 0.0169677734375,
+   "lare_t200": 0.28497314453125,
+   "score_norm_step0": 0.3519335985183716,
+   "diffpath_curvature": 0.3324136992027934,
+   "path_length": 0.6117870369388395,
+   "pixel_l1_roundtrip": 0.10726141929626465,
+   "latent_mse_roundtrip": 0.08242527355260063,
+   "lpips_ae": 0.02352900058031082,
+   "lpips_roundtrip": 0.04655158519744873
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000279806.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000279806",
+  "caption": "A dirt bike rider doing a stunt jump in the air",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.023625103756785393,
+   "latent_mse_ae": 0.010528564453125,
+   "lare_t200": 0.31634521484375,
+   "score_norm_step0": 0.2777657210826874,
+   "diffpath_curvature": 0.3666340571516025,
+   "path_length": 0.8224671844678841,
+   "pixel_l1_roundtrip": 0.24633295834064484,
+   "latent_mse_roundtrip": 0.32185509333368023,
+   "lpips_ae": 0.017827291041612625,
+   "lpips_roundtrip": 0.0633457750082016
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000279806.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000279806",
+  "caption": "A dirt bike rider doing a stunt jump in the air",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02018086239695549,
+   "latent_mse_ae": 0.00861358642578125,
+   "lare_t200": 0.3616943359375,
+   "score_norm_step0": 0.27028343081474304,
+   "diffpath_curvature": 0.3373463588514848,
+   "path_length": 0.8140810816274379,
+   "pixel_l1_roundtrip": 0.14015363156795502,
+   "latent_mse_roundtrip": 0.12130058082463879,
+   "lpips_ae": 0.017308134585618973,
+   "lpips_roundtrip": 0.045618388801813126
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000279806.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000279806",
+  "caption": "A dirt bike rider doing a stunt jump in the air",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.015546117909252644,
+   "latent_mse_ae": 0.01947021484375,
+   "lare_t200": 0.42620849609375,
+   "score_norm_step0": 0.22297120094299316,
+   "diffpath_curvature": 0.3678171583912926,
+   "path_length": 0.5695602377668499,
+   "pixel_l1_roundtrip": 0.10616573691368103,
+   "latent_mse_roundtrip": 0.03415715186913615,
+   "lpips_ae": 0.04742337763309479,
+   "lpips_roundtrip": 0.05905448645353317
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000289714.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000289714",
+  "caption": "A person in a kitchen looking at the oven",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.05938612297177315,
+   "latent_mse_ae": 0.0213775634765625,
+   "lare_t200": 0.30889892578125,
+   "score_norm_step0": 0.29594650864601135,
+   "diffpath_curvature": 0.31466073735131234,
+   "path_length": 0.7352957801648308,
+   "pixel_l1_roundtrip": 0.3435048758983612,
+   "latent_mse_roundtrip": 0.22740607281694764,
+   "lpips_ae": 0.046352773904800415,
+   "lpips_roundtrip": 0.09949972480535507
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000289714.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000289714",
+  "caption": "A person in a kitchen looking at the oven",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0038374417927116156,
+   "latent_mse_ae": 0.01145172119140625,
+   "lare_t200": 0.3480224609375,
+   "score_norm_step0": 0.3080452084541321,
+   "diffpath_curvature": 0.37247553005628403,
+   "path_length": 0.7695337676946864,
+   "pixel_l1_roundtrip": 0.20738381147384644,
+   "latent_mse_roundtrip": 0.20060020343045126,
+   "lpips_ae": 0.013921591453254223,
+   "lpips_roundtrip": 0.047098539769649506
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000289714.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000289714",
+  "caption": "A person in a kitchen looking at the oven",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.013107658363878727,
+   "latent_mse_ae": 0.021759033203125,
+   "lare_t200": 0.356689453125,
+   "score_norm_step0": 0.2860194742679596,
+   "diffpath_curvature": 0.34701310431844307,
+   "path_length": 0.6299911812906039,
+   "pixel_l1_roundtrip": 0.17621387541294098,
+   "latent_mse_roundtrip": 0.14855312967000456,
+   "lpips_ae": 0.017744146287441254,
+   "lpips_roundtrip": 0.05402280390262604
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000092624.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000092624",
+  "caption": "assorted animals like giraffes and zebras standing by a river",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.10895949602127075,
+   "latent_mse_ae": 0.01221466064453125,
+   "lare_t200": 0.51104736328125,
+   "score_norm_step0": 0.15942338109016418,
+   "diffpath_curvature": 0.42712552194856623,
+   "path_length": 0.573891319625847,
+   "pixel_l1_roundtrip": 0.2743038833141327,
+   "latent_mse_roundtrip": 0.06509499136240615,
+   "lpips_ae": 0.06777730584144592,
+   "lpips_roundtrip": 0.08293752372264862
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000092624.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000092624",
+  "caption": "assorted animals like giraffes and zebras standing by a river",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02749793790280819,
+   "latent_mse_ae": 0.0164031982421875,
+   "lare_t200": 0.357177734375,
+   "score_norm_step0": 0.27226731181144714,
+   "diffpath_curvature": 0.36332396074576434,
+   "path_length": 0.7897146838365691,
+   "pixel_l1_roundtrip": 0.1867140531539917,
+   "latent_mse_roundtrip": 0.18786520026384357,
+   "lpips_ae": 0.018975159153342247,
+   "lpips_roundtrip": 0.05104938521981239
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000092624.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000092624",
+  "caption": "assorted animals like giraffes and zebras standing by a river",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0751805528998375,
+   "latent_mse_ae": 0.01531982421875,
+   "lare_t200": 0.37371826171875,
+   "score_norm_step0": 0.3084143102169037,
+   "diffpath_curvature": 0.35159524936989095,
+   "path_length": 0.5924326118338243,
+   "pixel_l1_roundtrip": 0.36755457520484924,
+   "latent_mse_roundtrip": 0.27368462978824604,
+   "lpips_ae": 0.02918037585914135,
+   "lpips_roundtrip": 0.0694238543510437
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000417339.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000417339",
+  "caption": "A man and a boy standing next to each other",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02523791231215,
+   "latent_mse_ae": 0.01062774658203125,
+   "lare_t200": 0.47882080078125,
+   "score_norm_step0": 0.20749251544475555,
+   "diffpath_curvature": 0.4004428965233914,
+   "path_length": 0.7220102696407937,
+   "pixel_l1_roundtrip": 0.20901553332805634,
+   "latent_mse_roundtrip": 0.14865949863618388,
+   "lpips_ae": 0.04023316502571106,
+   "lpips_roundtrip": 0.07260705530643463
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000417339.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000417339",
+  "caption": "A man and a boy standing next to each other",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0021922418382018805,
+   "latent_mse_ae": 0.00937652587890625,
+   "lare_t200": 0.23431396484375,
+   "score_norm_step0": 0.3779875338077545,
+   "diffpath_curvature": 0.3029742577509025,
+   "path_length": 0.8118445834102299,
+   "pixel_l1_roundtrip": 0.09363684803247452,
+   "latent_mse_roundtrip": 0.1369432667319054,
+   "lpips_ae": 0.009303026832640171,
+   "lpips_roundtrip": 0.03726921230554581
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000417339.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000417339",
+  "caption": "A man and a boy standing next to each other",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0015490697696805,
+   "latent_mse_ae": 0.08544921875,
+   "lare_t200": 0.269866943359375,
+   "score_norm_step0": 0.31314438581466675,
+   "diffpath_curvature": 0.28668686585543646,
+   "path_length": 0.621850004576782,
+   "pixel_l1_roundtrip": 0.04625110700726509,
+   "latent_mse_roundtrip": 0.044019283554984495,
+   "lpips_ae": 0.03407353162765503,
+   "lpips_roundtrip": 0.04547115042805672
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000059532.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000059532",
+  "caption": "mopeds parked in a parking garage with a green floor",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.05730080232024193,
+   "latent_mse_ae": 0.01396942138671875,
+   "lare_t200": 0.51458740234375,
+   "score_norm_step0": 0.21716570854187012,
+   "diffpath_curvature": 0.40264966381672185,
+   "path_length": 0.5873272493889421,
+   "pixel_l1_roundtrip": 0.23549728095531464,
+   "latent_mse_roundtrip": 0.1079991747355494,
+   "lpips_ae": 0.044819578528404236,
+   "lpips_roundtrip": 0.07602659612894058
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000059532.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000059532",
+  "caption": "mopeds parked in a parking garage with a green floor",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.01611127145588398,
+   "latent_mse_ae": 0.01256561279296875,
+   "lare_t200": 0.42205810546875,
+   "score_norm_step0": 0.25819772481918335,
+   "diffpath_curvature": 0.4082528113620661,
+   "path_length": 0.8625731124021103,
+   "pixel_l1_roundtrip": 0.3355062007904053,
+   "latent_mse_roundtrip": 0.4175477994458526,
+   "lpips_ae": 0.013463757932186127,
+   "lpips_roundtrip": 0.05636417865753174
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000059532.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000059532",
+  "caption": "mopeds parked in a parking garage with a green floor",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.030030744150280952,
+   "latent_mse_ae": 0.0176849365234375,
+   "lare_t200": 0.35662841796875,
+   "score_norm_step0": 0.30871957540512085,
+   "diffpath_curvature": 0.32065514347975255,
+   "path_length": 0.6424681158550073,
+   "pixel_l1_roundtrip": 0.37015095353126526,
+   "latent_mse_roundtrip": 0.34706296940539977,
+   "lpips_ae": 0.030365636572241783,
+   "lpips_roundtrip": 0.08148905634880066
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000262576.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000262576",
+  "caption": "a laptop that is sitting on top of a bed",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0035004180390387774,
+   "latent_mse_ae": 0.020599365234375,
+   "lare_t200": 0.29815673828125,
+   "score_norm_step0": 0.28266996145248413,
+   "diffpath_curvature": 0.368236543858727,
+   "path_length": 0.7493546368062804,
+   "pixel_l1_roundtrip": 0.14138445258140564,
+   "latent_mse_roundtrip": 0.16297041815002863,
+   "lpips_ae": 0.03585989773273468,
+   "lpips_roundtrip": 0.08208837360143661
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000262576.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000262576",
+  "caption": "a laptop that is sitting on top of a bed",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.002211524173617363,
+   "latent_mse_ae": 0.0137176513671875,
+   "lare_t200": 0.25518798828125,
+   "score_norm_step0": 0.3260056972503662,
+   "diffpath_curvature": 0.3561720876009889,
+   "path_length": 0.9579332518237552,
+   "pixel_l1_roundtrip": 0.05891520902514458,
+   "latent_mse_roundtrip": 0.10096159336389718,
+   "lpips_ae": 0.010293958708643913,
+   "lpips_roundtrip": 0.03384571149945259
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000262576.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000262576",
+  "caption": "a laptop that is sitting on top of a bed",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003616687608882785,
+   "latent_mse_ae": 0.0172576904296875,
+   "lare_t200": 0.30364990234375,
+   "score_norm_step0": 0.3079276978969574,
+   "diffpath_curvature": 0.3513501453729776,
+   "path_length": 0.6736118146458747,
+   "pixel_l1_roundtrip": 0.18469874560832977,
+   "latent_mse_roundtrip": 0.19662087301070097,
+   "lpips_ae": 0.03176841884851456,
+   "lpips_roundtrip": 0.0718114972114563
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000304305.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000304305",
+  "caption": "A mother and son elephant walking through a green grass field",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.008395968936383724,
+   "latent_mse_ae": 0.01137542724609375,
+   "lare_t200": 0.3106689453125,
+   "score_norm_step0": 0.25413158535957336,
+   "diffpath_curvature": 0.3175363998667643,
+   "path_length": 0.7813312504751244,
+   "pixel_l1_roundtrip": 0.08399253338575363,
+   "latent_mse_roundtrip": 0.061984432282781145,
+   "lpips_ae": 0.03864268213510513,
+   "lpips_roundtrip": 0.04977884888648987
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000304305.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000304305",
+  "caption": "A mother and son elephant walking through a green grass field",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003413854166865349,
+   "latent_mse_ae": 0.006427764892578125,
+   "lare_t200": 0.3409423828125,
+   "score_norm_step0": 0.2600255310535431,
+   "diffpath_curvature": 0.38208462954389166,
+   "path_length": 0.8410930433206343,
+   "pixel_l1_roundtrip": 0.09184882789850235,
+   "latent_mse_roundtrip": 0.06378140319361641,
+   "lpips_ae": 0.01917358674108982,
+   "lpips_roundtrip": 0.03324031084775925
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000304305.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000304305",
+  "caption": "A mother and son elephant walking through a green grass field",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.006851963698863983,
+   "latent_mse_ae": 0.0082244873046875,
+   "lare_t200": 0.33660888671875,
+   "score_norm_step0": 0.24430565536022186,
+   "diffpath_curvature": 0.3379949718262564,
+   "path_length": 0.7111103373221311,
+   "pixel_l1_roundtrip": 0.08581560850143433,
+   "latent_mse_roundtrip": 0.07618118260256102,
+   "lpips_ae": 0.03628421574831009,
+   "lpips_roundtrip": 0.0538337305188179
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000068257.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000068257",
+  "caption": "A man goes through the water on a parasail",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.017037829384207726,
+   "latent_mse_ae": 0.0102996826171875,
+   "lare_t200": 0.38726806640625,
+   "score_norm_step0": 0.24832913279533386,
+   "diffpath_curvature": 0.3488826066597188,
+   "path_length": 0.5881027408343156,
+   "pixel_l1_roundtrip": 0.2185722142457962,
+   "latent_mse_roundtrip": 0.16808053821241126,
+   "lpips_ae": 0.03453519195318222,
+   "lpips_roundtrip": 0.07950897514820099
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000068257.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000068257",
+  "caption": "A man goes through the water on a parasail",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003580202115699649,
+   "latent_mse_ae": 0.0064849853515625,
+   "lare_t200": 0.2938232421875,
+   "score_norm_step0": 0.27371475100517273,
+   "diffpath_curvature": 0.3531463492286285,
+   "path_length": 0.8240614675028589,
+   "pixel_l1_roundtrip": 0.11716363579034805,
+   "latent_mse_roundtrip": 0.17569202558758465,
+   "lpips_ae": 0.01359087135642767,
+   "lpips_roundtrip": 0.040767427533864975
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000068257.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000068257",
+  "caption": "A man goes through the water on a parasail",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.003104776842519641,
+   "latent_mse_ae": 0.01715087890625,
+   "lare_t200": 0.21435546875,
+   "score_norm_step0": 0.35874536633491516,
+   "diffpath_curvature": 0.2866804652219578,
+   "path_length": 0.6646083623969169,
+   "pixel_l1_roundtrip": 0.07053103297948837,
+   "latent_mse_roundtrip": 0.03882306285931787,
+   "lpips_ae": 0.026507440954446793,
+   "lpips_roundtrip": 0.03532863408327103
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000100510.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000100510",
+  "caption": "an equestrian riding a horse jumping an obstacle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.03475034609436989,
+   "latent_mse_ae": 0.035064697265625,
+   "lare_t200": 0.481201171875,
+   "score_norm_step0": 0.21640297770500183,
+   "diffpath_curvature": 0.39719806043576833,
+   "path_length": 0.5598261753935629,
+   "pixel_l1_roundtrip": 0.21955011785030365,
+   "latent_mse_roundtrip": 0.12140096738133789,
+   "lpips_ae": 0.04705153778195381,
+   "lpips_roundtrip": 0.07797494530677795
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000100510.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000100510",
+  "caption": "an equestrian riding a horse jumping an obstacle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.005029298365116119,
+   "latent_mse_ae": 0.00737762451171875,
+   "lare_t200": 0.3399658203125,
+   "score_norm_step0": 0.2775838077068329,
+   "diffpath_curvature": 0.36407205653743024,
+   "path_length": 0.8264038934902571,
+   "pixel_l1_roundtrip": 0.22095634043216705,
+   "latent_mse_roundtrip": 0.2856907785214998,
+   "lpips_ae": 0.014134475030004978,
+   "lpips_roundtrip": 0.053880199790000916
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000100510.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000100510",
+  "caption": "an equestrian riding a horse jumping an obstacle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.023482123389840126,
+   "latent_mse_ae": 0.014617919921875,
+   "lare_t200": 0.50628662109375,
+   "score_norm_step0": 0.20453651249408722,
+   "diffpath_curvature": 0.3889149316113967,
+   "path_length": 0.574447565755006,
+   "pixel_l1_roundtrip": 0.35213518142700195,
+   "latent_mse_roundtrip": 0.2289549591158362,
+   "lpips_ae": 0.0366208478808403,
+   "lpips_roundtrip": 0.06912566721439362
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000397628.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000397628",
+  "caption": "a stop sign and across the street are some vehicles",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.017139857634902,
+   "latent_mse_ae": 0.012969970703125,
+   "lare_t200": 0.35174560546875,
+   "score_norm_step0": 0.2830795645713806,
+   "diffpath_curvature": 0.3372080669996602,
+   "path_length": 0.6886853861283015,
+   "pixel_l1_roundtrip": 0.16449566185474396,
+   "latent_mse_roundtrip": 0.12541969829361443,
+   "lpips_ae": 0.029078660532832146,
+   "lpips_roundtrip": 0.062167711555957794
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000397628.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000397628",
+  "caption": "a stop sign and across the street are some vehicles",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.0037566237151622772,
+   "latent_mse_ae": 0.00983428955078125,
+   "lare_t200": 0.32025146484375,
+   "score_norm_step0": 0.28076183795928955,
+   "diffpath_curvature": 0.4043455238178054,
+   "path_length": 0.8232622900172698,
+   "pixel_l1_roundtrip": 0.1602545529603958,
+   "latent_mse_roundtrip": 0.17980001541920734,
+   "lpips_ae": 0.020435752347111702,
+   "lpips_roundtrip": 0.04774460196495056
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000397628.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000397628",
+  "caption": "a stop sign and across the street are some vehicles",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02197081781923771,
+   "latent_mse_ae": 0.0150604248046875,
+   "lare_t200": 0.36859130859375,
+   "score_norm_step0": 0.25443384051322937,
+   "diffpath_curvature": 0.33152962590040896,
+   "path_length": 0.5870229086060004,
+   "pixel_l1_roundtrip": 0.1248597726225853,
+   "latent_mse_roundtrip": 0.06028108971448634,
+   "lpips_ae": 0.04211634397506714,
+   "lpips_roundtrip": 0.05864511430263519
+  }
+ },
+ {
+  "path": "data/content_matched/real/coco2014_COCO_val2014_000000328818.png",
+  "label": 0,
+  "generator": "real",
+  "content_id": "coco2014_COCO_val2014_000000328818",
+  "caption": "The woman is tying her shoe on a bench next to a parked bicycle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.029641369357705116,
+   "latent_mse_ae": 0.01153564453125,
+   "lare_t200": 0.48577880859375,
+   "score_norm_step0": 0.18811137974262238,
+   "diffpath_curvature": 0.4224783279389924,
+   "path_length": 0.5707127335233007,
+   "pixel_l1_roundtrip": 0.22948665916919708,
+   "latent_mse_roundtrip": 0.11442020010387068,
+   "lpips_ae": 0.04679863527417183,
+   "lpips_roundtrip": 0.07356119155883789
+  }
+ },
+ {
+  "path": "data/content_matched/amused/coco2014_COCO_val2014_000000328818.png",
+  "label": 1,
+  "generator": "amused",
+  "content_id": "coco2014_COCO_val2014_000000328818",
+  "caption": "The woman is tying her shoe on a bench next to a parked bicycle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.008635739795863628,
+   "latent_mse_ae": 0.039093017578125,
+   "lare_t200": 0.31402587890625,
+   "score_norm_step0": 0.3064197897911072,
+   "diffpath_curvature": 0.3670269047689153,
+   "path_length": 0.727737460080768,
+   "pixel_l1_roundtrip": 0.11471974849700928,
+   "latent_mse_roundtrip": 0.06270157477243471,
+   "lpips_ae": 0.023093074560165405,
+   "lpips_roundtrip": 0.03765800595283508
+  }
+ },
+ {
+  "path": "data/content_matched/sd15/coco2014_COCO_val2014_000000328818.png",
+  "label": 1,
+  "generator": "sd15",
+  "content_id": "coco2014_COCO_val2014_000000328818",
+  "caption": "The woman is tying her shoe on a bench next to a parked bicycle",
+  "protocol_version": "synthimage_v2_stage_panel_1.0",
+  "features": {
+   "pixel_mse_ae": 0.02247346192598343,
+   "latent_mse_ae": 0.0204010009765625,
+   "lare_t200": 0.4298095703125,
+   "score_norm_step0": 0.22154554724693298,
+   "diffpath_curvature": 0.36655018037565235,
+   "path_length": 0.5787136029866442,
+   "pixel_l1_roundtrip": 0.14516890048980713,
+   "latent_mse_roundtrip": 0.08218438879279856,
+   "lpips_ae": 0.038823336362838745,
+   "lpips_roundtrip": 0.061437930911779404
+  }
+ }
+]

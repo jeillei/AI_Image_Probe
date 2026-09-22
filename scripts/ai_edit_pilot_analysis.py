@@ -2,8 +2,9 @@
 0.3/0.6/0.9)?  n=8 content ids -- explicitly exploratory, no AUROC/classifier claim, Spearman
 correlation(feature, strength) within each content id's own 4-point sequence, aggregated across content ids."""
 from __future__ import annotations
-import json
+import json, sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
 from scipy.stats import spearmanr, kendalltau
 from src.features.panel_v2 import CORE_FEATURE_NAMES, STAGE_OF
