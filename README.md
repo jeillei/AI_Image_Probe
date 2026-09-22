@@ -5,15 +5,23 @@ synthetic images differently.  It is deliberately structured around
 generator-held-out, corruption-matched evaluation; clean random splits are not
 reported as principal evidence.
 
-## Audit status (read this first)
+## Audit status (read this first): hypothesis unsupported
 
-A confounding audit (E60–E76, `SCIENTIFIC_AUDIT.md`) found that the headline results below **do not establish that the SD1.5 trajectory
-measures synthetic provenance**: four file-geometry numbers (min-side, aspect, is-square, power-of-two) beat the 652-feature representation under
-the original leave-one-generator-out protocol (0.852 vs 0.766) and under the crossed protocol (0.774 vs 0.681); BLIP caption text alone reaches 0.791;
-the trajectory strongly encodes real-source identity (0.77) and native-resolution history; linear removal of geometry cuts crossed AUROC from 0.68 to
-0.55-0.61.  The only family surviving crude controls is the guidance-gap family (post hoc; caption-conditioning-dependent).  The representation is
-frozen as **SynthImage Representation v1**; any change is v2 and must be evaluated on data untouched by v1 design
-(`PREREGISTRATION_content_matched_v1.md`, `DATASET_AUDIT.md`, `MULTIPROBE_PLAN.md`).  Do not use `detect.py` for provenance decisions.
+A confounding audit (E60–E76) followed by a pre-registered cross-generator decision test (aMUSEd, E81–E87; both in
+`SCIENTIFIC_AUDIT.md`) found that **the central SynthImage hypothesis — that SD1.5 inverse trajectories carry a
+generator-general provenance signal — is not supported by the evidence collected under the project's own rules.**
+The original headline results do not establish provenance: four file-geometry numbers beat the 652-feature
+representation under both the original protocol (0.852 vs 0.766) and the crossed protocol (0.774 vs 0.681); BLIP
+caption text alone reaches 0.791; the trajectory strongly encodes real-source identity (0.77) rather than
+synthetic-vs-real content. A pre-registered content-matched pilot then found a real, fresh-data positive for
+SD1.5-on-SD1.5 (0.800) — but the decisive follow-up test, an architecturally independent generator (aMUSEd) on the
+same matched contents, separates *even more strongly* (0.994) via a **different, non-transferable direction**
+(a classifier trained on real-vs-SD1.5 is inverted on real-vs-aMUSEd, AUROC 0.393), the one replicating mechanistic
+lead (eps-norm) does not replicate on aMUSEd (p=0.155), and the only representation that beats a generic VAE+CIFAR-32
+baseline on aMUSEd is the full 652-column fit on 60 pairs — a result more consistent with overfitting than a located
+mechanism. The representation remains frozen as **SynthImage Representation v1**; any change is v2 and must be
+evaluated on data untouched by v1 design (`PREREGISTRATION_content_matched_v1.md`, `DATASET_AUDIT.md`,
+`MULTIPROBE_PLAN.md`). **Do not use `detect.py` for provenance decisions.**
 
 New tools: `src/analysis/` (evaluation kit, families, metadata), `src/probes/{base,pixel_ddpm,dit}.py` (multi-probe abstraction),
 `src/corruption/canonical.py` (acquisition-normalization pipelines), and the `scripts/*` listed in the "Commands" section of `RESEARCH_REPORT.md`.
