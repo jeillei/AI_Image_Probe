@@ -1,0 +1,108 @@
+{
+ "amused": {
+  "n_pairs": 60,
+  "ALL_v1": {
+   "auroc": 0.9942500000000001,
+   "ci": [
+    0.9883263888888888,
+    1.0
+   ],
+   "decision": "SUPPORTS(ci_lo>0.55)"
+  },
+  "guidance": {
+   "auroc": 0.8951666666666667,
+   "ci": [
+    0.8316458333333333,
+    0.9547222222222221
+   ],
+   "decision": "SUPPORTS(ci_lo>0.55)"
+  },
+  "legacy51": {
+   "auroc": 0.9504722222222224,
+   "ci": [
+    0.9133194444444445,
+    0.983611111111111
+   ]
+  },
+  "H_eps": {
+   "n_fake_lower": 36,
+   "n": 60,
+   "p": 0.1550019040032606,
+   "mean_diff": -0.00907375092307726
+  },
+  "exploratory_family_auroc": {
+   "legacy51": 0.9528703703703704,
+   "reconstruction_roundtrip": 0.7430555555555555,
+   "trajectory_noise": 0.965,
+   "guidance": 0.898148148148148,
+   "latent_endpoint_stats": 0.9458333333333333,
+   "spatial": 0.9472222222222223,
+   "fft": 0.9548148148148149,
+   "crosstime": 0.8999074074074075,
+   "alignment": 0.8699074074074074,
+   "latent_geometry": 0.9302777777777779,
+   "score_moments": 0.9537037037037037
+  }
+ },
+ "sd15": {
+  "n_pairs": 60,
+  "ALL_v1": {
+   "auroc": 0.7995555555555555,
+   "ci": [
+    0.7377638888888889,
+    0.8822222222222221
+   ],
+   "decision": "SUPPORTS(ci_lo>0.55)"
+  },
+  "guidance": {
+   "auroc": 0.6308888888888888,
+   "ci": [
+    0.5499861111111111,
+    0.7294583333333333
+   ],
+   "decision": "INCONCLUSIVE(0.5<ci_lo<=0.55)"
+  },
+  "legacy51": {
+   "auroc": 0.7006388888888889,
+   "ci": [
+    0.6105555555555555,
+    0.7883472222222222
+   ]
+  },
+  "H_eps": {
+   "n_fake_lower": 42,
+   "n": 60,
+   "p": 0.002670436282807066,
+   "mean_diff": -0.014034452868832481
+  },
+  "exploratory_family_auroc": {
+   "legacy51": 0.7041666666666666,
+   "reconstruction_roundtrip": 0.5530555555555556,
+   "trajectory_noise": 0.779074074074074,
+   "guidance": 0.6372222222222222,
+   "latent_endpoint_stats": 0.7000925925925926,
+   "spatial": 0.6182407407407408,
+   "fft": 0.6330555555555556,
+   "crosstime": 0.7857407407407407,
+   "alignment": 0.6128703703703703,
+   "latent_geometry": 0.8253703703703703,
+   "score_moments": 0.6564814814814816
+  }
+ },
+ "H_gen-transfer sd15->amused": {
+  "auroc": 0.39266666666666666,
+  "ci": [
+   0.29305555555555557,
+   0.4958611111111111
+  ],
+  "decision": "DISCONFIRMS(ci includes 0.5)"
+ },
+ "H_gen-transfer amused->sd15": {
+  "auroc": 0.6510555555555555,
+  "ci": [
+   0.5497083333333334,
+   0.746451388888889
+  ],
+  "decision": "INCONCLUSIVE(0.5<ci_lo<=0.55)"
+ }
+}
