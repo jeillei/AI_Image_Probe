@@ -97,7 +97,7 @@ already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, un
 | parameter | value |
 |---|---|
 | model | `stabilityai/stable-diffusion-xl-base-1.0`, dtype fp16 |
-| generation resolution | 1024×1024 (SDXL's native training resolution; downstream canonicalization to 256px is identical for every generator regardless of native output size, per the existing frozen `load()` function) |
+| generation resolution | **512×512** (amended before the bulk of generation — see "Amendment" below; downstream canonicalization to 256px is identical for every generator regardless of native output size, per the existing frozen `load()` function) |
 | steps | 25 (matches this project's existing SD1.5 img2img/generation convention, `scripts/build_content_matched.py`; not tuned for SDXL specifically, decided before generation) |
 | guidance scale | 7.5 (diffusers/SDXL standard default, matches this project's existing SD1.5 generation convention) |
 | scheduler | pipeline default (`EulerDiscreteScheduler`, as shipped), unmodified |
@@ -110,6 +110,20 @@ already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, un
 | classifier | `StandardScaler + LogisticRegression(C=0.1, class_weight="balanced")`, **unchanged** |
 | grouping strategy | content-grouped 5×10 CV, identical code path (`scripts/stage_decomposition_analysis.py`) |
 | bootstrap procedure | content-level resampling with replacement, 1000 draws, identical code path |
+
+### Amendment (made after 4/60 images at 1024×1024, before any further generation, during a live compute-load
+concern raised by the machine's owner mid-run)
+
+At 1024×1024/25 steps, SDXL took ~3 minutes/image on this machine's MPS backend — a ~3-hour unattended run that
+was placing an unacceptable sustained load on the user's own computer. The run was stopped at 4/60 images and
+those 4 were **discarded** (not reused) to keep the dataset at one consistent native resolution. Generation
+resolution is amended to **512×512**, unchanged otherwise (steps=25, guidance=7.5, same seed policy, same
+captions). This is a machine-stewardship change, not a result-driven one — made before any feature was
+extracted from any SDXL image, let alone any of the primary comparison's numbers seen. 512×512 also brings SDXL
+into line with this project's own existing convention for SD1.5/aMUSEd generation (`scripts/
+build_content_matched.py` already generates at 512×512, not 1024), so this amendment arguably makes the
+three-generator comparison *more* consistent, not less. Generation is additionally run in small paced batches
+(not one continuous unattended block) so load can be monitored between batches.
 
 ## Dataset
 

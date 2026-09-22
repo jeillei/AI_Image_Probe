@@ -10,7 +10,7 @@ from diffusers import StableDiffusionXLPipeline
 
 STEPS = 25
 GUIDANCE = 7.5
-SIZE = 1024
+SIZE = 512  # amended from 1024 for machine-load reasons before further generation; see PREREGISTRATION_pixart_v1.md "Amendment"
 MODEL_ID = "stabilityai/stable-diffusion-xl-base-1.0"
 
 
