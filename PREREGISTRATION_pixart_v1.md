@@ -97,7 +97,7 @@ already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, un
 | parameter | value |
 |---|---|
 | model | `stabilityai/stable-diffusion-xl-base-1.0`, dtype fp16 |
-| generation resolution | **512×512** (amended before the bulk of generation — see "Amendment" below; downstream canonicalization to 256px is identical for every generator regardless of native output size, per the existing frozen `load()` function) |
+| generation resolution | **768×768** (amended twice before the bulk of generation — see "Amendment 1/2" below; downstream canonicalization to 256px is identical for every generator regardless of native output size, per the existing frozen `load()` function) |
 | steps | 25 (matches this project's existing SD1.5 img2img/generation convention, `scripts/build_content_matched.py`; not tuned for SDXL specifically, decided before generation) |
 | guidance scale | 7.5 (diffusers/SDXL standard default, matches this project's existing SD1.5 generation convention) |
 | scheduler | pipeline default (`EulerDiscreteScheduler`, as shipped), unmodified |
@@ -111,19 +111,32 @@ already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, un
 | grouping strategy | content-grouped 5×10 CV, identical code path (`scripts/stage_decomposition_analysis.py`) |
 | bootstrap procedure | content-level resampling with replacement, 1000 draws, identical code path |
 
-### Amendment (made after 4/60 images at 1024×1024, before any further generation, during a live compute-load
+### Amendment 1 (made after 4/60 images at 1024×1024, before any further generation, during a live compute-load
 concern raised by the machine's owner mid-run)
 
 At 1024×1024/25 steps, SDXL took ~3 minutes/image on this machine's MPS backend — a ~3-hour unattended run that
 was placing an unacceptable sustained load on the user's own computer. The run was stopped at 4/60 images and
 those 4 were **discarded** (not reused) to keep the dataset at one consistent native resolution. Generation
-resolution is amended to **512×512**, unchanged otherwise (steps=25, guidance=7.5, same seed policy, same
-captions). This is a machine-stewardship change, not a result-driven one — made before any feature was
-extracted from any SDXL image, let alone any of the primary comparison's numbers seen. 512×512 also brings SDXL
-into line with this project's own existing convention for SD1.5/aMUSEd generation (`scripts/
-build_content_matched.py` already generates at 512×512, not 1024), so this amendment arguably makes the
-three-generator comparison *more* consistent, not less. Generation is additionally run in small paced batches
-(not one continuous unattended block) so load can be monitored between batches.
+resolution was first amended to 512×512 (unchanged otherwise: steps=25, guidance=7.5, same seed policy, same
+captions) — superseded immediately by Amendment 2 below, before any 512px image entered the dataset either.
+
+### Amendment 2 (made after validating 512×512, still before any image entered the frozen dataset)
+
+512×512 generated in ~31s/image (vs. ~170s/image at 1024) but produced a **known SDXL failure mode**: for one of
+the two validation content ids, the output was a severely tiled/repeated grid of small duplicated subjects, not
+a coherent single image — SDXL is trained at 1024px and is well documented to degrade this way well below its
+native resolution. This is an image-validity defect, not a quality preference, and generating the full 56-image
+batch with it would have produced a dataset partly dominated by a generic resolution artifact rather than
+SDXL's actual generative signature — confounding, not merely suboptimal. A documented mitigation (explicit
+`original_size=(1024,1024), target_size=(512,512)` micro-conditioning at height=width=512) was tried and did
+**not** fix it (still severely tiled on the same validation image). **Generation resolution is therefore amended
+a second time, to 768×768** (steps=25, guidance=7.5, seed policy, captions all unchanged), which resolved the
+artifact cleanly on the same validation image (~71s/image, still a ~2.4× speedup over the original 1024px plan).
+768×768 is the frozen resolution for the full run. Neither amendment was made in response to, or informed by,
+any downstream classification result — both were made before any SDXL image was fed through the feature
+extractor, and both concern basic image validity (does the pipeline produce a coherent photograph of the
+prompted content at all), not detector performance. Generation is run in small paced batches (not one
+continuous unattended block) so load can be monitored between batches, per the machine owner's request.
 
 ## Dataset
 

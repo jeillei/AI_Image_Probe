@@ -10,7 +10,9 @@ from diffusers import StableDiffusionXLPipeline
 
 STEPS = 25
 GUIDANCE = 7.5
-SIZE = 512  # amended from 1024 for machine-load reasons before further generation; see PREREGISTRATION_pixart_v1.md "Amendment"
+SIZE = 768  # amended 1024->512->768: 512 fixed machine-load but caused a known SDXL tiling artifact below its
+            # native resolution (validated, not fixed by micro-conditioning); 768 avoids the artifact and is
+            # still a ~2.4x speedup over 1024. See PREREGISTRATION_pixart_v1.md "Amendment 1/2".
 MODEL_ID = "stabilityai/stable-diffusion-xl-base-1.0"
 
 
