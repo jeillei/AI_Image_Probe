@@ -1,0 +1,10 @@
+{
+ "generator": "sdxl",
+ "comparison": "PRIMARY: vae+score+trajectory vs vae+score",
+ "auroc_vae_score": 0.8547222222222223,
+ "auroc_vae_score_trajectory": 0.9088888888888889,
+ "paired_diff_mean": 0.05259916666666666,
+ "diff_ci_lo": 0.015826388888888814,
+ "diff_ci_hi": 0.09166666666666667,
+ "adds_information": true
+}
