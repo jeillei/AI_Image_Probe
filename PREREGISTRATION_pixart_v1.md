@@ -25,7 +25,34 @@ Written and committed **before** any third-generator image was generated, per th
    (`curl` returns HTTP 401; the HF API reports `"gated": "auto"`), requiring an authenticated, license-accepted
    HF token this environment does not have and cannot obtain non-interactively.
 
-**Closest scientifically useful alternative, chosen instead: Stable Cascade (lite/bf16 variant).**
+**Second blocker found during implementation (Stable Cascade, documented before any generation succeeded).**
+Stable Cascade (lite/bf16, below) downloaded successfully (~10 GB across both repos) but **failed to load**:
+`StableCascadeDecoderPipeline.from_pretrained("stabilityai/stable-cascade", ...)` raises
+`ValueError: vqgan/wuerstchen.py as defined in model_index.json does not exist in stabilityai/stable-cascade and
+is not a module in 'diffusers/pipelines'` — a reproducible incompatibility between this environment's pinned
+`diffusers==0.39.0` and the current hub repo's `model_index.json` (which references a custom VQGAN pipeline
+module diffusers 0.39.0 does not ship), not fixed by `trust_remote_code=True`. Upgrading the project's core
+`diffusers` dependency mid-project was rejected as a fix: it risks destabilizing every other frozen script in
+this repository (the SD1.5 probe, the aMUSEd/SD1.5 generation scripts, the entire v1/v2 feature-extraction
+pipeline), which is a materially worse risk than picking a different third generator. The partial download was
+removed to reclaim disk space (`rm -rf ~/.cache/huggingface/hub/models--stabilityai--stable-cascade*`).
+
+**Final substitute, actually used: SDXL (`stabilityai/stable-diffusion-xl-base-1.0`).** Not gated, ~7 GB fp16
+(UNet + 2 CLIP text encoders + VAE), uses only diffusers' standard, extremely mature `StableDiffusionXLPipeline`
+class with no custom components — verified to load cleanly with the installed `diffusers==0.39.0` before any
+generation was attempted. **This is explicitly the weaker of the two rejected-then-blocked alternatives from
+the task's own reasoning** (same broad UNet + CLIP-conditioning family as SD1.5, not a Diffusion Transformer or
+a structurally distinct cascade) — chosen only because the two better-motivated candidates (PixArt-Sigma: disk;
+SD3-medium: gating; Stable Cascade: library/repo incompatibility) were each concretely, independently blocked
+in this exact environment. SDXL still differs from SD1.5 in real ways worth naming honestly, not overselling:
+~2.6B-parameter UNet (vs SD1.5's 860M) with a different channel/attention configuration, two text encoders
+(CLIP-L + OpenCLIP-bigG, vs SD1.5's single CLIP-L), a separately-trained, refined VAE, native 1024px training
+with size/crop micro-conditioning SD1.5 never had, and a later, different training run/dataset. It is a
+same-family, larger/refined-generation test, not an architecture-family test — this materially weakens Scenario
+A/B's interpretation (see below) and is stated plainly in the results, not glossed over.
+
+For the historical record, the Stable Cascade candidate that was implemented, downloaded, and only then found
+to fail to load (see above) was chosen for the following reasons, which no longer apply since it was not used:
 
 * `stabilityai/stable-cascade-prior` (Stage C prior, `prior_lite` subfolder) +
   `stabilityai/stable-cascade` (Stage B decoder, `decoder_lite` subfolder, + VQGAN Stage A) — **not gated**,
@@ -51,14 +78,14 @@ Written and committed **before** any third-generator image was generated, per th
   formula, exactly as PixArt-Sigma would not have.
 
 **Naming discipline.** To avoid ever implying this is PixArt-Sigma, all data/manifests/feature records use the
-generator label `cascade` (never `pixart`). The two deliverable filenames requested by this phase's task
-(`PREREGISTRATION_pixart_v1.md`, `PIXART_STAGE_DECOMPOSITION.md`) are kept as named, since renaming deliverables
-was not requested — but their content states the substitution prominently, as here.
+generator label `sdxl` (never `pixart`, never `cascade`). The two deliverable filenames requested by this
+phase's task (`PREREGISTRATION_pixart_v1.md`, `PIXART_STAGE_DECOMPOSITION.md`) are kept as named, since renaming
+deliverables was not requested — but their content states the substitution prominently, as here.
 
 ## Primary hypothesis (unchanged from the task's original framing, generator substituted)
 
 > Adding the frozen trajectory stage (`diffpath_curvature`, `path_length`) to the frozen VAE + score stage
-> improves real-vs-Cascade discrimination on held-out content.
+> improves real-vs-SDXL discrimination on held-out content.
 
 **Primary comparison:** `AUROC(VAE+score+trajectory) − AUROC(VAE+score)`, content-grouped, same procedure
 already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, unmodified).
@@ -69,15 +96,12 @@ already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, un
 
 | parameter | value |
 |---|---|
-| prior model | `stabilityai/stable-cascade-prior`, subfolder `prior_lite`, dtype bf16 |
-| decoder model | `stabilityai/stable-cascade`, subfolder `decoder_lite`, dtype bf16 |
-| generation resolution | 512×512 (Stable Cascade's `resolution_multiple`-driven latent sizing at this height/width; downstream canonicalization to 256px is identical for every generator regardless of native output size, per the existing frozen `load()` function) |
-| prior steps | 20 (diffusers' own documented example value; not the library default of 60, chosen for feasible runtime on this machine — decided now, not tuned after seeing outputs) |
-| prior guidance scale | 4.0 (diffusers default) |
-| decoder steps | 10 (diffusers default) |
-| decoder guidance scale | 0.0 (diffusers default — Stable Cascade's decoder is not CFG-guided by design) |
-| scheduler | `DDPMWuerstchenScheduler`, as shipped with each pipeline, unmodified |
-| seed policy | `seed = int(sha256(f"cascade:{content_id}")[:8], 16)`, one `torch.Generator("cpu")` per image — identical convention to `scripts/build_content_matched.py`'s SD1.5/aMUSEd generation |
+| model | `stabilityai/stable-diffusion-xl-base-1.0`, dtype fp16 |
+| generation resolution | 1024×1024 (SDXL's native training resolution; downstream canonicalization to 256px is identical for every generator regardless of native output size, per the existing frozen `load()` function) |
+| steps | 25 (matches this project's existing SD1.5 img2img/generation convention, `scripts/build_content_matched.py`; not tuned for SDXL specifically, decided before generation) |
+| guidance scale | 7.5 (diffusers/SDXL standard default, matches this project's existing SD1.5 generation convention) |
+| scheduler | pipeline default (`EulerDiscreteScheduler`, as shipped), unmodified |
+| seed policy | `seed = int(sha256(f"sdxl:{content_id}")[:8], 16)`, one `torch.Generator("cpu")` per image — identical convention to `scripts/build_content_matched.py`'s SD1.5/aMUSEd generation |
 | captions | the human COCO caption already in `data/content_matched/manifest.csv` for that `content_id` (the same column used for real/SD1.5/aMUSEd) — **not** a BLIP caption |
 | negative prompt | `""` (empty), matching the SD1.5/aMUSEd generation convention already in this project |
 | image format | PNG, RGB |
@@ -89,7 +113,7 @@ already used for SD1.5 and aMUSEd (`scripts/stage_decomposition_analysis.py`, un
 
 ## Dataset
 
-The same 60 COCO content identities already used for real/SD1.5/aMUSEd. One Cascade image per content id, same
+The same 60 COCO content identities already used for real/SD1.5/aMUSEd. One SDXL image per content id, same
 caption. No hand-selection, no re-generation on appearance, no prompt engineering.
 
 ## Decision scenarios (fixed in advance)
@@ -104,7 +128,7 @@ caption. No hand-selection, no re-generation on appearance, no prompt engineerin
 
 ## What will NOT be done
 
-No new features, no curvature redefinition, no timestep search, no feature selection on Cascade data, no
-classifier hyperparameter tuning for Cascade, no concatenation with the old 652-feature representation, no
+No new features, no curvature redefinition, no timestep search, no feature selection on SDXL data, no
+classifier hyperparameter tuning for SDXL, no concatenation with the old 652-feature representation, no
 learned detector, no dataset expansion after seeing the first result, no full transformation benchmark, no
 fourth generator, no reinterpretation from standalone AUROC alone.
