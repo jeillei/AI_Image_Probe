@@ -25,3 +25,4 @@ results/content_matched/*.json
 results/content_matched/logs/
 results/*.log
 data/raw_trajectory_cache/
+data/stage_panel_cache/
