@@ -1,0 +1,44 @@
+[
+ {
+  "normalization": "raw",
+  "top5_principal_angles_deg": [
+   46.3,
+   47.2,
+   52.4,
+   73.9,
+   89.4
+  ],
+  "mean_top5_angle": 61.84344272395335,
+  "projection_energy_AM_on_SD_top5": 0.07474595910857709,
+  "projection_energy_SD_on_AM_top5": 0.07243761649465387,
+  "mean_vector_cosine": 0.5915457124301552
+ },
+ {
+  "normalization": "sample_normalized",
+  "top5_principal_angles_deg": [
+   73.5,
+   75.2,
+   82.1,
+   82.5,
+   89.0
+  ],
+  "mean_top5_angle": 80.46867703982358,
+  "projection_energy_AM_on_SD_top5": 0.02510981636166725,
+  "projection_energy_SD_on_AM_top5": 0.023935705623405235,
+  "mean_vector_cosine": 0.5037247286877324
+ },
+ {
+  "normalization": "relative",
+  "top5_principal_angles_deg": [
+   70.7,
+   75.1,
+   82.8,
+   85.7,
+   89.0
+  ],
+  "mean_top5_angle": 80.64439829124247,
+  "projection_energy_AM_on_SD_top5": 0.01146986865782272,
+  "projection_energy_SD_on_AM_top5": 0.014224727833262299,
+  "mean_vector_cosine": 0.49975299495279896
+ }
+]
