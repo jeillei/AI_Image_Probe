@@ -1,6 +1,6 @@
 # SynthImage — Living Project State
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23 — v2 literature-anchored stage panel executed (§8, §15); see STAGE_DECOMPOSITION_RESULTS.md_
 
 This file is the lightweight scientific handoff for SynthImage.  
 Keep it concise and update it whenever the project materially changes.
@@ -169,13 +169,25 @@ A better interpretation is:
 - Different generator families can produce very different forensic effects.
 - The original 652-feature SynthImage representation does not expose one stable universal provenance direction.
 - Raw trajectory tensors do not currently show a clear shared generator-independent covariance structure beyond a broad mean shift.
+- **(v2, §8a) Whether the diffusion trajectory adds genuinely new forensic information beyond the VAE is now
+  answered, and the answer is generator-dependent**: yes for SD1.5 (a literature-anchored trajectory-curvature
+  feature, DiffPath, adds a robust +0.125 AUROC over VAE+score, content-bootstrap CI [0.056, 0.204]); no for
+  aMUSEd (VAE alone is already AUROC 0.98, and no later stage's confidence interval clears zero against it).
+- **(v2, §8a) A small pilot suggests this split is not a fragile artifact of clean data**: under JPEG/blur/
+  resize/crop, aMUSEd's VAE-only signal stays at 0.97–1.00 and SD1.5's trajectory-dependent gain persists
+  qualitatively (full panel 0.70–0.78 across all 4 transforms vs. 0.77 clean, still well above VAE-alone).
 
 ### Not adequately established
 
-- Whether the diffusion trajectory adds genuinely new forensic information beyond the VAE / image representation.
-- Which published forensic mechanisms remain robust after realistic compression, resizing, blur, editing, and re-encoding.
-- Whether any forensic signal tracks the degree of partial AI editing rather than only binary real-vs-generated status.
-- Exactly which stage of the generative pipeline introduces each detectable bias.
+- Which published forensic mechanisms remain robust after realistic compression, resizing, blur, editing, and
+  re-encoding **at scale** (§8a's pilot is n=10/generator/condition — a first read, not a settled answer).
+- Whether any forensic signal tracks the degree of partial AI editing rather than only binary real-vs-generated
+  status **on a genuine held-out sample** (§8a's img2img-strength pilot, n=8, is convergent-validity evidence
+  for 6/10 panel features, not a validated continuous "AI degree" measurement, and used a global rather than
+  localized edit for feasibility reasons).
+- Whether the SD1.5-trajectory / aMUSEd-VAE split reflects something about generator architecture (SD1.5 and
+  the probe are both diffusion UNets; aMUSEd is a masked-token/VQGAN model) or is specific to these two
+  generators — untested on a third, architecturally distinct generator.
 
 ---
 
@@ -319,16 +331,26 @@ This is a more credible and better-scoped ML research project than the original 
 
 ---
 
-## 15. Immediate next step
+## 15. Immediate next step — UPDATE: steps 1–5 executed
 
-Before running a large benchmark:
+Steps 1–5 below were completed in one pass (`LITERATURE_FEATURE_PANEL.md`, `STAGE_DECOMPOSITION_RESULTS.md`,
+`RESEARCH_REPORT.md` E98–E106). Headline result: **trajectory (DiffPath curvature) adds robust information
+beyond VAE+score for SD1.5 (+0.125 AUROC, CI [0.056,0.204]); nothing adds anything beyond VAE for aMUSEd, which
+is already AUROC 0.98 at the VAE stage alone.** This is a genuine "different stages dominate for different
+generators" result (not a repeat of the earlier "everything is confounded" pattern) — see `STAGE_DECOMPOSITION_
+RESULTS.md` §Phase 4 for the full incremental-information table before treating this as settled.
 
-1. Freeze a small literature-derived feature panel.
-2. Implement each stage cleanly and verify it on the existing 60 matched triplets.
-3. Measure incremental information across stages.
-4. Run a small robustness pilot rather than the old 1,800-row feature-zoo screen.
-5. Include at least one controlled AI-edit condition if feasible.
-6. Only scale once the pilot identifies which stages/features are scientifically worth retaining.
+1. ~~Freeze a small literature-derived feature panel.~~ Done — 10 features, `LITERATURE_FEATURE_PANEL.md`.
+2. ~~Implement each stage cleanly and verify it on the existing 60 matched triplets.~~ Done.
+3. ~~Measure incremental information across stages.~~ Done — see result above.
+4. ~~Run a small robustness pilot~~ Done (10 content ids × 3 generators × 5 conditions) — the split above survives
+   JPEG/blur/resize/crop qualitatively at this small n.
+5. ~~Include at least one controlled AI-edit condition if feasible.~~ Done via an img2img-strength continuum
+   (localized/masked inpainting was judged infeasible without a new, unvalidated model download — documented,
+   not silently skipped); exploratory, n=8, convergent-validity evidence only.
+6. **Not yet done, and now the natural next step**: test the SD1.5-trajectory / aMUSEd-VAE split against a
+   third, architecturally distinct generator before treating it as a general two-way pattern rather than a
+   property of these two specific generators.
 
 ---
 
