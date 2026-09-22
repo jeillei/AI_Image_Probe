@@ -114,3 +114,69 @@ no shared VAE/denoiser/objective with SD1.5) on the same 60 matched contents/cap
 **Most important next experiment (exactly one):** none of the remaining exploratory items (JPEG-75/band-128 on the matched set, church-256 probe, a third generator, the robustness screen) should be run as a way to rescue this hypothesis. If this line of work continues, the next experiment should test the **specific overfitting question** left open by E86: does the full-representation increment on aMUSEd replicate on an independent aMUSEd-content split with feature selection frozen *before* seeing that split (e.g., a fresh 60-pair aMUSEd draw from different COCO contents, evaluating only the columns/families already named here)? If it does not replicate, the incremental-information result was overfitting and the hypothesis has no surviving positive evidence anywhere in the project.
 
 Incomplete at hand-off (deliberately not run, per this phase's stability/priority instructions — not needed for the decision made above): JPEG-75 and band-128 on the matched set, church-256 probe extension, a third generator, the HPC robustness screen. Commands are at the end of `RESEARCH_REPORT.md`. One orphaned system-Python process (PID 20657, ppid 1, pre-dates this work) has continued using a CPU core throughout; it is not from this repository and was left alone.
+
+## 9. Update: raw inverse-trajectory subspace analysis (`RAW_TRAJECTORY_ANALYSIS.md`, E89–E97)
+
+*This section re-derives the hypothesis status from a methodological reset, testing the broad hypothesis directly
+on the raw tensors the SD1.5 probe computes (latent states, conditional/unconditional score, derived guidance and
+latent-displacement tensors) via SVD/principal-angle/projection-energy analysis with explicit permutation nulls —
+not on the 652-column handcrafted representation §7–8 above concern. It does not automatically reuse §7's
+"unsupported" verdict; it is derived fresh from this phase's own evidence.*
+
+**What was tested.** Whether SD1.5 and aMUSEd, applied to the same 60 matched real photographs, induce shared
+low-dimensional structure in the raw inverse-trajectory difference (fake − real), using content-grouped
+permutation nulls (pair-breaking: does alignment require correct content pairing; content-shuffle: does a
+paired per-content statistic require correct pairing; random-subspace: is any alignment above pure chance given
+n=60 ≪ p≈25,000) and four generic low-level baselines (raw RGB, the VAE latent alone, image FFT magnitude,
+the already-frozen CIFAR-32 probe).
+
+**Result.** A real, large, statistically solid shared effect exists (paired per-content cosine 0.47–0.57, 100%
+positive, p<0.0005 against a content-shuffle null) — but it is overwhelmingly a near-constant, content-independent
+*mean-direction* effect ("any synthetic image differs from any real image in a broadly similar overall way"),
+which standard mean-centering (the first step of ordinary PCA) removes. Once centered, **no cross-generator
+subspace alignment survives the pair-breaking null in any of the five raw tensor types** (p=0.28–0.89, all
+non-significant). **Critically, the one positive effect is not trajectory-specific**: the bare VAE latent
+alone (a single encoding step, zero diffusion trajectory) reproduces it almost exactly (paired cosine 0.48,
+100% positive, mean-vector cosine 0.24), and raw RGB pixels / image FFT magnitude show an arguably *more*
+specific (content-driven, not just population-offset) version of the same phenomenon. Every representation
+tested — trajectory included — fails the content-specific subspace-sharing test identically.
+
+**Mapping to the pre-specified decision tree (Phase 11):**
+* Not Outcome A (shared raw subspace exists, beyond nulls *and* beyond baselines) — ruled out on both counts.
+* **Outcome B (weak shared structure, but no trajectory-specific advantage) for the one positive effect found**
+  — it is fully reproduced by a single VAE-encoding step.
+* **Outcome C (generator-specific raw subspaces) for everything beyond the mean effect** — the centered,
+  content-specific structure is indistinguishable from randomly-mispaired chance in every tensor type and every
+  baseline; this is not "the trajectory hypothesis is untestable," it is a clean, well-powered negative.
+* Not Outcome D — the linear analysis was not inconclusive; it gave a clear (negative) answer with large
+  permutation counts and cross-checked baselines, so escalating to nonlinear representation learning is **not
+  justified by the evidence** (per the task's own rule: do not escalate from an already-negative linear result).
+
+**Status of the broad hypothesis (raw-trajectory level): weakened.** Not reused from §7 — re-derived here and
+lands in the same direction because the additional, more fundamental test (raw tensors, not a hand-designed
+summary) gives an even more general negative: it is not merely that one 652-column representation fails to
+transfer (§7), but that the raw tensors themselves show no generator-shared structure beyond what a single VAE
+encoding step (no trajectory at all) already produces. This is a stronger, not weaker, form of the same
+conclusion. It is not "unresolved" (the nulls were decisive, not ambiguous) and not "not adequately testable"
+(the test ran cleanly to a clear answer on the available 60-triplet data).
+
+**Third generator:** not run and not currently justified. No representation in this phase was fit jointly on
+both SD1.5 and aMUSEd for any transfer/classification objective (every basis was fit on one generator and
+evaluated, frozen, on the other, or built independently per generator for the subspace comparison), so Phase
+10's "joint-fitting requires a third generator" rule is not triggered. Per Phase 11, a third generator is the
+prescribed next step only under Outcome A; this phase landed in B/C, so the more informative next step is the
+one below, not simply adding a third generator to the same (already-negative) linear test.
+
+**Nonlinear representation learning: not justified.** The linear/subspace analysis is not inconclusive, it is
+negative, and the task's own rule is explicit that an already-negative linear result is not grounds to escalate
+to a neural representation learner, especially on 60 triplets.
+
+**Single most informative next experiment.** Isolate whether the one positive finding (the shared mean-direction
+effect, reproduced by the bare VAE latent) is about *being AI-synthesized* at all, or merely about *having passed
+through a lossy encode/decode or resynthesis pipeline*. Take the same 60 real photographs, pass them through the
+SD1.5 VAE encode→decode round trip with **no diffusion step and no generative model involved**, and repeat the
+paired-cosine / mean-vector-cosine test (real vs VAE-roundtrip-real) against the existing SD1.5 and aMUSEd
+directions. If the VAE-roundtrip-only direction aligns with the SD1.5/aMUSEd mean direction as strongly as they
+align with each other, the one surviving positive result in this entire project is a generic lossy-recoding
+artifact, not a provenance signal of any kind — closing the loop this phase opened, with no new dataset, no new
+generator, and under an hour of compute.
