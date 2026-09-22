@@ -613,3 +613,30 @@ Combined with the incremental-information result, the more precise statement is:
 full trajectory captures a bit more separating information than a VAE+CIFAR baseline for aMUSEd specifically, but nothing in this experiment shows that
 extra information is (a) attributable to an interpretable trajectory family, (b) the same mechanism that separates SD1.5-on-SD1.5, or (c) not an
 artifact of fitting 652 correlated columns to 60 pairs.
+
+## Feature-level audit of the matched-content results (E88)
+
+*Scope: which of the 652 v1 columns drive the real-vs-SD1.5 and real-vs-aMUSEd matched-pair results (E75, E83).
+No new features, no new model family — the same StandardScaler+LogisticRegression(C=0.1) pipeline, plus closed-form
+univariate statistics and a 500-resample bootstrap. Full deliverable: `FEATURE_AUDIT.md`; code:
+`scripts/feature_audit_matched.py`, `scripts/incremental_information_test_spatialfft.py`; tables:
+`results/feature_audit/`.*
+
+| exp | question | result | interpretation |
+|---|---|---|---|
+| E88a per-task coefficients | which features carry each task | SD1.5 top-30 dominated by `rich_guidance_moments` (11) + `rich_latent_geometry` (7); mean univariate AUROC 0.564, mean \|paired d\| 0.19, mean bootstrap sign-stability 0.96. aMUSEd top-30 dominated by `rich_score_fft` (13) + `rich_score_spatial` (7); mean univariate AUROC **0.824**, mean \|paired d\| **1.07**, sign-stability **1.00** | SD1.5's signal is weak and diffuse; aMUSEd's is strong, individually decisive, and essentially perfectly bootstrap-stable |
+| E88b cross-task comparison | do the two coefficient vectors agree | Pearson r = 0.117 (shuffle-null mean 0.00, sd 0.038 — ~3 SD above null, p=0.003); sign agreement 55.5% (null 48.5%); **top-10 overlap 0/10, top-25 overlap 0/25**; of 19 features independently "strong" (top-100) in both, 8/19 (42%) reverse sign | a small, statistically real, but practically tiny shared component; the features that actually decide each task are almost entirely disjoint |
+| E88c clean-residual comparison | does agreement improve once source-identity-confounded families (E60) are excluded | restricted to guidance+round-trip (94 cols, the only families with near-chance E60 real-source AUROC): r rises to **0.49**, top-25 overlap **44%** | the most cross-generator-consistent part of the representation — but E86 already showed this exact subset adds zero information beyond VAE+CIFAR-32 on aMUSEd |
+| E88d top-k truncation (held-out, content-grouped CV) | is the aMUSEd 0.994 distributed or concentrated | SD1.5: k=1 -> 0.513, peaks 0.92 at k=75-150, **degrades to 0.800 at k=652**. aMUSEd: k=1 -> **0.857**, k=2 -> **0.978**, flat at ~1.00 from k=50 to k=652 | aMUSEd is carried by 1-2 features and is stable under dimensionality; SD1.5 is diffuse and is diluted by noise columns as more are added |
+| E88e targeted incremental-information follow-up to E86 | does the specific family located in E88a/d (`rich_score_spatial`+`rich_score_fft`, 66 cols, pre-specified by this audit) explain E86's "+full trajectory only" result | vs VAE+CIFAR-32 baseline: **aMUSEd +0.064 [0.016, 0.120] (adds info)**; SD1.5 -0.037 [-0.076,-0.004] (hurts) — nearly matches E86's full-652-column aMUSEd increment (+0.081) using <11% of the columns | resolves E86's open overfitting question: the incremental gain is not diffuse high-dimensional noise-fitting, it is concentrated in a specific, identifiable family |
+
+**Reading.** The aMUSEd result is real, reproducible and concentrated — not an overfitting artifact — but the
+concentrating families (score-map spatial autocorrelation and 2-D frequency spectrum) are exactly the kind of
+generic texture/decoder cue a VQGAN-based generator would be expected to leave, consistent with E84/E85/E87's
+independent finding that a bare VAE encode/decode error (0.87) and a DiT probe sharing SD1.5's VAE family (0.94)
+also separate aMUSEd strongly while a colour-only baseline does not (0.675). SD1.5's own separation runs on a
+different, weaker, diffuse mechanism (guidance-family response) that this audit shows is genuinely disjoint from
+aMUSEd's — 0% top-10/25 feature overlap, 42% sign reversal among jointly-strong features. **This audit does not
+change the hypothesis status set in `SCIENTIFIC_AUDIT.md` §7 ("unsupported"); it replaces an open overfitting
+question with a located, mechanistic, non-provenance explanation, which if anything sharpens that conclusion.**
+See `FEATURE_AUDIT.md` for full detail.
