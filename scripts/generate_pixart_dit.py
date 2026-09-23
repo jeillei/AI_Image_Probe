@@ -34,14 +34,11 @@ def main():
         return
     tok = T5Tokenizer.from_pretrained(T5_TOKENIZER_ID)
     enc = T5EncoderModel.from_pretrained(T5_GGUF_REPO, gguf_file=T5_GGUF_FILE, torch_dtype=torch.float16)
-    pipe = PixArtSigmaPipeline.from_pretrained(TRANSFORMER_ID, text_encoder=enc, tokenizer=tok, torch_dtype=torch.float16)
-    # Memory-saving fix (added after observing severe swap thrashing on this machine while other unrelated
-    # processes were also using memory): move components between CPU/accelerator per-call instead of keeping
-    # everything resident on MPS at once. This is a standard, diffusers-documented low-memory technique for
-    # PixArt-Sigma; it does not change steps/guidance/resolution/seed/captions/scheduler -- generation-quality
-    # parameters are unaffected. Acceptable per PREREGISTRATION_DIT_GENERATOR_V1.md ("OOM" is a listed valid
-    # reason to amend execution, as distinct from amending scientific settings).
-    pipe.enable_model_cpu_offload(device=dev)
+    pipe = PixArtSigmaPipeline.from_pretrained(TRANSFORMER_ID, text_encoder=enc, tokenizer=tok, torch_dtype=torch.float16).to(dev)
+    # NOTE: enable_model_cpu_offload() was tried and reverted -- it assumes a discrete GPU with separate VRAM
+    # to offload *from*; on Apple Silicon's unified memory, "CPU" and "MPS" share the same physical pool, so
+    # offloading adds shuffling overhead without freeing anything, and measurably made swap usage worse (19GB
+    # used, up from 5GB baseline) rather than better. See PREREGISTRATION_DIT_GENERATOR_V1.md's amendment log.
     for r in pending:
         seed = int(hashlib.sha256(f"pixart_dit:{r.content_id}".encode()).hexdigest()[:8], 16)
         gen = torch.Generator("cpu").manual_seed(seed)

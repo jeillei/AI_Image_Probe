@@ -110,6 +110,15 @@ steps, guidance scale, resolution, scheduler, seed policy, or captions**, so it 
 test; "OOM" is explicitly listed in this document's own decision rules as a valid, non-outcome-driven reason to
 amend execution.
 
+**This fix was tried and reverted.** `enable_model_cpu_offload()` assumes a discrete GPU with its own VRAM
+separate from host RAM (the standard CUDA memory model it was designed for) — on this machine's Apple Silicon
+unified memory architecture, "CPU" and "MPS" share the same physical pool, so there is nothing to offload *to*
+that isn't already competing for the same memory. Validating it on one image made swap usage measurably worse
+(19GB used, vs. a ~5GB baseline with the fix removed), not better. Reverted to the original `.to(device)`
+placement (the configuration that successfully produced the first 15/60 images before the swap incident).
+Generation resumed in smaller paced batches with memory checks between batches, coexisting with the user's own
+separate, unrelated workload on the same machine, rather than via a change to the pipeline's memory management.
+
 ## Dataset
 
 The same 60 COCO content identities already used for real/SD1.5/aMUSEd/SDXL. One PixArt-Sigma image per content
