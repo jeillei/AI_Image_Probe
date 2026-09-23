@@ -92,7 +92,23 @@ discipline used for the SDXL run), not one continuous unattended block.
 5. Deterministic seeding, output filename/manifest linkage, and resumability follow the exact same pattern as
    `scripts/generate_sdxl.py`, already validated in the prior phase.
 
-**No amendment was required this time** — the frozen configuration above is exactly what was validated.
+**No amendment to generation-quality parameters was required this time** — the frozen configuration above is
+exactly what was validated.
+
+### Amendment (execution only, made after 15/60 images, during full-dataset generation)
+
+At 15/60 images, the machine's swap usage reached ~10GB/11GB (near-exhausted) and generation slowed
+catastrophically (one image's first denoising step took 917s vs. the validated ~8s/step) — the classic signature
+of swap thrashing, not a hang. Investigation found this was **not solely caused by this generation job**: a
+separate, unrelated 6+ hour Jupyter session for a different project (`Aptamer-Motifs`) was independently
+consuming significant memory on the same machine. Generation was stopped (safely — the script only writes a
+completed PNG after each image finishes, so no partial/corrupt output was produced) and `pipe.
+enable_model_cpu_offload(device=dev)` was added before resuming. This is a **standard, diffusers-documented
+low-memory execution technique** (moves pipeline components between CPU and the accelerator per-call rather than
+keeping all of them resident on MPS simultaneously) — it changes memory management only. **It does not alter
+steps, guidance scale, resolution, scheduler, seed policy, or captions**, so it does not affect the science under
+test; "OOM" is explicitly listed in this document's own decision rules as a valid, non-outcome-driven reason to
+amend execution.
 
 ## Dataset
 
