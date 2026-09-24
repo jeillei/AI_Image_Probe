@@ -1,0 +1,17 @@
+generator,model,feature,mean_std_coef,sd_std_coef,frac_same_sign
+sd15,VAE+curvature+path_length,curvature,-0.4685869494744403,0.056968453177926426,1.0
+sd15,VAE+curvature+path_length,path_length,-0.49358991181391,0.046203893890134996,1.0
+sd15,VAE+score+curvature+path_length,curvature,-0.3984369088720753,0.05000525063785149,1.0
+sd15,VAE+score+curvature+path_length,path_length,-0.5255698747127281,0.044890033286522614,1.0
+sdxl,VAE+curvature+path_length,curvature,-0.35539128745958737,0.05365828515507118,1.0
+sdxl,VAE+curvature+path_length,path_length,-0.5874394773612877,0.04205652523110956,1.0
+sdxl,VAE+score+curvature+path_length,curvature,-0.29713679691969236,0.05584367880863351,1.0
+sdxl,VAE+score+curvature+path_length,path_length,-0.6017645288060798,0.043239146602980255,1.0
+pixart_dit,VAE+curvature+path_length,curvature,-0.24353198883822927,0.053883847904242256,1.0
+pixart_dit,VAE+curvature+path_length,path_length,0.03238371213507713,0.05879174004907133,0.72
+pixart_dit,VAE+score+curvature+path_length,curvature,-0.401432241855094,0.055289014177857164,1.0
+pixart_dit,VAE+score+curvature+path_length,path_length,0.16532733536652258,0.05377710654585474,1.0
+amused,VAE+curvature+path_length,curvature,0.05232610283734423,0.04728765485509335,0.88
+amused,VAE+curvature+path_length,path_length,0.5484654880931105,0.04894429079367388,1.0
+amused,VAE+score+curvature+path_length,curvature,0.21904298023067068,0.04271013357022445,1.0
+amused,VAE+score+curvature+path_length,path_length,0.46138652338780406,0.05106889749973321,1.0

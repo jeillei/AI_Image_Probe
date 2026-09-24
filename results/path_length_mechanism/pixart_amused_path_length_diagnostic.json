@@ -1,0 +1,7 @@
+{
+ "pixart_path_length_standardized_coef_mean": 0.061218334674697374,
+ "pixart_path_length_standardized_coef_sd": 0.050765071316734904,
+ "transfer_pixart_to_amused_full_panel": 0.9486388888888889,
+ "transfer_pixart_to_amused_no_path_length": 0.9495000000000001,
+ "transfer_pixart_to_amused_no_trajectory": 0.9765
+}
