@@ -32,6 +32,8 @@ uv run python scripts/path_length_mechanism_analysis.py
 uv run python scripts/dit_stage_decomposition_plots.py
 uv run python scripts/vae_curvature_redundancy_plots.py
 uv run python scripts/path_length_mechanism_plots.py
+uv run python scripts/final_validation_analysis.py
+uv run python scripts/final_validation_plots.py
 ```
 
 Each of these reads a cached JSON/CSV feature table already in `results/`, runs the frozen CV/bootstrap analysis

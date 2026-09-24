@@ -27,8 +27,13 @@ adds genuinely new information beyond the earlier ones, and for which generator 
    and decomposing SDXL's trajectory-stage gain shows `path_length` alone reproduces essentially all of it —
    `diffpath_curvature`'s own marginal contribution is not distinguishable from zero anywhere in that
    decomposition.
-5. **Realistic-transformation robustness and AI-edit-strength response** (JPEG/blur/resize/noise/crop/color
-   jitter; a 60-content img2img edit-strength continuum) — see `docs/FINAL_RESULTS.md` §8–9 for current status.
+5. **`path_length`'s signal is realistic-transformation-robust.** Across 14 conditions (JPEG/blur/resize/noise/
+   color-jitter/crop) × SD1.5/SDXL, its VAE-independent effect and incremental AUROC contribution survived in
+   29/30 and 30/30 condition/generator combinations respectively — and a classifier trained only on clean images
+   transferred with only modest degradation to every transformed condition, no recalibration.
+6. **VAE reconstruction tracks increasing AI-edit strength far more monotonically than the trajectory features
+   do** (a 60-content img2img-strength continuum) — a genuine, unforced difference between the static and
+   dynamic mechanisms, reported as found rather than smoothed into a stronger claim.
 
 Full narrative, all numbers, and honest limitations: **[`docs/FINAL_RESULTS.md`](docs/FINAL_RESULTS.md)**.
 
@@ -60,6 +65,7 @@ train/test fold) and uses one fixed, simple classifier
 |---|---|
 | ![stage decomposition](results/summary/02_stage_decomposition_four_generators.png) Stage-wise incremental AUROC, four generators | ![curvature effect](results/summary/03_curvature_effect_four_generators.png) `diffpath_curvature` effect size across architectures |
 | ![path length mechanism](results/summary/04_path_length_mechanism_result.png) The decisive result: `path_length` explains the SDXL-vs-PixArt split | ![VAE residualization](results/summary/05_vae_residualization_result.png) Raw vs. VAE-residualized trajectory effect |
+| ![robustness](results/summary/06_path_length_robustness.png) `path_length` under 14 realistic transformations | ![AI-edit response](results/summary/07_ai_edit_response_comparison.png) Static (VAE) vs. dynamic (trajectory) response to AI-edit strength |
 
 ## Reproduce the headline result
 

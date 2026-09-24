@@ -25,7 +25,8 @@ reused not recomputed — see `docs/research_history/LITERATURE_FEATURE_PANEL.md
 `stage_decomposition_plots.py`, `pixart_stage_decomposition_analysis.py`, `pixart_stage_decomposition_plots.py`,
 `dit_stage_decomposition_analysis.py`, `dit_stage_decomposition_plots.py`,
 `vae_curvature_redundancy_analysis.py`, `vae_curvature_redundancy_plots.py`,
-`path_length_mechanism_analysis.py`, `path_length_mechanism_plots.py`
+`path_length_mechanism_analysis.py`, `path_length_mechanism_plots.py`, `final_validation_analysis.py`,
+`final_validation_plots.py`, `make_pipeline_diagram.py` (regenerates the README's pipeline figure)
 
 **Naming note (read this before trusting a filename):** `pixart_stage_decomposition_*.py` is named after the
 generator this project *originally intended* to run — the actual images analyzed by that script are **SDXL**,

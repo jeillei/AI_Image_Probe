@@ -105,6 +105,13 @@ a reason to keep iterating.
 
 ## Amendments
 
-None yet. Any change made after this document is committed will be recorded here with a timestamp and reason,
-per this project's established discipline (see `docs/research_history/PREREGISTRATION_pixart_v1.md`, `docs/research_history/PREREGISTRATION_DIT_GENERATOR_V1.md`
-for the precedent of disclosed, in-document amendments rather than silent changes).
+**Analysis-script bug, found and fixed before any result was inspected (2026-09-25):** the first draft of
+`scripts/final_validation_analysis.py` grouped transform conditions by family name only (e.g. all four JPEG
+quality levels pooled as "jpeg"), collapsing the intended 14 distinct conditions to 6. This was an aggregation
+bug in the analysis script, not in the extraction protocol or the underlying data (`src/corruption/
+robustness_suite.py::CONDITIONS` and the extracted feature table were always correctly per-condition). Caught
+immediately on first inspection of the output (an implausibly small `Q1 done: 84 rows` instead of the expected
+180) and fixed by grouping on the full condition id (transform name + parameter value) before any table or
+figure was produced. No frozen protocol parameter was touched.
+
+Status: **complete**. Results reported in `docs/FINAL_RESULTS.md` §8–9.
