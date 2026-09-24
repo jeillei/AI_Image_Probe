@@ -1,0 +1,14 @@
+{
+ "sd15_to_amused": 0.5806111111111111,
+ "sd15_to_sdxl": 0.8977499999999999,
+ "sd15_to_pixart_dit": 0.7290833333333333,
+ "amused_to_sd15": 0.5974722222222224,
+ "amused_to_sdxl": 0.7255277777777777,
+ "amused_to_pixart_dit": 0.7354999999999999,
+ "sdxl_to_sd15": 0.7666666666666667,
+ "sdxl_to_amused": 0.8200833333333334,
+ "sdxl_to_pixart_dit": 0.7680555555555555,
+ "pixart_dit_to_sd15": 0.6660555555555555,
+ "pixart_dit_to_amused": 0.9486388888888889,
+ "pixart_dit_to_sdxl": 0.8040277777777778
+}

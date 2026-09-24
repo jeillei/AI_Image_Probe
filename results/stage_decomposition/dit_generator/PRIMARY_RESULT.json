@@ -1,0 +1,10 @@
+{
+ "generator": "pixart_dit",
+ "comparison": "PRIMARY: vae+score+trajectory vs vae+score",
+ "auroc_vae_score": 0.8963888888888889,
+ "auroc_vae_score_trajectory": 0.8913888888888889,
+ "paired_diff_mean": -0.004920833333333331,
+ "diff_ci_lo": -0.029173611111111115,
+ "diff_ci_hi": 0.01777777777777778,
+ "adds_information": false
+}

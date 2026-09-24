@@ -1,0 +1,47 @@
+#!/bin/bash
+#PBS -N synth_pixart_dit
+#PBS -l select=1:ncpus=8:ngpus=1:mem=32gb
+#PBS -l walltime=06:00:00
+#PBS -q auto_free
+#PBS -P personal-e1471252
+#PBS -o /scratch/e1471252/SynthImage_dit_generation/generate.out
+#PBS -e /scratch/e1471252/SynthImage_dit_generation/generate.err
+
+# NOTE: #PBS -o/-e paths must already exist before this script's first line runs --
+# PBS opens them at job dispatch time, before the script body (including any mkdir -p
+# here) executes. Four consecutive scheduler-level failures (job held, "too many
+# failed attempts to run", run_count=21, Exit_status=-3, no log ever written, on 4
+# different nodes) were traced to exactly this: #PBS -o/-e pointed at logs/generate.out
+# under a logs/ directory that didn't exist yet. Fixed by writing directly to $ROOT
+# (already guaranteed to exist) instead of a subdirectory only the script would create.
+set -euo pipefail
+ROOT=/scratch/e1471252/SynthImage_dit_generation
+mkdir -p "$ROOT/hf-cache" "$ROOT/pip-cache" \
+         "$ROOT/data/content_matched/pixart_dit" "$ROOT/data/content_matched/pixart_dit_embeds"
+cd "$ROOT"
+
+# Compute nodes on this cluster have no general internet access (only the login node
+# does) -- this job previously failed 21x at the scheduler/prologue level, on three
+# different nodes, before its script's first line ever ran, because it tried to pull
+# the container from Docker Hub and pip/HF weights from the compute node. Fixed by
+# doing ALL network-dependent staging once from the login node beforehand: the
+# container is a local .sif (pytorch_cuda.sif, apptainer pull'd already), the venv is
+# pre-built with every package already installed, and every model weight file is
+# already in hf-cache (see prefetch_pixart.py). This job now touches network nowhere;
+# HF_HUB_OFFLINE=1 makes that a hard failure instead of a silent hang if it ever tries.
+apptainer exec --nv --cleanenv --no-home \
+  --bind "$ROOT:/work" \
+  --bind "$ROOT/hf-cache:/hf-cache" \
+  "$ROOT/pytorch_cuda.sif" \
+  bash -lc '
+    set -euo pipefail
+    cd /work
+    export HOME=/tmp
+    export PYTHONNOUSERSITE=1
+    export PYTHONPATH=
+    export HF_HOME=/hf-cache
+    export TRANSFORMERS_CACHE=/hf-cache
+    export HF_HUB_OFFLINE=1
+    source /work/venv/bin/activate
+    python scripts/generate_pixart_dit.py --out data/content_matched/pixart_dit
+  '

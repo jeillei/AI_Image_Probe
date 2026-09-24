@@ -1,0 +1,11 @@
+generator,stage_set,n_features,grouped_cv_auroc,paired_diff_mean,diff_ci_lo,diff_ci_hi,adds_information,baseline_auroc
+pixart_dit,vae,3.0,0.8760277777777776,,,,,
+pixart_dit,vae+score,5.0,0.8936388888888889,,,,,
+pixart_dit,vae+score+trajectory,7.0,0.890611111111111,,,,,
+pixart_dit,vae+score+trajectory+roundtrip,10.0,0.9130555555555556,,,,,
+pixart_dit,vae+score vs vae (paired diff),,,0.016721944444444446,-0.003333333333333302,0.039722222222222214,False,
+pixart_dit,vae+score+trajectory vs vae+score (paired diff),,,-0.004920833333333331,-0.029173611111111115,0.01777777777777778,False,
+pixart_dit,vae+score+trajectory+roundtrip vs vae+score+trajectory (paired diff),,,0.021991111111111118,-0.006951388888888862,0.05306249999999996,False,
+pixart_dit,TARGETED: vae+trajectory vs vae,,0.85125,-0.024987777777777772,-0.0475000000000001,-0.00694444444444442,False,0.8760277777777776
+pixart_dit,TARGETED: vae+roundtrip vs vae,,0.8925000000000001,0.013018888888888889,-0.017784722222222226,0.04612500000000008,False,0.8760277777777776
+pixart_dit,TARGETED: score+trajectory vs score,,0.8003888888888889,0.1318061111111111,0.03193749999999989,0.2316874999999999,True,0.6704166666666665
