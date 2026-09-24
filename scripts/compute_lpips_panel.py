@@ -23,7 +23,7 @@ def main():
     rows = json.loads(pass1.read_text())
     done = json.loads(out.read_text()) if out.exists() else []
     have = {rowkey(r) for r in done}
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
     net = lpips.LPIPS(net="vgg").to(device).eval()
     for i, r in enumerate(rows, 1):
         key = rowkey(r)

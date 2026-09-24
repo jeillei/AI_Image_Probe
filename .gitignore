@@ -1,28 +1,63 @@
+# Python
 .venv/
+venv/
 __pycache__/
 .pytest_cache/
 *.pyc
+.ipynb_checkpoints/
+
+# OS / editor
 .DS_Store
-# large data / caches / weights
-data/
+.idea/
+.vscode/
+
+# environment / secrets
+.env
+.env.*
+!.env.example
+
+# large data / caches / weights (see data/README.md for provenance + how to regenerate)
+data/*
+!data/README.md
 hpc/*.log
+hpc/*.out
+hpc/*.err
 *.joblib
 *.tar.gz
+*.safetensors
+*.ckpt
+*.gguf
+.cache/
+**/hf-cache/
+**/torch-cache/
+**/pip-cache/
+
+# HPC job output/error files and transient logs
+*.out
+*.err
+results/**/*.log
+results/core200_driver.log
+results/crossprobe_cifar32.log
+results/followup_driver.log
+results/sd15_download.log
+
+# raw per-run feature dumps (regenerable; analysis CSV/PNG/JSON under */analysis are tracked)
 results/features/*.json
 results/robustness_screen/*.json
 results/sd15_*/
 results/pilot*/
 results/rr_*/
 results/ad_hoc/
-*.safetensors
-*.ckpt
-.env
-# raw per-run feature dumps (regenerable; analysis CSV/PNG/JSON under */analysis are tracked)
 results/core200/*.json
 results/core200/logs/
 results/crossprobe/*.json
 results/content_matched/*.json
 results/content_matched/logs/
-results/*.log
 data/raw_trajectory_cache/
 data/stage_panel_cache/
+# large v1-era raw feature dumps superseded by the frozen v2 panel (kept in git history, not re-tracked)
+results/prompt_ensemble/*.json
+results/prompt_ensemble/*.parquet
+results/self_conditioning/**/*.json
+results/self_conditioning/**/*.parquet
+results/features/*.parquet

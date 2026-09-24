@@ -1,12 +1,15 @@
 #!/bin/bash
+# Generic PBS/Apptainer job template for running the SD1.5-probe feature extractor on a
+# GPU cluster. Fill in your own project account and scratch path before submitting:
+#   qsub -v HPC_PROJECT=<your-project-id>,HPC_SCRATCH_ROOT=/scratch/<you>/SynthImage_robustness robustness_gpu.pbs
 #PBS -N synth_robust
 #PBS -l select=1:ncpus=8:ngpus=1:mem=32gb
 #PBS -l walltime=08:00:00
-#PBS -o /scratch/e1471252/SynthImage_robustness/logs/robustness_gpu.out
-#PBS -e /scratch/e1471252/SynthImage_robustness/logs/robustness_gpu.err
+#PBS -o synth_robust.out
+#PBS -e synth_robust.err
 
 set -euo pipefail
-ROOT=/scratch/e1471252/SynthImage_robustness
+ROOT="${HPC_SCRATCH_ROOT:?Set HPC_SCRATCH_ROOT to your scratch working directory, e.g. /scratch/<you>/SynthImage_robustness}"
 mkdir -p "$ROOT/logs" "$ROOT/hf-cache" "$ROOT/pip-cache"
 cd "$ROOT"
 

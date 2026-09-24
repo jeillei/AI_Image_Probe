@@ -25,6 +25,12 @@ from src.features.panel_v2 import lare_t200, score_norm_step0, diffpath_curvatur
 def rowkey(r):
     return (r["generator"], r["content_id"], r.get("transform") or "clean", str(r.get("transform_value") or ""))
 
+
+def pick_device():
+    if torch.cuda.is_available(): return "cuda"
+    if torch.backends.mps.is_available(): return "mps"
+    return "cpu"
+
 PROTOCOL_VERSION = "synthimage_v2_stage_panel_1.0"
 
 
@@ -46,7 +52,7 @@ def main():
     print(f"{len(rows) - len(pending)}/{len(rows)} already done; {len(pending)} to extract")
     if not pending:
         return
-    probe = SD15Probe(a.steps)
+    probe = SD15Probe(a.steps, device=pick_device())
     for i, r in enumerate(pending, 1):
         t0 = time.time()
         seed17 = int(r.get("transform_seed") or 17)
@@ -79,7 +85,8 @@ def main():
         out.write_text(json.dumps(done, indent=1))
         assert not any(v != v for v in feats.values()), f"NaN produced for {key}: {feats}"  # never silently keep a corrupted row
         print(i, "/", len(pending), r["generator"], r["content_id"], r.get("transform") or "clean", round(time.time() - t0, 2), "s", flush=True)
-        if torch.backends.mps.is_available(): torch.mps.empty_cache()
+        if torch.cuda.is_available(): torch.cuda.empty_cache()
+        elif torch.backends.mps.is_available(): torch.mps.empty_cache()
 
 
 if __name__ == "__main__":
