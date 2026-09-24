@@ -1,0 +1,15 @@
+{
+ "pearson_correlation_effect_vectors": 0.7662953774159336,
+ "pearson_p": 0.009735492723441505,
+ "cosine_similarity_effect_vectors": 0.7966672850639832,
+ "top3_contributing_features": [
+  "lpips_ae",
+  "lpips_roundtrip",
+  "path_length"
+ ],
+ "top3_classifier_weight_features": [
+  "lpips_roundtrip",
+  "lpips_ae",
+  "lare_t200"
+ ]
+}
