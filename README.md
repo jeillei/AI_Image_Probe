@@ -18,19 +18,21 @@ adds genuinely new information beyond the earlier ones, and for which generator 
    AUROC 0.79 with zero image information. Every result below uses a content-matched design specifically built
    to remove this class of shortcut.
 2. **VAE reconstruction error alone is a strong, generator-dependent forensic signal** — from AUROC 0.64 (SD1.5)
-   to 0.98 (aMUSEd) depending entirely on how good that generator's own decoder is.
-3. **The diffusion trajectory adds real information beyond VAE reconstruction for UNet-based diffusion models
-   (SD1.5, SDXL) but not for a genuine Diffusion Transformer (PixArt-Sigma)** — ruling out the simplest
-   "diffusion models generically show this" hypothesis.
+   to 0.98 (aMUSEd), tracking how well each generator's own decoder reconstructs images.
+3. **The diffusion trajectory adds real information beyond VAE reconstruction for the two UNet-based diffusion
+   generators tested (SD1.5, SDXL) but not for the one Diffusion Transformer tested (PixArt-Sigma)** — ruling out
+   the simplest "diffusion models generically show this" hypothesis, though not yet a class-general claim about
+   UNets vs. DiTs.
 4. **That architecture split is explained by one specific feature: `path_length`.** Cross-fitted residualization
    shows `path_length` carries information independent of VAE-level features for SD1.5/SDXL but not PixArt-Sigma,
    and decomposing SDXL's trajectory-stage gain shows `path_length` alone reproduces essentially all of it —
    `diffpath_curvature`'s own marginal contribution is not distinguishable from zero anywhere in that
    decomposition.
-5. **`path_length`'s signal is realistic-transformation-robust.** Across 14 conditions (JPEG/blur/resize/noise/
-   color-jitter/crop) × SD1.5/SDXL, its VAE-independent effect and incremental AUROC contribution survived in
-   29/30 and 30/30 condition/generator combinations respectively — and a classifier trained only on clean images
-   transferred with only modest degradation to every transformed condition, no recalibration.
+5. **`path_length`'s signal is realistic-transformation-robust.** Across 14 transformation conditions
+   (JPEG/blur/resize/noise/color-jitter/crop) × SD1.5/SDXL (28 condition/generator combinations), its
+   VAE-independent effect survived in 27/28 and its incremental AUROC contribution survived in all 28 — and a
+   classifier trained only on clean images transferred with only modest degradation to every transformed
+   condition, no recalibration.
 6. **VAE reconstruction tracks increasing AI-edit strength far more monotonically than the trajectory features
    do** (a 60-content img2img-strength continuum) — a genuine, unforced difference between the static and
    dynamic mechanisms, reported as found rather than smoothed into a stronger claim.
@@ -155,4 +157,4 @@ in `docs/FINAL_RESULTS.md`, not as an open invitation to keep iterating here.
 
 ## License
 
-No license has been chosen yet.
+[MIT](LICENSE).

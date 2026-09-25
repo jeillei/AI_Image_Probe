@@ -995,7 +995,7 @@ wheels = [
 
 [[package]]
 name = "synthimage"
-version = "0.1.0"
+version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "accelerate" },
@@ -1010,6 +1010,7 @@ dependencies = [
     { name = "protobuf" },
     { name = "pyarrow" },
     { name = "scikit-learn" },
+    { name = "scipy" },
     { name = "sentencepiece" },
     { name = "torch" },
     { name = "transformers" },
@@ -1034,6 +1035,7 @@ requires-dist = [
     { name = "protobuf", specifier = ">=7.36.2" },
     { name = "pyarrow", specifier = ">=25.0" },
     { name = "scikit-learn", specifier = ">=1.9" },
+    { name = "scipy", specifier = ">=1.14" },
     { name = "sentencepiece", specifier = ">=0.2.2" },
     { name = "torch", specifier = ">=2.13" },
     { name = "transformers", specifier = ">=4.45,<5" },

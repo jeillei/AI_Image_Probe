@@ -64,11 +64,14 @@ The same frozen protocol was applied, unmodified, to four generators against the
 
 Two findings stand out:
 - **VAE reconstruction alone is already a strong, generator-dependent forensic signal** — it ranges from
-  moderate (SD1.5) to near-ceiling (aMUSEd) depending entirely on how good that generator's own decoder is.
+  moderate (SD1.5) to near-ceiling (aMUSEd), tracking how well each generator's own decoder reconstructs images
+  (a correlation established here, not a controlled causal test of decoder quality in isolation).
 - **The trajectory stage's contribution is architecture-dependent, not simply diffusion-vs-not-diffusion**: it
-  helps both UNet-based diffusion models (SD1.5, SDXL) but not the Diffusion Transformer (PixArt-Sigma), despite
-  PixArt-Sigma also being a genuine diffusion model. This ruled out the simplest version of the original
-  hypothesis ("diffusion models generically show this") and motivated the mechanism analyses below.
+  helps both UNet-based diffusion generators tested (SD1.5, SDXL) but not the one Diffusion Transformer tested
+  (PixArt-Sigma), despite PixArt-Sigma also being a genuine diffusion model. This ruled out the simplest version
+  of the original hypothesis ("diffusion models generically show this") and motivated the mechanism analyses
+  below. Two UNets and one DiT is enough to rule out the simplest hypothesis; it is not enough to support a
+  class-general claim about UNets vs. DiTs in either direction.
 
 Full detail: `docs/research_history/STAGE_DECOMPOSITION_RESULTS.md`,
 `docs/research_history/PIXART_STAGE_DECOMPOSITION.md` (the SDXL run — see the naming note in `scripts/README.md`),
@@ -121,18 +124,19 @@ stopped (per its own preregistered decision rule). Full detail:
 were extracted through the frozen SD1.5-probe pipeline, plus aMUSEd/PixArt-Sigma as secondary comparisons.
 
 **`path_length`'s VAE-independent signal survives realistic transformation almost universally.** Across the 14
-transform conditions × 2 primary generators (28 tests), `path_length`'s effect **survived** (CI excludes zero,
-same sign as clean) in **29/30 condition/generator combinations** (SDXL: 15/15; SD1.5: 14/15, only
-`center_crop_0.8` weakened to a CI crossing zero). In several conditions — notably blur and noise — the effect
-**strengthens** relative to clean (e.g. SDXL blur σ=2.0: d=−1.01 vs. clean d=−0.36; SD1.5 resize 0.25×: d=−0.39
-vs. clean −0.33). `lpips_ae` and `diffpath_curvature` show similarly strong retention for the two primary
-generators, with occasional degradation at the most aggressive settings (e.g. SDXL `lpips_ae` under blur σ=2.0
-and resize 0.25× degrades to 30–57% of its clean effect, still same-signed).
+transform conditions × 2 primary generators (28 condition/generator combinations, clean excluded from this
+count since it trivially matches itself), `path_length`'s effect **survived** (CI excludes zero, same sign as
+clean) in **27/28** (SDXL: 14/14; SD1.5: 13/14, only `center_crop_0.8` weakened to a CI crossing zero). In
+several conditions — notably blur and noise — the effect **strengthens** relative to clean (e.g. SDXL blur
+σ=2.0: d=−1.01 vs. clean d=−0.36; SD1.5 resize 0.25×: d=−0.39 vs. clean −0.33). `lpips_ae` and
+`diffpath_curvature` show similarly strong retention for the two primary generators, with occasional
+degradation at the most aggressive settings (e.g. SDXL `lpips_ae` under blur σ=2.0 and resize 0.25× degrades to
+30–57% of its clean effect, still same-signed).
 
 **The incremental-information result survives too, universally.** Repeating the primary VAE+score vs.
 VAE+score+`path_length` AUROC comparison inside every transform condition: the CI-excludes-zero, positive
-result held in **15/15 conditions for both SD1.5 and SDXL** (ΔAUROC ranging +0.024 to +0.162 for SDXL, i.e. it
-sometimes exceeds the clean-condition gain).
+result held in **all 28/28 condition/generator combinations** (14 conditions × SD1.5/SDXL; ΔAUROC ranging
++0.024 to +0.162 for SDXL, i.e. it sometimes exceeds the clean-condition gain).
 
 **Clean-trained deployment-style transfer is stable.** A model fit once on clean images only, frozen, and
 applied unchanged to every transformed condition (no recalibration) stays close to its clean-condition AUROC
@@ -193,8 +197,8 @@ into a stronger claim than the data supports.
 
 Pretrained diffusion probes expose **multiple, architecture-dependent forensic signals at different
 computational stages** of a latent-diffusion pipeline — not one universal signature. VAE-level reconstruction
-carries real, generator-dependent signal on its own. The diffusion trajectory adds further information for
-UNet-based diffusion models but not for the one Diffusion Transformer tested. Within the trajectory stage
+carries real, generator-dependent signal on its own. The diffusion trajectory adds further information for the
+two UNet-based diffusion generators tested but not for the one Diffusion Transformer tested. Within the trajectory stage
 itself, that added information is attributable specifically to path geometry (`path_length`), not curvature,
 for the generators where it appears at all. **This specific signal is realistic-transformation-robust**:
 `path_length`'s VAE-independent effect and its incremental AUROC contribution both survived essentially every
