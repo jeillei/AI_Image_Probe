@@ -4,9 +4,8 @@ seed policy as the original pilot -- no new editing model, no parameter change. 
 scaling, not a new pilot; see STAGE_DECOMPOSITION_RESULTS.md Phase 7 for why img2img-strength (not localized
 inpainting) was chosen and disclosed as a scope limitation, unchanged here."""
 from __future__ import annotations
-import argparse, hashlib, sys
+import argparse, hashlib
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd, torch
 from PIL import Image
 from diffusers import DDIMScheduler
@@ -15,12 +14,10 @@ STRENGTHS = (0.3, 0.6, 0.9)
 STEPS = 25
 GUIDANCE = 7.5
 
-
 def pick_device():
     if torch.cuda.is_available(): return "cuda"
     if torch.backends.mps.is_available(): return "mps"
     return "cpu"
-
 
 def img2img(probe, image_hwc: np.ndarray, prompt: str, strength: float, seed: int) -> np.ndarray:
     sched = DDIMScheduler.from_config(probe.pipe.scheduler.config)
@@ -42,14 +39,13 @@ def img2img(probe, image_hwc: np.ndarray, prompt: str, strength: float, seed: in
         z = sched.step(eps, t, z).prev_sample
     return probe.decode_latent(z)
 
-
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", default="data/ai_edit_scaled"); ap.add_argument("--limit", type=int)
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     m = pd.read_csv("data/content_matched/manifest.csv")
     real = m[m.generator == "real"].sort_values("content_id")
     if a.limit: real = real.head(a.limit)
-    from src.probes.sd15 import SD15Probe
+    from synthimage.probes.sd15 import SD15Probe
     probe = SD15Probe(6, device=pick_device())
     rows = []
     for _, r in real.iterrows():
@@ -68,7 +64,6 @@ def main():
     df["generator"] = df["strength"].apply(lambda s: f"edit_s{s}" if s > 0 else "real")
     df.to_csv(out / "manifest.csv", index=False)
     print(len(real), "content ids;", len(df), "total rows;", "done")
-
 
 if __name__ == "__main__":
     main()

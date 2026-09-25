@@ -3,16 +3,14 @@ See docs/research_history/FINAL_VALIDATION_PLAN.md, frozen before this script wa
 machinery from stage_decomposition_analysis.py and vae_curvature_redundancy_analysis.py -- no new model family,
 no new feature, no per-condition hyperparameter tuning."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
 from scipy import stats
 from sklearn.metrics import roc_auc_score
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from stage_decomposition_analysis import make, cohen_paired, boot_ci, grouped_cv_auc, paired_diff_ci
 from vae_curvature_redundancy_analysis import cv_oof_probs, metric_val, paired_metric_diff_ci
-from src.corruption.robustness_suite import condition_id as _condition_id
+from synthimage.corruption.robustness_suite import condition_id as _condition_id
 
 OUT = Path("results/final_validation"); OUT.mkdir(parents=True, exist_ok=True)
 GENS_PRIMARY = ["sd15", "sdxl"]
@@ -21,7 +19,6 @@ VAE_FEATS = ["lpips_ae", "pixel_mse_ae", "latent_mse_ae"]
 SCORE_FEATS = ["lare_t200", "score_norm_step0"]
 CURV, PLEN = "diffpath_curvature", "path_length"
 FEATS_OF_INTEREST = ["lpips_ae", CURV, PLEN]
-
 
 def load_all():
     clean_rows = json.load(open("results/stage_decomposition/panel_features_dit.json"))
@@ -39,12 +36,10 @@ def load_all():
     track_b["strength"] = track_b.generator.str.replace("edit_s", "").astype(float)
     return all_df, track_b, clean_df
 
-
 def sub_condition(d, gen, condition):
     x = d[((d.label == 0) & (d["condition"] == condition)) | ((d.generator == gen) & (d["condition"] == condition))]
     ok = x.groupby("content_id").label.nunique()
     return x[x.content_id.isin(ok[ok == 2].index)].reset_index(drop=True)
-
 
 # ---------------- Q1: does the feature itself survive? ----------------
 def q1_feature_survival(d):
@@ -75,7 +70,6 @@ def q1_feature_survival(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "q1_feature_survival.csv", index=False)
     return df
 
-
 # ---------------- Q2: does incremental information survive? ----------------
 def q2_incremental_survival(d):
     conditions = sorted(d["condition"].unique())
@@ -98,7 +92,6 @@ def q2_incremental_survival(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "q2_incremental_survival.csv", index=False)
     return df
 
-
 # ---------------- Q3: clean-trained transfer (deployment-style, no recalibration) ----------------
 def q3_clean_trained_transfer(d):
     conditions = sorted(d["condition"].unique())
@@ -119,7 +112,6 @@ def q3_clean_trained_transfer(d):
                             "brier": metric_val("brier", x.label.values, p)})
     df = pd.DataFrame(rows); df.to_csv(OUT / "q3_clean_trained_transfer.csv", index=False)
     return df
-
 
 # ---------------- Track B: AI-edit continuum ----------------
 def track_b_analysis(track_b, clean_df):
@@ -156,7 +148,6 @@ def track_b_analysis(track_b, clean_df):
     trend_df = pd.DataFrame(trend_rows); trend_df.to_csv(OUT / "track_b_trend_test.csv", index=False)
     return curve_df, trend_df
 
-
 def main():
     d, track_b, clean_df = load_all()
     print("loaded", len(d), "Track A rows,", len(track_b), "Track B rows")
@@ -167,7 +158,6 @@ def main():
     curve_df, trend_df = track_b_analysis(track_b, clean_df)
     print("\nTrack B trend test:\n", trend_df.round(3).to_string(index=False))
     print("\nAll parts complete. Outputs in", OUT)
-
 
 if __name__ == "__main__":
     main()

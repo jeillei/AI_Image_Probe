@@ -5,15 +5,13 @@ preregistered confirmation. C_resid is reused verbatim from results/vae_curvatur
 P_resid is computed fresh here with the identical residualization procedure. No new feature, no remote compute needed (pure CPU
 statistics on already-cached features)."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
 from scipy import stats
 from sklearn.linear_model import Ridge
 from sklearn.metrics import roc_auc_score, log_loss, brier_score_loss
 from sklearn.preprocessing import StandardScaler
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from stage_decomposition_analysis import make, sub, cohen_paired, boot_ci
 from vae_curvature_redundancy_analysis import fold_assignment, cross_fitted_residualize, cohen_paired_array, cv_oof_probs, metric_val, paired_metric_diff_ci
 
@@ -23,7 +21,6 @@ GENS = ["sd15", "sdxl", "pixart_dit", "amused"]
 VAE_FEATS = ["lpips_ae", "pixel_mse_ae", "latent_mse_ae"]
 SCORE_FEATS = ["lare_t200", "score_norm_step0"]
 CURV, PLEN = "diffpath_curvature", "path_length"
-
 
 # ---------------- Part 1: raw path_length effect ----------------
 def part1_raw_effect(d):
@@ -37,7 +34,6 @@ def part1_raw_effect(d):
                     "univariate_auroc_direction_free": auc_df, "frac_pairs_matched_sign": float((np.sign(diffs.values) == np.sign(dval)).mean())})
     df = pd.DataFrame(rows); df.to_csv(OUT / "raw_path_length_effect.csv", index=False)
     return df
-
 
 # ---------------- Part 2: VAE-path_length dependence ----------------
 def part2_correlations(d):
@@ -54,7 +50,6 @@ def part2_correlations(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "path_length_correlation_tables.csv", index=False)
     return df
 
-
 def part2_regression_performance(d, pred_records):
     rows = []
     for gen in GENS:
@@ -70,7 +65,6 @@ def part2_regression_performance(d, pred_records):
                         "pearson_pred_obs": float(stats.pearsonr(po, pm).statistic) if po.std() > 0 and pm.std() > 0 else float("nan")})
     df = pd.DataFrame(rows); df.to_csv(OUT / "vae_to_path_length_regression_performance.csv", index=False)
     return df
-
 
 # ---------------- Part 3: residual path_length effect ----------------
 def part3_residualize(d):
@@ -106,12 +100,10 @@ def part3_residualize(d):
     pred_df.to_csv(OUT / "path_length_predicted_vs_observed.csv", index=False)
     return effect_df, pred_records
 
-
 def load_c_resid():
     """Reuse C_resid verbatim from the curvature-redundancy phase -- not recomputed."""
     df = pd.read_csv("results/vae_curvature_redundancy/curvature_predicted_vs_observed.csv")
     return df
-
 
 # ---------------- Part 4: residual trajectory model (C_resid alone / P_resid alone / both) ----------------
 def part4_residual_trajectory_model(d, pred_records):
@@ -153,7 +145,6 @@ def part4_residual_trajectory_model(d, pred_records):
     df = pd.DataFrame(rows); df.to_csv(OUT / "residual_trajectory_model_results.csv", index=False)
     return df
 
-
 # ---------------- Part 5: SDXL vs PixArt feature-addition comparison (central diagnostic) ----------------
 def part5_feature_addition(d):
     rows = []
@@ -180,7 +171,6 @@ def part5_feature_addition(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "sdxl_pixart_feature_addition_comparison.csv", index=False)
     return df
 
-
 # ---------------- Part 6: coefficient stability ----------------
 def part6_coefficient_stability(d):
     rows = []
@@ -206,7 +196,6 @@ def part6_coefficient_stability(d):
         print(gen, "part 6 done", flush=True)
     df = pd.DataFrame(rows); df.to_csv(OUT / "coefficient_stability.csv", index=False)
     return df
-
 
 # ---------------- Part 7: curvature x path_length interaction ----------------
 def part7_interaction(d):
@@ -239,10 +228,9 @@ def part7_interaction(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "interaction_analysis.csv", index=False)
     return df
 
-
 # ---------------- Parts 9/10: aMUSEd control + PixArt->aMUSEd path_length diagnostic ----------------
 def part10_transfer_ablation(d):
-    from src.features.panel_v2 import CORE_FEATURE_NAMES
+    from synthimage.features.panel_v2 import CORE_FEATURE_NAMES
     def transfer(train_gen, test_gen, cols, reps=REPS, folds=FOLDS, seed=0):
         real = d[d.label == 0]; tr_fake = d[(d.label == 1) & (d.generator == train_gen)]; te_fake = d[(d.label == 1) & (d.generator == test_gen)]
         ids = np.array(sorted(set(real.content_id) & set(tr_fake.content_id) & set(te_fake.content_id)))
@@ -284,7 +272,6 @@ def part10_transfer_ablation(d):
     print(json.dumps(result, indent=1))
     return result
 
-
 def main():
     rows = json.load(open("results/stage_decomposition/panel_features_dit.json"))
     d = pd.DataFrame([{"path": r["path"], "label": r["label"], "generator": r["generator"], "content_id": r["content_id"], **r["features"]} for r in rows])
@@ -302,7 +289,6 @@ def main():
     r7 = part7_interaction(d); print("\nPart 7 (interaction):\n", r7.round(4).to_string(index=False))
     r10 = part10_transfer_ablation(d)
     print("\nAll parts complete. Outputs in", OUT)
-
 
 if __name__ == "__main__":
     main()

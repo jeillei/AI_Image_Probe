@@ -15,7 +15,6 @@ SIZE = 768  # amended 1024->512->768: 512 fixed machine-load but caused a known 
             # still a ~2.4x speedup over 1024. See PREREGISTRATION_pixart_v1.md "Amendment 1/2".
 MODEL_ID = "stabilityai/stable-diffusion-xl-base-1.0"
 
-
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", default="data/content_matched/sdxl"); ap.add_argument("--limit", type=int)
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
@@ -35,7 +34,6 @@ def main():
                    guidance_scale=GUIDANCE, generator=gen).images[0]
         img.convert("RGB").save(out / f"{r.content_id}.png")
         print("generated", r.content_id, flush=True)
-
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,6 @@
 """Generate the project's compact pipeline diagram for the README / docs. Publication-quality, code-generated
-(no external design tool), matches the frozen probe structure in src/probes/sd15.py and the v2 panel in
-src/features/panel_v2.py exactly -- this is a documentation aid, not a new artifact with its own claims."""
+(no external design tool), matches the frozen probe structure in synthimage/probes/sd15.py and the v2 panel in
+synthimage/features/panel_v2.py exactly -- this is a documentation aid, not a new artifact with its own claims."""
 from __future__ import annotations
 from pathlib import Path
 import matplotlib; matplotlib.use("Agg")

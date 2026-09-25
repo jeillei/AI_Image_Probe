@@ -4,20 +4,17 @@
 existing SD1.5/aMUSEd/SDXL results for a four-generator comparison table and a full pairwise transfer matrix.
 No feature/classifier change; this is purely an evaluation-protocol reuse. See PREREGISTRATION_DIT_GENERATOR_V1.md."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
 from sklearn.metrics import roc_auc_score
-from src.features.panel_v2 import CORE_FEATURE_NAMES, STAGE_OF, STAGE_ORDER
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+from synthimage.features.panel_v2 import CORE_FEATURE_NAMES, STAGE_OF, STAGE_ORDER
 from stage_decomposition_analysis import (make, sub, cohen_paired, boot_ci, grouped_cv_auc, content_boot_ci,
     paired_grouped_cv, paired_diff_ci)
 
 OUT = Path("results/stage_decomposition/dit_generator"); OUT.mkdir(parents=True, exist_ok=True)
 GEN = "pixart_dit"
 ALL_GENERATORS = ["sd15", "amused", "sdxl", "pixart_dit"]
-
 
 def main():
     rows = json.load(open("results/stage_decomposition/panel_features_dit.json"))
@@ -123,7 +120,6 @@ def main():
             transfer_rows[f"{tr_gen}_to_{te_gen}"] = transfer(tr_gen, te_gen)
     json.dump(transfer_rows, open(OUT / "transfer_results.json", "w"), indent=1)
     print("\nFULL TRANSFER MATRIX:", json.dumps(transfer_rows, indent=1))
-
 
 if __name__ == "__main__":
     main()

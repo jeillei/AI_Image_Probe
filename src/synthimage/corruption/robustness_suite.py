@@ -29,6 +29,4 @@ def apply_condition(image:Image.Image,name:str,value:float|int|None,seed:int)->I
  if name=='center_crop':
   w,h=img.size;k=float(value);cw,ch=max(1,round(w*k)),max(1,round(h*k));left=(w-cw)//2;top=(h-ch)//2
   return img.crop((left,top,left+cw,top+ch)).resize((w,h),Image.Resampling.LANCZOS)
- if name.startswith('canon_'):
-  from .canonical import apply_canon;return apply_canon(img,name)
  raise ValueError(f'unknown condition {name}')

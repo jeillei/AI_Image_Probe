@@ -38,12 +38,10 @@ T5_GGUF_FILE = "t5-v1_1-xxl-encoder-Q5_K_M.gguf"
 T5_TOKENIZER_ID = "google/t5-v1_1-xxl"
 EMBED_CACHE = Path("data/content_matched/pixart_dit_embeds")
 
-
 def pick_device():
     if torch.cuda.is_available(): return "cuda"
     if torch.backends.mps.is_available(): return "mps"
     return "cpu"
-
 
 def phase1_encode_captions(rows, dev):
     """Encode every unique caption + the single shared empty negative prompt once; cache to disk; free T5."""
@@ -85,7 +83,6 @@ def phase1_encode_captions(rows, dev):
     elif torch.backends.mps.is_available(): torch.mps.empty_cache()
     print("Phase 1 done; T5 encoder freed.")
 
-
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", default="data/content_matched/pixart_dit"); ap.add_argument("--limit", type=int)
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
@@ -120,7 +117,6 @@ def main():
                    height=SIZE, width=SIZE, num_inference_steps=STEPS, guidance_scale=GUIDANCE, generator=gen).images[0]
         img.convert("RGB").save(out / f"{r.content_id}.png")
         print("generated", r.content_id, flush=True)
-
 
 if __name__ == "__main__":
     main()

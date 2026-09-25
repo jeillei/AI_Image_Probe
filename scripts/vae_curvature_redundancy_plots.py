@@ -1,10 +1,8 @@
 """Required plots for VAE_CURVATURE_REDUNDANCY.md. See ANALYSIS_PLAN_VAE_CURVATURE_REDUNDANCY.md."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd, matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from stage_decomposition_analysis import sub
 
 OUT = Path("results/vae_curvature_redundancy"); PLOTS = OUT / "plots"; PLOTS.mkdir(parents=True, exist_ok=True)

@@ -14,7 +14,6 @@ docs/REPRODUCIBILITY.md). Runs on CPU, CUDA, or Apple Silicon MPS -- pick automa
 from __future__ import annotations
 import argparse, json, sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import numpy as np, torch
 from PIL import Image, ImageOps, UnidentifiedImageError
 
@@ -59,8 +58,8 @@ def main() -> None:
 
     device = pick_device(a.device)
     print(f"Loading SD1.5 probe on {device}...", file=sys.stderr)
-    from src.probes.sd15 import SD15Probe
-    from src.features.panel_v2 import lare_t200, score_norm_step0, diffpath_curvature, path_length
+    from synthimage.probes.sd15 import SD15Probe
+    from synthimage.features.panel_v2 import lare_t200, score_norm_step0, diffpath_curvature, path_length
 
     probe = SD15Probe(a.steps, device=device)
     seed = 17  # fixed, matching this project's frozen convention for the (rare) stochastic sub-computation (lare_t200)
@@ -89,7 +88,7 @@ def main() -> None:
         # Silicon (see docs/METHODS.md) -- doing all UNet work first and LPIPS last avoids that ordering entirely.
         print("Computing LPIPS features...", file=sys.stderr)
         import lpips
-        from src.features.panel_v2 import lpips_layer_score
+        from synthimage.features.panel_v2 import lpips_layer_score
         net = lpips.LPIPS(net="vgg").to(device).eval()
         features["lpips_ae"] = lpips_layer_score(net, x, x_ae_recon.transpose(1, 2, 0), device, torch.float32)
         features["lpips_roundtrip"] = lpips_layer_score(net, x, result["reconstruction"].transpose(1, 2, 0), device, torch.float32)

@@ -3,19 +3,16 @@ transfer, exactly mirroring scripts/stage_decomposition_analysis.py's design (co
 classifier, same bootstrap), applied to real-vs-SDXL and joined with the existing SD1.5/aMUSEd results for the
 three-generator comparison table.  No feature/classifier change; this is purely an evaluation-protocol reuse."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
 from sklearn.metrics import roc_auc_score
-from src.features.panel_v2 import CORE_FEATURE_NAMES, STAGE_OF, STAGE_ORDER
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+from synthimage.features.panel_v2 import CORE_FEATURE_NAMES, STAGE_OF, STAGE_ORDER
 from stage_decomposition_analysis import (make, sub, cohen_paired, boot_ci, grouped_cv_auc, content_boot_ci,
     paired_grouped_cv, paired_diff_ci)
 
 OUT = Path("results/stage_decomposition/pixart"); OUT.mkdir(parents=True, exist_ok=True)
 GEN = "sdxl"
-
 
 def main():
     rows = json.load(open("results/stage_decomposition/panel_features_pixart.json"))
@@ -111,7 +108,6 @@ def main():
                      "amused_to_sdxl": transfer("amused", "sdxl"), "sdxl_to_amused": transfer("sdxl", "amused")}
     json.dump(transfer_rows, open(OUT / "transfer_results.json", "w"), indent=1)
     print("\nTRANSFER:", json.dumps(transfer_rows, indent=1))
-
 
 if __name__ == "__main__":
     main()

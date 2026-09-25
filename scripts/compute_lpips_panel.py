@@ -3,11 +3,10 @@ SD1.5 UNet -- reads the image/ae_recon/roundtrip_recon pixel arrays cached by sc
 (PASS 1) and merges the two LPIPS scores into the same feature record.  See extract_stage_panel.py's docstring
 for why this must be a separate process from any UNet call."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, torch, lpips
-from src.features.panel_v2 import lpips_layer_score
+from synthimage.features.panel_v2 import lpips_layer_score
 
 def rowkey(r):
     return (r["generator"], r["content_id"], r.get("transform") or "clean", str(r.get("transform_value") or ""))

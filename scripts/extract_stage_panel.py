@@ -14,13 +14,12 @@ known category of MPS float16/float32 state-corruption bug, not specific to this
 two single-purpose passes (this one never imports lpips; PASS 2 never touches the UNet) avoids it entirely
 rather than working around it with per-image process restarts."""
 from __future__ import annotations
-import argparse, csv, hashlib, json, sys, time
+import argparse, csv, hashlib, json, time
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, torch
-from scripts.extract_detector_features import load
-from src.probes.sd15 import SD15Probe
-from src.features.panel_v2 import lare_t200, score_norm_step0, diffpath_curvature, path_length
+from synthimage.data.loading import load
+from synthimage.probes.sd15 import SD15Probe
+from synthimage.features.panel_v2 import lare_t200, score_norm_step0, diffpath_curvature, path_length
 
 def rowkey(r):
     return (r["generator"], r["content_id"], r.get("transform") or "clean", str(r.get("transform_value") or ""))
@@ -56,7 +55,7 @@ def main():
     for i, r in enumerate(pending, 1):
         t0 = time.time()
         seed17 = int(r.get("transform_seed") or 17)
-        x = load(r["path"], a.size, 0, seed=seed17, transform=r.get("transform") or None, transform_value=r.get("transform_value") or None)
+        x = load(r["path"], a.size, seed17, transform=r.get("transform") or None, transform_value=r.get("transform_value") or None)
         caption = r["caption"]
         res = probe.invert_reconstruct(x, caption, mode="caption", guidance=1.0, capture_predictions=True)
         z0 = probe.encode_image(x)

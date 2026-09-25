@@ -1,1 +1,0 @@
-"""SynthImage research package."""

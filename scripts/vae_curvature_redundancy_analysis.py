@@ -4,16 +4,14 @@ confirmation -- motivated directly by DIT_STAGE_DECOMPOSITION.md's primary-test 
 content-grouped CV machinery and classifier from scripts/stage_decomposition_analysis.py verbatim; no new model
 family, no feature recomputation, no remote compute needed (pure CPU statistics on already-cached features)."""
 from __future__ import annotations
-import json, sys
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd
 from scipy import stats
 from sklearn.linear_model import Ridge, LogisticRegression
 from sklearn.metrics import roc_auc_score, log_loss, brier_score_loss
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from stage_decomposition_analysis import make, sub, cohen_paired, boot_ci
 
 OUT = Path("results/vae_curvature_redundancy"); OUT.mkdir(parents=True, exist_ok=True)
@@ -23,12 +21,10 @@ VAE_FEATS = ["lpips_ae", "pixel_mse_ae", "latent_mse_ae"]
 SCORE_FEATS = ["lare_t200", "score_norm_step0"]
 CURV = "diffpath_curvature"
 
-
 def fold_assignment(x, r, folds=FOLDS, seed=SEED):
     ids = np.array(sorted(x.content_id.unique()))
     perm = np.random.default_rng(seed + r).permutation(ids)
     return x.content_id.map({c: i % folds for i, c in enumerate(perm)}).values
-
 
 # ---------------- Part 1: simple geometry of VAE vs curvature ----------------
 def part1_correlations(d):
@@ -46,7 +42,6 @@ def part1_correlations(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "correlation_tables.csv", index=False)
     return df
 
-
 # ---------------- Part 3: cross-fitted VAE-only discriminant (S_vae) ----------------
 def part3_s_vae(x):
     X = np.nan_to_num(x[VAE_FEATS].values); y = x.label.values; n = len(x)
@@ -57,7 +52,6 @@ def part3_s_vae(x):
             te = fo == k
             oof_matrix[r, te] = make().fit(X[~te], y[~te]).predict_proba(X[te])[:, 1]
     return oof_matrix, oof_matrix.mean(axis=0)
-
 
 # ---------------- Part 4: cross-fitted curvature residualization (label-blind, vs raw VAE feats) ----------------
 def cross_fitted_residualize(x, C_obs, predictor_matrix, alpha=1.0):
@@ -73,7 +67,6 @@ def cross_fitted_residualize(x, C_obs, predictor_matrix, alpha=1.0):
             pred_matrix[r, te] = ridge.predict(Xte)
     resid_matrix = C_obs[None, :] - pred_matrix
     return pred_matrix, resid_matrix, np.nanmean(pred_matrix, axis=0), C_obs - np.nanmean(pred_matrix, axis=0)
-
 
 # ---------------- Part 7: residualize against S_vae itself (rep-varying predictor) ----------------
 def cross_fitted_residualize_on_svae(x, C_obs, s_vae_oof_matrix, alpha=1.0):
@@ -91,13 +84,11 @@ def cross_fitted_residualize_on_svae(x, C_obs, s_vae_oof_matrix, alpha=1.0):
     resid_matrix = C_obs[None, :] - pred_matrix
     return pred_matrix, resid_matrix, np.nanmean(pred_matrix, axis=0), C_obs - np.nanmean(pred_matrix, axis=0)
 
-
 def cohen_paired_array(x, values):
     xx = x.copy(); xx["_val"] = values
     pw = xx.pivot_table(index="content_id", columns="label", values="_val")
     diff = (pw[1] - pw[0]).dropna()
     return float(diff.mean() / (diff.std(ddof=1) + 1e-12)), diff
-
 
 # ---------------- Part 5+6+7: raw vs residual effect table + regression performance ----------------
 def parts_4_5_6_7(d):
@@ -182,7 +173,6 @@ def parts_4_5_6_7(d):
     s_vae_all.to_csv(OUT / "s_vae_oof.csv", index=False)
     return pd.DataFrame(effect_rows), s_vae_store
 
-
 # ---------------- Part 8: proper scoring rules, nested feature-set comparison ----------------
 def cv_oof_probs(x, cols, reps=REPS, folds=FOLDS):
     X = np.nan_to_num(x[cols].values); y = x.label.values; n = len(x)
@@ -196,13 +186,11 @@ def cv_oof_probs(x, cols, reps=REPS, folds=FOLDS):
         oof += p / reps
     return oof
 
-
 def metric_val(metric, y, p):
     pc = np.clip(p, 1e-6, 1 - 1e-6)
     if metric == "auroc": return roc_auc_score(y, p)
     if metric == "logloss": return log_loss(y, pc, labels=[0, 1])
     if metric == "brier": return brier_score_loss(y, p)
-
 
 def paired_metric_diff_ci(x, oof_a, oof_b, metric, n=N_BOOT, seed=0):
     ids = np.array(sorted(x.content_id.unique())); by = {c: np.where(x.content_id.values == c)[0] for c in ids}
@@ -212,7 +200,6 @@ def paired_metric_diff_ci(x, oof_a, oof_b, metric, n=N_BOOT, seed=0):
         ix = np.concatenate([by[c] for c in rng.choice(ids, len(ids))])
         diffs.append(metric_val(metric, y[ix], oof_b[ix]) - metric_val(metric, y[ix], oof_a[ix]))
     return float(np.mean(diffs)), (float(np.percentile(diffs, 2.5)), float(np.percentile(diffs, 97.5)))
-
 
 def part8_proper_scoring(d):
     rows = []
@@ -233,7 +220,6 @@ def part8_proper_scoring(d):
         print(gen, "part 8 done", flush=True)
     df = pd.DataFrame(rows); df.to_csv(OUT / "incremental_proper_scoring.csv", index=False)
     return df
-
 
 # ---------------- Part 9: conditional curvature coefficient ----------------
 def part9_conditional_coefficient(d):
@@ -258,7 +244,6 @@ def part9_conditional_coefficient(d):
     df = pd.DataFrame(rows); df.to_csv(OUT / "conditional_curvature_coefficients.csv", index=False)
     return df
 
-
 # ---------------- Part 11: PixArt -> aMUSEd effect-vector diagnostic ----------------
 def part11_pixart_amused_diagnostic(d):
     four = pd.read_csv("results/stage_decomposition/dit_generator/four_generator_feature_table.csv", index_col=0)
@@ -271,7 +256,7 @@ def part11_pixart_amused_diagnostic(d):
     contrib_df.to_csv(OUT / "pixart_amused_effect_vector_diagnostic.csv", index=False)
 
     # refit real-vs-pixart_dit 10-feature classifier, record fold-level standardized coefficients
-    from src.features.panel_v2 import CORE_FEATURE_NAMES
+    from synthimage.features.panel_v2 import CORE_FEATURE_NAMES
     x = sub(d, "pixart_dit")
     X = np.nan_to_num(x[CORE_FEATURE_NAMES].values); y = x.label.values
     coef_rows = []
@@ -294,7 +279,6 @@ def part11_pixart_amused_diagnostic(d):
     print(json.dumps(summary, indent=1))
     return contrib_df, weight_df, summary
 
-
 def main():
     rows = json.load(open("results/stage_decomposition/panel_features_dit.json"))
     d = pd.DataFrame([{"path": r["path"], "label": r["label"], "generator": r["generator"], "content_id": r["content_id"], **r["features"]} for r in rows])
@@ -308,7 +292,6 @@ def main():
     coef_df = part9_conditional_coefficient(d); print("\nPart 9 done:\n", coef_df.round(3).to_string(index=False))
     contrib_df, weight_df, summary = part11_pixart_amused_diagnostic(d)
     print("\nAll parts complete. Outputs in", OUT)
-
 
 if __name__ == "__main__":
     main()

@@ -1,8 +1,6 @@
 """Required plots for PATH_LENGTH_MECHANISM.md. See ANALYSIS_PLAN_PATH_LENGTH_MECHANISM.md."""
 from __future__ import annotations
-import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np, pandas as pd, matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 
 OUT = Path("results/path_length_mechanism"); PLOTS = OUT / "plots"; PLOTS.mkdir(parents=True, exist_ok=True)
