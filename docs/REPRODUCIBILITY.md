@@ -11,8 +11,8 @@ is not conceptually required to understand or reproduce the underlying method.
 This project uses [`uv`](https://docs.astral.sh/uv/) for dependency management (`pyproject.toml` + `uv.lock`).
 
 ```bash
-git clone <this-repository-url>
-cd SynthImage
+git clone https://github.com/jeillei/AI_Image_Probe.git
+cd AI_Image_Probe
 uv sync
 ```
 

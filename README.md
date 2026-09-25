@@ -116,8 +116,8 @@ SynthImage/
 Requires Python 3.12 and [`uv`](https://docs.astral.sh/uv/):
 
 ```bash
-git clone <this-repository-url>
-cd SynthImage
+git clone https://github.com/jeillei/AI_Image_Probe.git
+cd AI_Image_Probe
 uv sync
 uv run pytest   # scientific-correctness test suite
 ```
