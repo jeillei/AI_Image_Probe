@@ -1,9 +1,14 @@
 # scripts/ index
 
-This directory accumulated ~95 scripts across the project's full history. Rather than move files and risk
-breaking the `sys.path.insert(0, Path(__file__).resolve().parents[1])` import pattern every script in this
-directory shares (which assumes `scripts/` is exactly one level below the repo root), this index tells you which
-scripts matter for which purpose. Nothing below has been relocated.
+**Start with `scripts/reproduce/`** — `final_analysis.py` reproduces every headline result from committed data
+(no GPU), and `analyze_image.py` runs the frozen measurement panel on your own image. Both are documented in the
+root `README.md`.
+
+The rest of this directory accumulated ~95 scripts across the project's full history. Rather than move files and
+risk breaking the `sys.path.insert(0, Path(__file__).resolve().parents[1])` import pattern most of them share
+(which assumes `scripts/` is exactly one level below the repo root), this index tells you which scripts matter
+for which purpose. Nothing below `scripts/` itself has been relocated (only `scripts/reproduce/` is new, and its
+two files use `parents[2]` for the same reason).
 
 ## Final reproduction (the current, valid scientific pipeline)
 

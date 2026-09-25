@@ -1,68 +1,76 @@
 # PUBLIC_RELEASE_CHECKLIST
 
-Each item below was actually verified during the final cleanup pass, not assumed. Verification method noted
-inline. Status as of this document's last update.
+Each item below was actually verified during this pass (a dedicated final repository-cleanup task, run after
+the science was already complete), not assumed. See `PUBLIC_REPO_AUDIT.md` for the full inventory this
+checklist is based on.
 
-- [x] **Final validation completed** — verified: the HPC extraction job (2,520 Track A + 180 Track B images,
-  4,380 total rows) completed successfully (`Exit_status = 0`), was pulled down, re-analyzed locally
-  (`scripts/final_validation_analysis.py`, `scripts/final_validation_plots.py`), and `docs/FINAL_RESULTS.md`
-  §8–9 were filled in with the actual results (not assumed). An aggregation bug found during this analysis
-  (transform conditions pooled by family instead of by specific parameter) was caught before any number was
-  reported and is disclosed in `FINAL_VALIDATION_PLAN.md`'s Amendments section.
-- [x] **Headline numbers reproduced from saved results** — verified: `uv run python
-  scripts/dit_stage_decomposition_analysis.py` and `scripts/path_length_mechanism_analysis.py` both re-ran
-  successfully against the already-committed `results/` feature tables during this cleanup pass, reproducing the
-  numbers quoted in `docs/FINAL_RESULTS.md` §5–7.
-- [x] **README reflects final evidence** — rewritten from scratch this pass; every headline claim, including the
-  robustness/AI-edit findings (§8–9), traces to a specific result in `docs/FINAL_RESULTS.md`.
-- [x] **No unsupported detector claims** — checked: README/`docs/FINAL_RESULTS.md` explicitly disclaim a
-  universal detector, generator-independent deployment performance, "curvature alone proves provenance," and any
-  "percent AI" claim (§11 / README "Limitations").
-- [x] **No secrets/tokens** — verified via `git grep` for API-key/secret/password/private-key/HF-token patterns
-  across all tracked files (post-cleanup): zero matches beyond the word "secrets" appearing in a `.gitignore`
-  comment.
-- [x] **No private filesystem paths** — verified via `git grep` for `/Users/<name>`, `/home/<name>`,
-  the HPC hostname, and the HPC username across all tracked files: zero matches (previously found in 2 tracked
-  `.pbs` files and 5 tracked `.log` files; both fixed — `.pbs` files now use `${HPC_SCRATCH_ROOT:?...}` env-var
-  placeholders, the `.log` files were untracked).
-- [x] **No model checkpoints tracked** — verified: `.gitignore` excludes `*.safetensors`/`*.ckpt`/`*.gguf`,
-  `.cache/`, `hf-cache/`, `torch-cache/`; `git ls-files` shows none present.
-- [x] **No huge accidental files** — verified: total tracked repository size reduced from the original
-  ~70MB (including several large v1-era raw feature dumps, 13MB/12MB/6.7MB/etc.) to **13MB total**, largest
-  single tracked file 744KB (a QC contact-sheet image). The large v1-era dumps were untracked (`git rm --cached`)
-  but remain in git history, not deleted from disk.
-- [x] **Dataset licensing/redistribution considered** — `data/README.md` documents COCO's CC licensing terms and
-  states explicitly that this project does not redistribute the underlying images, only ids and derived scalar
-  features; generated images are not committed (regenerable via deterministic seeding, documented in the same
-  file).
-- [x] **Dependency installation tested** — `uv sync` ran clean (`Resolved 81 packages`, `Checked 59 packages`,
-  no errors) in a fresh check during this pass.
-- [x] **Minimal reproduction tested** — `scripts/dit_stage_decomposition_analysis.py` and
-  `scripts/path_length_mechanism_analysis.py` both ran end-to-end against committed feature tables with no GPU
-  and no model download, per `docs/REPRODUCIBILITY.md`'s minimal path.
-- [x] **Tests pass** — `uv run pytest`: **20/20 passed**, including 5 new tests added this pass specifically
-  covering scientifically load-bearing behavior (frozen feature definitions, content-grouped CV never splits a
-  matched pair, cross-fitted residualization never lets a held-out fold leak into its own fit, manifest schema).
-- [x] **Links/references resolve** — checked cross-references from the new top-level docs (`README.md`,
-  `FINAL_VALIDATION_PLAN.md`, `docs/METHODS.md`, `docs/REPRODUCIBILITY.md`) into `docs/research_history/`
-  after the file moves; all rewritten to the correct `docs/research_history/...` path.
-- [x] **Figures render** — every figure referenced from `README.md` was visually inspected after generation
-  (`results/summary/01_pipeline_diagram.png` through `07_ai_edit_response_comparison.png`).
-- [x] **Git working tree understood/clean** — `git status` reviewed before every commit in this pass; no
-  unexplained modifications.
-- [ ] **License present OR license choice explicitly flagged** — **no LICENSE file exists in this repository or
-  its git history** (checked directly). Not chosen on the owner's behalf, per instruction. **LICENSE CHOICE
-  REQUIRED BEFORE PUBLIC RELEASE.**
-- [ ] **Repository is ready for manual GitHub publication** — see "GitHub readiness" verdict at the end of this
-  cleanup task's handoff. Blocked on the one open item above (license choice) only — all scientific and code-
-  hygiene items are complete.
+- [x] **Final README reviewed** — every headline claim traces to a specific result in `docs/FINAL_RESULTS.md`;
+  read start-to-finish as a stranger this pass (§ installation → quick reproduction → own-image analysis →
+  layout → hardware → limitations → research history → status → license), nothing found confusing or requiring
+  undocumented local knowledge.
+- [x] **Final scientific claims match FINAL_RESULTS** — checked: README's 6 headline findings and Limitations
+  section match `docs/FINAL_RESULTS.md` §5–11 exactly; no claim in either exceeds what §10–11 disclaim (no
+  universal detector, no generator-independent deployment claim, no "curvature alone proves provenance," no
+  "percent AI" claim).
+- [x] **Git-tracked files audited** — full inventory in `PUBLIC_REPO_AUDIT.md`: 475 tracked files, 17MB total.
+  Every top-level path classified KEEP (public core / compact result) / ARCHIVE / IGNORE / REMOVE / MANUAL
+  REVIEW; no item left unclassified.
+- [x] **`.gitignore` tested** — `git check-ignore -v` run against representative files in both directions this
+  pass: confirmed `scripts/reproduce/*.py`, `results/final_validation/panel_features_final.json`,
+  `results/summary/*.png`, `data/README.md`, and `PUBLIC_REPO_AUDIT.md` are **not** ignored; confirmed `.venv`,
+  `data/content_matched`, `data/stage_panel_cache`, `results/core200/*.json`, and `.DS_Store` **are** ignored.
+- [x] **Secrets scan passed** — `git grep` for API-key/secret/password/private-key/HF-token patterns across all
+  tracked files, re-run this pass including the two new `scripts/reproduce/` files and `PUBLIC_REPO_AUDIT.md`:
+  zero matches beyond the word "secrets" in prose/`.gitignore` comments.
+- [x] **Private paths removed** — `git grep` for `/Users/<name>`, `/home/<name>`, the remote-machine hostname,
+  and the remote-machine username across all tracked files: zero matches. One remaining literal SSH alias
+  (`ssh vandal-codex`) was found and removed from `FINAL_VALIDATION_PLAN.md` this pass (replaced with neutral
+  "a remote GPU machine" framing); `docs/REPRODUCIBILITY.md`'s hardware framing was also rewritten this pass to
+  present GPU/cluster acceleration as optional, not a prerequisite (see §6–7 of this task).
+- [x] **Raw datasets excluded** — verified: `data/` is fully gitignored except `data/README.md`; `git ls-files`
+  confirms no COCO images, no third-party dataset archives are tracked. `data/README.md` documents provenance,
+  licensing (COCO's CC terms), and regeneration instructions.
+- [x] **Model weights excluded** — verified: `.gitignore` excludes `*.safetensors`/`*.ckpt`/`*.gguf`/`*.pt`/
+  `*.pth`, `.cache/`, `hf-cache/`, `torch-cache/`; `git ls-files` shows none tracked.
+- [x] **Heavyweight caches excluded** — verified: `data/stage_panel_cache/` (455M on disk), `data/
+  raw_trajectory_cache/` (32M), and all v1-era raw per-run feature dumps under `results/` are gitignored, never
+  tracked (confirmed via `git status --ignored`).
+- [x] **Large tracked files justified** — `git ls-files` + `du`: only one tracked file exceeds 1MB
+  (`results/final_validation/panel_features_final.json`, 3.3MB — the compact final feature table behind
+  §8–9's numbers); none exceed 5MB. Every file >100KB has a stated purpose in `PUBLIC_REPO_AUDIT.md`.
+- [x] **Minimal reproduction works** — `uv run python scripts/reproduce/final_analysis.py` (the new single
+  canonical entrypoint, created this pass) ran end-to-end this pass: all 8 steps succeeded, ~4 minutes, no GPU,
+  no model download, zero unexpected diffs to committed outputs (fully deterministic).
+- [x] **Clean install tested** — `uv sync`: `Resolved 81 packages`, `Checked 59 packages`, no errors, re-run
+  this pass.
+- [x] **Tests pass** — `uv run pytest`: **20/20 passed** (re-run this pass after all changes).
+- [x] **Public image-analysis command smoke-tested** — `scripts/reproduce/analyze_image.py` (new this pass):
+  `--help` reviewed, missing-file error path tested (clean `argparse` error, exit code 2), and a full real run
+  against a sample image tested both with and without `--skip-lpips` — all 10 frozen features computed
+  correctly, no NaN, plausible values.
+- [x] **Final figures regenerate/render** — all 8 figures under `results/summary/` (pipeline diagram + 7
+  headline results) visually inspected; the two newest (`06_path_length_robustness.png`,
+  `07_ai_edit_response_comparison.png`) confirmed to regenerate byte-identically via
+  `scripts/reproduce/final_analysis.py`.
+- [x] **Links/references resolve** — cross-references from every top-level doc into `docs/research_history/`
+  checked and correct; `README.md`'s repository-layout tree matches the actual tree (including the new
+  `scripts/reproduce/` and `PUBLIC_REPO_AUDIT.md` entries added this pass).
+- [x] **No obvious stale duplicate docs** — searched for `*old*`/`*copy*`/`*backup*`/`README2*`/`*_v2.md`:
+  none found. Exactly one current README, METHODS, FINAL_RESULTS, REPRODUCIBILITY, and PROJECT_STATE document.
+- [x] **Research history preserved** — `docs/research_history/` holds 17 historical protocol/report documents
+  plus 3 archived obsolete scripts; nothing was deleted, only reorganized (see `PUBLIC_REPO_AUDIT.md`'s
+  disclosed compromise on the ~68 research-history-role scripts kept in place to avoid breaking their import
+  paths, indexed instead via `scripts/README.md`).
+- [x] **Repository status understood** — `git status` clean at every commit boundary this pass; `git log`
+  reviewed; no unexplained modifications.
+- [x] **No notebooks requiring audit** — `find . -iname "*.ipynb"` (excluding `.venv/`): zero results.
+- [ ] **License resolved OR explicitly listed as final manual blocker** — **no `LICENSE` file exists in this
+  repository or its git history** (checked directly this pass again). Not chosen on the owner's behalf.
+  **LICENSE CHOICE REQUIRED BEFORE PUBLIC RELEASE — this is the only unchecked item.**
 
-## Known remaining manual actions
+## Remaining manual actions
 
 1. **License decision** (blocking) — pick a license (or explicitly decide "no license / all rights reserved")
-   and add a `LICENSE` file. The only remaining blocker.
-2. Consider whether `docs/research_history/obsolete_scripts/` should be dropped entirely rather than kept (they
-   are currently kept per "do not delete anything scientifically important without preserving it," but they are
-   explicitly labeled low-value).
-3. `git push`/publish is a separate, explicit action this task does not take — nothing in this repository has
-   been pushed to a remote as part of this cleanup.
+   and add a `LICENSE` file. The only remaining blocker to publication.
+2. Create/attach a GitHub remote, then `git add . && git commit && git push` — a separate, explicit action this
+   task does not take. See the exact command sequence in the task handoff.

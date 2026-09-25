@@ -38,9 +38,8 @@ classifier as a feature.
 **Scale**: real + SD1.5 + SDXL × 60 content ids × 14 conditions = 2,520 new transformed images, feature-extracted
 through the frozen two-pass SD1.5-probe extractor (`scripts/extract_stage_panel.py` + `compute_lpips_panel.py`,
 byte-identical protocol to every prior phase — only a device-selection (`cuda`/`mps`/`cpu`) execution-only patch
-was added, no scientific parameter changed). Executed on the HPC GPU cluster (`ssh vandal-codex`, the same
-environment validated for the PixArt-Sigma generation phase) since this is bulk feature extraction, not
-statistical analysis — reusing the existing offline-execution workflow (local `.sif` container, pre-built venv,
+was added, no scientific parameter changed). Executed on a remote GPU machine since this is bulk feature
+extraction, not statistical analysis — reusing the existing offline-execution workflow (local `.sif` container, pre-built venv,
 pre-downloaded SD1.5/LPIPS-VGG16 weights, `local_files_only=True`) rather than rebuilding it.
 
 **Frozen feature set for this phase** (unchanged from the v2 panel, `src/features/panel_v2.py`), with emphasis
@@ -73,7 +72,7 @@ Scales the existing n=8 img2img-strength pilot (`scripts/generate_ai_edit_pilot.
 (`scripts/generate_ai_edit_scaled.py`) — the identical mechanism, strengths (0.0/0.3/0.6/0.9), steps (25),
 guidance (7.5), caption policy, and seed policy (`hash(content_id:strength)`), unchanged. Not a new editing
 model. 180 new generated images (60 × 3 non-zero strengths), feature-extracted through the same frozen
-extractor. Executed on HPC given the scale (GPU-bound generation + extraction).
+extractor. Executed on a remote GPU machine given the scale (GPU-bound generation + extraction).
 
 **AI-edit analysis**: for the static/VAE and trajectory features specifically, per-content feature curves,
 population mean curve with bootstrap CI at each strength, within-content Spearman correlation with strength,

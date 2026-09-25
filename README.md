@@ -67,17 +67,29 @@ train/test fold) and uses one fixed, simple classifier
 | ![path length mechanism](results/summary/04_path_length_mechanism_result.png) The decisive result: `path_length` explains the SDXL-vs-PixArt split | ![VAE residualization](results/summary/05_vae_residualization_result.png) Raw vs. VAE-residualized trajectory effect |
 | ![robustness](results/summary/06_path_length_robustness.png) `path_length` under 14 realistic transformations | ![AI-edit response](results/summary/07_ai_edit_response_comparison.png) Static (VAE) vs. dynamic (trajectory) response to AI-edit strength |
 
-## Reproduce the headline result
+## Quick reproduction
 
 ```bash
 uv sync
-uv run python scripts/dit_stage_decomposition_analysis.py
-uv run python scripts/path_length_mechanism_analysis.py
+uv run python scripts/reproduce/final_analysis.py
 ```
 
-Both read already-extracted, committed feature tables under `results/` — no GPU, no model download. Full
-reproduction (including regenerating those feature tables from raw images) is documented in
-**[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)**.
+Reproduces every headline table and figure above from already-extracted, committed feature tables under
+`results/` — ordinary CPU, no GPU, no model download, a few minutes. Full reproduction (regenerating those
+feature tables from raw images) is documented in **[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)**.
+
+## Analyze your own image
+
+```bash
+uv run python scripts/reproduce/analyze_image.py your_photo.jpg --caption "a plausible description"
+```
+
+Extracts the same ten frozen measurements from any image of your own. **This is a research measurement command,
+not a detector** — it prints the raw feature values (VAE reconstruction, score response, `diffpath_curvature`,
+`path_length`, round-trip quantities), not a REAL/AI verdict; a single number in isolation isn't meaningful
+without a reference cohort like the ones already committed under `results/`. Requires the SD1.5 weights
+(~5GB, fetched automatically on first use). Run with `--help` for all options, including `--device` and
+`--skip-lpips`.
 
 ## Repository layout
 
@@ -90,15 +102,19 @@ SynthImage/
 │   ├── REPRODUCIBILITY.md        environment setup, data provenance, reproduction commands
 │   └── research_history/         full chronological research ledger, preregistrations, superseded phases
 ├── src/                          probe, feature panel, corruption/transform suite
-├── scripts/                      generation, extraction, analysis (scripts/README.md indexes all of them)
+├── scripts/
+│   ├── reproduce/                 the two commands above — start here
+│   └── ...                        generation, extraction, analysis (scripts/README.md indexes all of them)
 ├── results/
 │   └── summary/                  the figures and diagram used above
 ├── tests/                        scientific-correctness tests (leakage, frozen definitions, determinism)
-├── hpc/                          generic PBS/Apptainer job templates (placeholders, not this project's own cluster)
+├── hpc/                          optional generic PBS/Apptainer job template for accelerating bulk extraction
+│                                  on a GPU cluster you have access to — not required for anything above
 ├── data/README.md                dataset provenance and regeneration instructions (data/ itself is not committed)
 ├── FINAL_VALIDATION_PLAN.md      the frozen protocol for the final robustness/AI-edit validation phase
 ├── SYNTHIMAGE_PROJECT_STATE.md   current project status (closed to active experimentation)
-└── PUBLIC_RELEASE_CHECKLIST.md   pre-publication audit
+├── PUBLIC_RELEASE_CHECKLIST.md   pre-publication audit
+└── PUBLIC_REPO_AUDIT.md          full repository inventory (what's public core / archived / excluded, and why)
 ```
 
 ## Installation
@@ -112,6 +128,16 @@ uv sync
 uv run pytest   # scientific-correctness test suite
 ```
 
+## Hardware
+
+- **Headline-result reproduction** (`scripts/reproduce/final_analysis.py`) runs from committed derived data and
+  needs only an ordinary CPU — no GPU.
+- **Full feature extraction** (regenerating those tables from raw images) is heavier but runs locally on
+  whatever you have: CPU, CUDA, or Apple Silicon MPS, auto-detected. This project was developed on a
+  MacBook-class machine. Faster hardware changes runtime, not methodology or results.
+- Accelerating large bulk-extraction runs on a GPU cluster is optional, documented infrastructure
+  (`hpc/*.pbs`), never a prerequisite for using or understanding this repository.
+
 ## Limitations
 
 This project does not claim a universal AI-image detector, generator-independent deployment performance, that
@@ -120,6 +146,14 @@ represents a calibrated "percent AI" score. The `path_length` architecture-depen
 exactly one Diffusion Transformer (PixArt-Sigma) and two UNet models (SD1.5, SDXL) — a real mechanism-level
 finding about these three generators specifically, not yet shown to generalize to Diffusion Transformers in
 general. Full discussion: `docs/FINAL_RESULTS.md` §10.
+
+## Research history
+
+SynthImage's strongest methodological result was catching its own first benchmark being confounded (finding
+#1 above) and rebuilding from there: matched-content controls → literature-grounded stage decomposition →
+architecture disambiguation → mechanism resolution. The full chronological ledger — including that audit, every
+preregistration, and every negative result — is preserved, not hidden, under
+**[`docs/research_history/`](docs/research_history/)**.
 
 ## Status
 

@@ -1,8 +1,10 @@
 # REPRODUCIBILITY
 
 Two reproduction paths exist. **Start with the minimal path** — it reproduces every headline table and figure
-from committed, compact feature tables in minutes, on a CPU, with no model downloads. The full path regenerates
-those feature tables from scratch and requires a GPU, ~15GB of model weights, and several hours.
+from committed, compact feature tables in minutes, on an ordinary CPU, with no model downloads. The full path
+regenerates those feature tables from raw images and is heavier: it runs on CPU, CUDA, or Apple Silicon MPS
+(auto-detected), needs ~15GB of model weights, and is noticeably faster with a GPU/MPS than CPU-only, but a GPU
+is not conceptually required to understand or reproduce the underlying method.
 
 ## Environment setup
 
@@ -16,7 +18,7 @@ uv sync
 
 Python 3.12 is required (pinned in `pyproject.toml`). `uv sync` creates a `.venv/` and installs exact pinned
 versions from `uv.lock` — the same discipline that avoided several real version-compatibility failures
-encountered during development (see `docs/research_history/` for the HPC container debugging saga this pin
+encountered during development (see `docs/research_history/` for the environment-compatibility notes this pin
 discipline came out of).
 
 ## Minimal reproduction path (no GPU, no model downloads)
@@ -82,7 +84,7 @@ underlying photo/caption. `scripts/build_*_manifest.py` scripts construct these 
 `build_final_validation_manifest.py` adds transform/transform_value columns for the robustness benchmark,
 applied on-the-fly at extraction time rather than by generating new image files).
 
-## How to extract the frozen features (full path, GPU required)
+## How to extract the frozen features (full path, heavier — runs on CPU, CUDA, or MPS)
 
 ```bash
 # 1. Build the matched-content dataset (downloads 60 COCO images, ~25MB)
@@ -101,12 +103,15 @@ uv run python scripts/compute_lpips_panel.py --pass1 results/stage_decomposition
     --output results/stage_decomposition/panel_features.json
 ```
 
-This full path requires: a GPU (or Apple Silicon MPS — the probe auto-detects `cuda`/`mps`/`cpu`), ~15GB of
-disk for model weights, and substantial runtime (the 6-step SD1.5 inversion pass is the dominant cost, roughly
-3-5 seconds/image on Apple Silicon MPS, faster on a discrete GPU). For bulk extraction (many transform
-conditions × many generators), this project used a university HPC GPU cluster via a generic Apptainer/PBS
-workflow — see `hpc/*.pbs` for a reusable template (placeholders for your own scratch path/project account,
-deliberately not this project's own cluster credentials).
+This full path was developed and runs successfully on ordinary hardware (a MacBook-class machine, Apple Silicon
+MPS) — a GPU is not conceptually required, only helpful for larger runs. It requires: `cuda`/`mps`/`cpu`
+(auto-detected by the probe), ~15GB of disk for model weights, and runtime proportional to device speed (the
+6-step SD1.5 inversion pass is the dominant cost, roughly 3-5 seconds/image on Apple Silicon MPS, faster on a
+discrete GPU, slower on CPU-only). For bulk extraction (many transform conditions × many generators) you may
+want to accelerate this on any GPU machine you have access to — `hpc/*.pbs` is a generic, reusable
+Apptainer/PBS job template (environment-variable placeholders for your own scratch path/project account) for
+doing that on a shared GPU cluster; it is optional infrastructure, not a prerequisite for reproducing or
+understanding any result in this repository.
 
 ## Regenerating figures
 
