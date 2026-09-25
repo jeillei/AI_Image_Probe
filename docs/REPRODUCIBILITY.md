@@ -51,7 +51,7 @@ Per `.gitignore` and the data policy below, the following are **not** committed:
 - Model weights of any kind (`.safetensors`, `.ckpt`, `.gguf`, Hugging Face / PyTorch Hub caches).
 - Large per-run raw intermediate dumps superseded by the frozen v2 panel (kept in git history from the v1-era
   exploration, not re-tracked going forward).
-- HPC job logs, `.out`/`.err` files, local absolute paths.
+- Job/batch logs, `.out`/`.err` files, local absolute paths.
 
 ## Where models come from
 
@@ -107,11 +107,8 @@ This full path was developed and runs successfully on ordinary hardware (a MacBo
 MPS) — a GPU is not conceptually required, only helpful for larger runs. It requires: `cuda`/`mps`/`cpu`
 (auto-detected by the probe), ~15GB of disk for model weights, and runtime proportional to device speed (the
 6-step SD1.5 inversion pass is the dominant cost, roughly 3-5 seconds/image on Apple Silicon MPS, faster on a
-discrete GPU, slower on CPU-only). For bulk extraction (many transform conditions × many generators) you may
-want to accelerate this on any GPU machine you have access to — `hpc/*.pbs` is a generic, reusable
-Apptainer/PBS job template (environment-variable placeholders for your own scratch path/project account) for
-doing that on a shared GPU cluster; it is optional infrastructure, not a prerequisite for reproducing or
-understanding any result in this repository.
+discrete GPU, slower on CPU-only). For bulk extraction (many transform conditions × many generators), any
+machine with a GPU will finish faster, but this is a convenience, not a requirement.
 
 ## Regenerating figures
 

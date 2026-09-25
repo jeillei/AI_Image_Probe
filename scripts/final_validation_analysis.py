@@ -1,5 +1,5 @@
 """Final validation analysis: Track A (realistic-transformation robustness) + Track B (AI-edit continuum).
-See FINAL_VALIDATION_PLAN.md, frozen before this script was run. Reuses the exact CV/bootstrap/classifier
+See docs/research_history/FINAL_VALIDATION_PLAN.md, frozen before this script was run. Reuses the exact CV/bootstrap/classifier
 machinery from stage_decomposition_analysis.py and vae_curvature_redundancy_analysis.py -- no new model family,
 no new feature, no per-condition hyperparameter tuning."""
 from __future__ import annotations

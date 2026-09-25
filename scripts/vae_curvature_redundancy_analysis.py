@@ -2,7 +2,7 @@
 frozen before any output here was inspected. Exploratory/mechanistic, NOT an independent preregistered
 confirmation -- motivated directly by DIT_STAGE_DECOMPOSITION.md's primary-test discrepancy. Reuses the existing
 content-grouped CV machinery and classifier from scripts/stage_decomposition_analysis.py verbatim; no new model
-family, no feature recomputation, no HPC (pure CPU statistics on already-cached features)."""
+family, no feature recomputation, no remote compute needed (pure CPU statistics on already-cached features)."""
 from __future__ import annotations
 import json, sys
 from pathlib import Path

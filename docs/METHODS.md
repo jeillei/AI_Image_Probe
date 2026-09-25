@@ -91,7 +91,7 @@ minus predicted) is then tested for a real/fake effect exactly as any raw featur
 
 ## 8. Robustness and AI-edit validation protocol
 
-Full frozen protocol: `FINAL_VALIDATION_PLAN.md`. In brief: 14 realistic-transformation conditions (JPEG, blur,
+Full frozen protocol: `docs/research_history/FINAL_VALIDATION_PLAN.md`. In brief: 14 realistic-transformation conditions (JPEG, blur,
 resize round-trip, Gaussian noise, color jitter, center crop — all parameters fixed in advance,
 `src/corruption/robustness_suite.py`) applied symmetrically to real and generated images at the same
 canonicalization stage; and a controlled img2img edit-strength continuum (0.0/0.3/0.6/0.9) using the same SD1.5

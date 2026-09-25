@@ -19,9 +19,6 @@ __pycache__/
 # large data / caches / weights (see data/README.md for provenance + how to regenerate)
 data/*
 !data/README.md
-hpc/*.log
-hpc/*.out
-hpc/*.err
 *.joblib
 *.tar.gz
 *.safetensors
@@ -32,7 +29,7 @@ hpc/*.err
 **/torch-cache/
 **/pip-cache/
 
-# HPC job output/error files and transient logs
+# job output/error files and transient logs
 *.out
 *.err
 results/**/*.log

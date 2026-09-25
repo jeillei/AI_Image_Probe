@@ -112,7 +112,7 @@ stopped (per its own preregistered decision rule). Full detail:
 
 ## 8. Robustness (realistic transformations)
 
-*Protocol frozen in `FINAL_VALIDATION_PLAN.md` before this section was written. Full tables:
+*Protocol frozen in `docs/research_history/FINAL_VALIDATION_PLAN.md` before this section was written. Full tables:
 `results/final_validation/q1_feature_survival.csv`, `q2_incremental_survival.csv`,
 `q3_clean_trained_transfer.csv`. Figure: `results/final_validation/plots/01_path_length_robustness.png`.*
 
@@ -147,7 +147,7 @@ only modest, expected degradation to every transformed condition tested.
 
 ## 9. AI-edit continuum
 
-*Protocol frozen in `FINAL_VALIDATION_PLAN.md` before this section was written. Full tables:
+*Protocol frozen in `docs/research_history/FINAL_VALIDATION_PLAN.md` before this section was written. Full tables:
 `results/final_validation/track_b_population_curves.csv`, `track_b_trend_test.csv`. Figure:
 `results/final_validation/plots/02_ai_edit_response_comparison.png`.*
 
@@ -210,8 +210,8 @@ represents a calibrated "percent AI" score.
 
 ## Future work
 
-Not part of active SynthImage experimentation (see §12 of `SYNTHIMAGE_PROJECT_STATE.md` for the project's
-closing status). Recorded here as possible directions for a future, separate project:
+Not part of active SynthImage experimentation, which is closed. Recorded here as possible directions for a
+future, separate project:
 - Test whether `path_length`'s VAE-independence generalizes across a broader sample of Diffusion Transformer
   checkpoints (not just PixArt-Sigma) and UNet checkpoints (not just SD1.5/SDXL).
 - A calibrated, held-out-generator study of whether any frozen feature's response to AI-edit strength could

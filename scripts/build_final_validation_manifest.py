@@ -1,4 +1,4 @@
-"""Track A of FINAL_VALIDATION_PLAN.md: build the full-scale transformation-robustness manifest. All 60 matched
+"""Track A of docs/research_history/FINAL_VALIDATION_PLAN.md: build the full-scale transformation-robustness manifest. All 60 matched
 content ids x {real, sd15, sdxl} (primary) x every non-clean condition in
 src/corruption/robustness_suite.py::CONDITIONS (frozen, unchanged). No new image files -- transforms are applied
 on-the-fly from the original clean paths by scripts/extract_detector_features.py::load(), exactly as the existing

@@ -1,4 +1,4 @@
-"""Track B of FINAL_VALIDATION_PLAN.md: scale the n=8 img2img-strength pilot (scripts/generate_ai_edit_pilot.py)
+"""Track B of docs/research_history/FINAL_VALIDATION_PLAN.md: scale the n=8 img2img-strength pilot (scripts/generate_ai_edit_pilot.py)
 to the full 60 matched content ids. Reuses the EXACT same img2img mechanism, strengths, steps, guidance, and
 seed policy as the original pilot -- no new editing model, no parameter change. This is a controlled-intervention
 scaling, not a new pilot; see STAGE_DECOMPOSITION_RESULTS.md Phase 7 for why img2img-strength (not localized

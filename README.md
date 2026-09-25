@@ -108,13 +108,7 @@ SynthImage/
 ├── results/
 │   └── summary/                  the figures and diagram used above
 ├── tests/                        scientific-correctness tests (leakage, frozen definitions, determinism)
-├── hpc/                          optional generic PBS/Apptainer job template for accelerating bulk extraction
-│                                  on a GPU cluster you have access to — not required for anything above
-├── data/README.md                dataset provenance and regeneration instructions (data/ itself is not committed)
-├── FINAL_VALIDATION_PLAN.md      the frozen protocol for the final robustness/AI-edit validation phase
-├── SYNTHIMAGE_PROJECT_STATE.md   current project status (closed to active experimentation)
-├── PUBLIC_RELEASE_CHECKLIST.md   pre-publication audit
-└── PUBLIC_REPO_AUDIT.md          full repository inventory (what's public core / archived / excluded, and why)
+└── data/README.md                dataset provenance and regeneration instructions (data/ itself is not committed)
 ```
 
 ## Installation
@@ -134,9 +128,8 @@ uv run pytest   # scientific-correctness test suite
   needs only an ordinary CPU — no GPU.
 - **Full feature extraction** (regenerating those tables from raw images) is heavier but runs locally on
   whatever you have: CPU, CUDA, or Apple Silicon MPS, auto-detected. This project was developed on a
-  MacBook-class machine. Faster hardware changes runtime, not methodology or results.
-- Accelerating large bulk-extraction runs on a GPU cluster is optional, documented infrastructure
-  (`hpc/*.pbs`), never a prerequisite for using or understanding this repository.
+  MacBook-class machine. Faster hardware changes runtime, not methodology or results — no specialized or
+  remote compute infrastructure is required for anything in this repository.
 
 ## Limitations
 
@@ -157,11 +150,9 @@ preregistration, and every negative result — is preserved, not hidden, under
 
 ## Status
 
-Active experimentation on this project is closed — see `SYNTHIMAGE_PROJECT_STATE.md`. Possible future
-directions are recorded under "Future work" in `docs/FINAL_RESULTS.md`, not as an open invitation to keep
-iterating here.
+Active experimentation on this project is closed. Possible future directions are recorded under "Future work"
+in `docs/FINAL_RESULTS.md`, not as an open invitation to keep iterating here.
 
 ## License
 
-See `PUBLIC_RELEASE_CHECKLIST.md` — a license decision is required before public release and has not been made
-by the project owner yet.
+No license has been chosen yet.

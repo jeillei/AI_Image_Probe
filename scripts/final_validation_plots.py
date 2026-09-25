@@ -1,4 +1,4 @@
-"""Required plots for the final validation phase. See FINAL_VALIDATION_PLAN.md."""
+"""Required plots for the final validation phase. See docs/research_history/FINAL_VALIDATION_PLAN.md."""
 from __future__ import annotations
 from pathlib import Path
 import pandas as pd, numpy as np, matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt

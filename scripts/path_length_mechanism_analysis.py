@@ -2,7 +2,7 @@
 trajectory stage added information for SDXL but not PixArt? See ANALYSIS_PLAN_PATH_LENGTH_MECHANISM.md, frozen
 before any output here was inspected. Exploratory/mechanistic stopping-point experiment, not an independent
 preregistered confirmation. C_resid is reused verbatim from results/vae_curvature_redundancy/ (NOT recomputed);
-P_resid is computed fresh here with the identical residualization procedure. No new feature, no HPC (pure CPU
+P_resid is computed fresh here with the identical residualization procedure. No new feature, no remote compute needed (pure CPU
 statistics on already-cached features)."""
 from __future__ import annotations
 import json, sys

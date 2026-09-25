@@ -26,7 +26,7 @@ from diffusers import PixArtSigmaPipeline, Transformer2DModel, AutoencoderKL
 # its vocab file from the local cache in this transformers version (fails with
 # "Either model_file or model_proto must be specified" -- vocab_file silently None);
 # passing local_files_only=True explicitly on every from_pretrained call does work
-# and is used whenever HF_HUB_OFFLINE=1 is set (the offline HPC execution path).
+# and is used whenever HF_HUB_OFFLINE=1 is set (the offline remote-execution path).
 LOCAL_FILES_ONLY = bool(os.environ.get("HF_HUB_OFFLINE"))
 
 STEPS = 20
