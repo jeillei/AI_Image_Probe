@@ -11,8 +11,8 @@ is not conceptually required to understand or reproduce the underlying method.
 This project uses [`uv`](https://docs.astral.sh/uv/) for dependency management (`pyproject.toml` + `uv.lock`).
 
 ```bash
-git clone https://github.com/jeillei/AI_Image_Probe.git
-cd AI_Image_Probe
+git clone https://github.com/jeillei/SynthImage.git
+cd SynthImage
 uv sync
 ```
 
@@ -49,8 +49,9 @@ Per `.gitignore` and the data policy below, the following are **not** committed:
 - `data/` in full (generated/downloaded images, manifests with local paths) — see `data/README.md` for how to
   regenerate.
 - Model weights of any kind (`.safetensors`, `.ckpt`, `.gguf`, Hugging Face / PyTorch Hub caches).
-- Large per-run raw intermediate dumps superseded by the frozen v2 panel (kept in git history from the v1-era
-  exploration, not re-tracked going forward).
+- Large per-run raw intermediate dumps from superseded experimental phases (early feature sweeps, pre-matched-
+  content baselines, etc.) — not in the working tree, but retrievable from the `research-history-archive` git
+  tag (e.g. `git show research-history-archive:results/core200/...`).
 - Job/batch logs, `.out`/`.err` files, local absolute paths.
 
 ## Where models come from

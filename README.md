@@ -1,6 +1,6 @@
 # SynthImage
 
-[![tests](https://github.com/jeillei/AI_Image_Probe/actions/workflows/tests.yml/badge.svg)](https://github.com/jeillei/AI_Image_Probe/actions/workflows/tests.yml)
+[![tests](https://github.com/jeillei/SynthImage/actions/workflows/tests.yml/badge.svg)](https://github.com/jeillei/SynthImage/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Where does AI-image forensic information live inside a pretrained diffusion pipeline — and does it survive
@@ -106,12 +106,16 @@ SynthImage/
 │   ├── METHODS.md                frozen methodology in detail
 │   ├── REPRODUCIBILITY.md        environment setup, data provenance, reproduction commands
 │   └── research_history/         full chronological research ledger, preregistrations, superseded phases
-├── src/                          probe, feature panel, corruption/transform suite
+├── src/synthimage/                installable package: probe, feature panel, corruption/transform suite
 ├── scripts/
 │   ├── reproduce/                 the two commands above — start here
 │   └── ...                        generation, extraction, analysis (scripts/README.md indexes all of them)
 ├── results/
-│   └── summary/                  the figures and diagram used above
+│   ├── summary/                  the figures and diagram used above
+│   ├── stage_decomposition/      four-generator stage decomposition + incremental information
+│   ├── vae_curvature_redundancy/ VAE/curvature mechanism analysis
+│   ├── path_length_mechanism/    path_length mechanism (the decisive result)
+│   └── final_validation/         robustness + AI-edit continuum validation
 ├── tests/                        scientific-correctness tests (leakage, frozen definitions, determinism)
 └── data/README.md                dataset provenance and regeneration instructions (data/ itself is not committed)
 ```
@@ -121,8 +125,8 @@ SynthImage/
 Requires Python 3.12 and [`uv`](https://docs.astral.sh/uv/):
 
 ```bash
-git clone https://github.com/jeillei/AI_Image_Probe.git
-cd AI_Image_Probe
+git clone https://github.com/jeillei/SynthImage.git
+cd SynthImage
 uv sync
 uv run pytest   # scientific-correctness test suite
 ```
@@ -151,7 +155,10 @@ SynthImage's strongest methodological result was catching its own first benchmar
 #1 above) and rebuilding from there: matched-content controls → literature-grounded stage decomposition →
 architecture disambiguation → mechanism resolution. The full chronological ledger — including that audit, every
 preregistration, and every negative result — is preserved, not hidden, under
-**[`docs/research_history/`](docs/research_history/)**.
+**[`docs/research_history/`](docs/research_history/)**. These narrative documents cite raw intermediate result
+files from superseded experimental phases (early feature sweeps, pre-matched-content baselines, etc.) that were
+removed from the working tree to keep this a portfolio-sized repo; every one of them is still retrievable from
+the `research-history-archive` git tag (e.g. `git show research-history-archive:results/core200/...`).
 
 ## Status
 

@@ -8,7 +8,7 @@ including abandoned approaches, see `docs/research_history/RESEARCH_REPORT.md`.
 
 Everything in the final result set is computed with one frozen instrument: **Stable Diffusion 1.5**
 (`stable-diffusion-v1-5/stable-diffusion-v1-5`), used as a measurement device, not a generator, via
-`src/probes/sd15.py`. For a given image, the probe:
+`src/synthimage/probes/sd15.py`. For a given image, the probe:
 
 1. Encodes the image through SD1.5's VAE to a latent `z0`.
 2. Runs a fixed, short (6-step) DDIM inversion — conditioned on the image's own human caption — producing a
@@ -23,7 +23,7 @@ generators (real photographs, SD1.5, SDXL, PixArt-Sigma DiT, aMUSEd) without any
 
 Ten scalar features, each either a direct reproduction of a published forensic method or a small, explicitly
 labeled adaptation. Full formulas, citations, and reproduced-vs-adapted status for every feature:
-`docs/research_history/LITERATURE_FEATURE_PANEL.md`. Implementation: `src/features/panel_v2.py`.
+`docs/research_history/LITERATURE_FEATURE_PANEL.md`. Implementation: `src/synthimage/features/panel_v2.py`.
 
 | stage | features | literature anchor |
 |---|---|---|
@@ -93,7 +93,7 @@ minus predicted) is then tested for a real/fake effect exactly as any raw featur
 
 Full frozen protocol: `docs/research_history/FINAL_VALIDATION_PLAN.md`. In brief: 14 realistic-transformation conditions (JPEG, blur,
 resize round-trip, Gaussian noise, color jitter, center crop — all parameters fixed in advance,
-`src/corruption/robustness_suite.py`) applied symmetrically to real and generated images at the same
+`src/synthimage/corruption/robustness_suite.py`) applied symmetrically to real and generated images at the same
 canonicalization stage; and a controlled img2img edit-strength continuum (0.0/0.3/0.6/0.9) using the same SD1.5
 checkpoint, scaled from an 8-content pilot to the full 60-content set.
 
