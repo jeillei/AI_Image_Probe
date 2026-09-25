@@ -1,5 +1,8 @@
 # SynthImage
 
+[![tests](https://github.com/jeillei/AI_Image_Probe/actions/workflows/tests.yml/badge.svg)](https://github.com/jeillei/AI_Image_Probe/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **Where does AI-image forensic information live inside a pretrained diffusion pipeline — and does it survive
 changes in generator architecture, realistic image transformations, and partial AI editing?**
 
@@ -154,6 +157,14 @@ preregistration, and every negative result — is preserved, not hidden, under
 
 Active experimentation on this project is closed. Possible future directions are recorded under "Future work"
 in `docs/FINAL_RESULTS.md`, not as an open invitation to keep iterating here.
+
+## Development notes
+
+AI coding assistants were used throughout for implementation, debugging, and documentation support — visible
+directly in the commit history rather than hidden. The scientific discipline this repository documents is
+independent of that: every experimental protocol was frozen and committed *before* its results were inspected
+(see the preregistrations under `docs/research_history/`), and every claim in `docs/FINAL_RESULTS.md` is
+reproducible from the data already committed here (`scripts/reproduce/final_analysis.py`).
 
 ## License
 
