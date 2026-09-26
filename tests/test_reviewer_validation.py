@@ -3,6 +3,8 @@ No GPU/model weights needed -- these test the derangement logic and the cross-pr
 feature extraction itself. See docs/research_history/reviewer_validation/REVIEWER_VALIDATION_PLAN.md."""
 import pandas as pd
 from scripts.reviewer_validation.conditioning_ablation import deranged_captions
+from synthimage.probes.sd15 import SD15Probe
+from synthimage.probes.sdxl import SDXLProbe
 
 
 def _fake_manifest(n=60):
@@ -24,3 +26,11 @@ def test_derangement_is_deterministic_across_calls_and_row_order():
     a = deranged_captions(m)
     b = deranged_captions(m.sample(frac=1, random_state=7).reset_index(drop=True))  # shuffled row order
     assert a == b
+
+
+def test_sd15_and_sdxl_probes_expose_the_same_measurement_interface():
+    """path_length/diffpath_curvature/score_norm_step0/vae_only in panel_v2.py are written against one probe
+    interface; a cross-probe comparison is only meaningful if both probes satisfy it identically."""
+    required = {"encode_image", "decode_latent", "embeds", "invert_reconstruct"}
+    assert required <= set(dir(SD15Probe))
+    assert required <= set(dir(SDXLProbe))
