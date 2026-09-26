@@ -1,4 +1,4 @@
-"""Extract the v2 literature-anchored stage panel (LITERATURE_FEATURE_PANEL.md) for the 180 matched-content
+"""Extract the v2 literature-anchored stage panel (LITERATURE_FEATURE_PANEL.md) for the 180 caption-matched
 images.  Reuses the frozen SD1.5 v1 protocol (256px squash-resize, 6-step DDIM inversion, human-caption
 conditioning) -- no protocol change.  Resumable per-image (skips cached ids); one MPS process.
 
@@ -35,7 +35,7 @@ PROTOCOL_VERSION = "synthimage_v2_stage_panel_1.0"
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--manifest", default="data/content_matched/manifest.csv")
+    p.add_argument("--manifest", default="data/caption_matched/manifest.csv")
     p.add_argument("--output", default="results/stage_decomposition/panel_features_pass1.json")
     p.add_argument("--recon-cache", default="data/stage_panel_cache")
     p.add_argument("--steps", type=int, default=6)

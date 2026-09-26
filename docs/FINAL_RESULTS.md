@@ -34,14 +34,16 @@ None of this means diffusion probes carry no forensic signal. It means a benchma
 images differ in acquisition history, resolution, compression, or caption style cannot distinguish a genuine
 provenance mechanism from these shortcuts. Full detail: `docs/research_history/SCIENTIFIC_AUDIT.md`.
 
-## 3. Matched-content experimental design
+## 3. Caption-matched experimental design
 
-Every result after this point uses **60 real COCO photographs**, each paired with a same-caption counterpart
-from every generator under test: same content, same human caption, same canonicalization (256×256, no crop),
-computed by the same frozen probe. Every classifier, cross-validation fold, and bootstrap resample is grouped by
-**content id** — a real image and its generated counterpart are never split across a fold. This single design
-change is what turned an apparently strong but confounded benchmark into an honest, falsifiable measurement
-(`docs/METHODS.md` §4-5).
+Every result after this point uses **60 real COCO photographs**, each paired with a counterpart from every
+generator under test that was generated *from that photograph's human caption* — same caption, same
+canonicalization (256×256, no crop), computed by the same frozen probe. **The generated image does not
+reproduce the real photograph's actual scene**; it is an independent generation from the shared caption, so
+"matched" here means caption-matched, not content-matched. Every classifier, cross-validation fold, and
+bootstrap resample is grouped by **content id** (the shared caption/pairing key) — a real image and its
+generated counterpart are never split across a fold. This single design change is what turned an apparently
+strong but confounded benchmark into an honest, falsifiable measurement (`docs/METHODS.md` §4-5).
 
 ## 4. Literature-grounded stage decomposition
 
@@ -197,8 +199,9 @@ into a stronger claim than the data supports.
   conditioning) found the effect and its incremental value are essentially unchanged (retention 0.97–1.05 of the
   correct-caption effect) under both alternative conditioning modes for SD1.5 and SDXL — evidence against this
   being primarily a prompt-compatibility artifact. Full detail: same document (Experiment 1).
-- The dataset is **60 matched content identities** — enough for the paired-bootstrap statistics used throughout
-  to be meaningful, not enough to support population-level detector performance claims.
+- The dataset is **60 caption-matched content ids** (real and generated images share a COCO caption, not a
+  depicted scene) — enough for the paired-bootstrap statistics used throughout to be meaningful, not enough to
+  support population-level detector performance claims.
 - **`path_length`'s architecture-dependence is established for exactly one Diffusion Transformer (PixArt-Sigma)
   and two UNet models (SD1.5, SDXL)** — it is a real feature-level decomposition (§7 identifies which measured
   feature carries the incremental signal, and for which of these three generators), not a causal account of why

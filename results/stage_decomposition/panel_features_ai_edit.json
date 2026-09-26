@@ -1,6 +1,6 @@
 [
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000025138.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000025138.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000025138",
@@ -92,7 +92,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000040102.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000040102.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000040102",
@@ -184,7 +184,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000059532.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000059532.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000059532",
@@ -276,7 +276,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000061897.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000061897.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000061897",
@@ -368,7 +368,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000064779.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000064779.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000064779",
@@ -460,7 +460,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000068005.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000068005.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000068005",
@@ -552,7 +552,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000068257.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000068257.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000068257",
@@ -644,7 +644,7 @@
   "strength": 0.9
  },
  {
-  "path": "data/content_matched/real/coco2014_COCO_val2014_000000074591.png",
+  "path": "data/caption_matched/real/coco2014_COCO_val2014_000000074591.png",
   "label": 0,
   "generator": "real",
   "content_id": "coco2014_COCO_val2014_000000074591",

@@ -14,7 +14,7 @@ to retrieve any of it from the `research-history-archive` git tag.
 
 ## Dataset / generation
 
-`build_content_matched.py`, `build_sdxl_manifest.py`, `build_pixart_dit_manifest.py`,
+`build_caption_matched.py`, `build_sdxl_manifest.py`, `build_pixart_dit_manifest.py`,
 `build_final_validation_manifest.py`, `build_final_validation_combined_manifest.py`, `generate_sdxl.py`,
 `generate_pixart_dit.py`, `generate_ai_edit_scaled.py`
 

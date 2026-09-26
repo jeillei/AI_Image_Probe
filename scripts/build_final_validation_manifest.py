@@ -15,7 +15,7 @@ SECONDARY_GENERATORS = ["amused", "pixart_dit"]
 def seed(text): return int(hashlib.sha256(text.encode()).hexdigest()[:8], 16)
 
 def main():
-    m = pd.read_csv("data/content_matched/manifest.csv")
+    m = pd.read_csv("data/caption_matched/manifest.csv")
     non_clean = [(name, value) for name, value in CONDITIONS if name != "clean"]
     rows = []
     for gen in PRIMARY_GENERATORS + SECONDARY_GENERATORS:

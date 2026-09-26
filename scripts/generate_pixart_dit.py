@@ -1,5 +1,5 @@
 """Generate the fourth-generator (genuine PixArt-Sigma, a Diffusion Transformer) counterparts for the 60
-existing content-matched COCO content ids.  Exact frozen configuration per PREREGISTRATION_DIT_GENERATOR_V1.md
+existing caption-matched COCO content ids.  Exact frozen configuration per PREREGISTRATION_DIT_GENERATOR_V1.md
 -- do not change after seeing outputs.  Resumable (skips existing files); one MPS process.  Generator label used
 everywhere downstream: "pixart_dit".
 
@@ -36,7 +36,7 @@ TRANSFORMER_ID = "PixArt-alpha/PixArt-Sigma-XL-2-1024-MS"
 T5_GGUF_REPO = "city96/t5-v1_1-xxl-encoder-gguf"
 T5_GGUF_FILE = "t5-v1_1-xxl-encoder-Q5_K_M.gguf"
 T5_TOKENIZER_ID = "google/t5-v1_1-xxl"
-EMBED_CACHE = Path("data/content_matched/pixart_dit_embeds")
+EMBED_CACHE = Path("data/caption_matched/pixart_dit_embeds")
 
 def pick_device():
     if torch.cuda.is_available(): return "cuda"
@@ -84,10 +84,10 @@ def phase1_encode_captions(rows, dev):
     print("Phase 1 done; T5 encoder freed.")
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--out", default="data/content_matched/pixart_dit"); ap.add_argument("--limit", type=int)
+    ap = argparse.ArgumentParser(); ap.add_argument("--out", default="data/caption_matched/pixart_dit"); ap.add_argument("--limit", type=int)
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     dev = pick_device()
-    m = pd.read_csv("data/content_matched/manifest.csv"); real = m[m.generator == "real"].sort_values("content_id")
+    m = pd.read_csv("data/caption_matched/manifest.csv"); real = m[m.generator == "real"].sort_values("content_id")
     if a.limit: real = real.head(a.limit)
     rows = list(real.itertuples())
     pending = [r for r in rows if not (out / f"{r.content_id}.png").exists()]

@@ -44,15 +44,17 @@ to the feature extractor or classifier. This discipline exists because the proje
 (`docs/research_history/SCIENTIFIC_AUDIT.md`) was falsified by exactly this class of shortcut — see
 `docs/FINAL_RESULTS.md` §2.
 
-## 4. Content-matched experimental design
+## 4. Caption-matched experimental design
 
-The dataset is 60 real COCO photographs, each paired with a same-caption counterpart from every generator under
-test — same human COCO caption, same content, same canonicalization. This removes semantic and framing
-shortcuts that a naive "scrape real images from one place, generated images from another" benchmark would leave
-in. Every statistical test in this project groups by **content id**, never by individual image: a train/test
-split, a cross-validation fold, or a bootstrap resample never separates a real image from its matched
-counterpart. Construction: `scripts/build_content_matched.py`; manifest: `data/content_matched/manifest.csv`
-(regenerated locally, not redistributed — see `docs/REPRODUCIBILITY.md`).
+The dataset is 60 real COCO photographs, each paired with a counterpart from every generator under test that was
+*generated from that photograph's human caption* — same caption, same canonicalization. **This is caption
+matching, not content matching**: the generated image does not reproduce the real photograph's actual scene, it
+is an independent generation conditioned on the caption describing it. This still removes the semantic and
+framing shortcuts a naive "scrape real images from one place, generated images from another" benchmark would
+leave in. Every statistical test in this project groups by **content id** (the shared caption/pairing key),
+never by individual image: a train/test split, a cross-validation fold, or a bootstrap resample never separates
+a real image from its caption-matched counterpart. Construction: `scripts/build_caption_matched.py`; manifest:
+`data/caption_matched/manifest.csv` (regenerated locally, not redistributed — see `docs/REPRODUCIBILITY.md`).
 
 ## 5. Classifier, cross-validation, and bootstrap (used identically everywhere)
 

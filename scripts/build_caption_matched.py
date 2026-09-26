@@ -13,7 +13,7 @@ import argparse, csv, hashlib, json, random, sys
 from pathlib import Path
 from urllib.request import urlopen
 from PIL import Image
-ap = argparse.ArgumentParser(); ap.add_argument("--annotations", default="data/coco/coco_karpathy_val.json"); ap.add_argument("--out", default="data/content_matched"); ap.add_argument("--count", type=int, default=60)
+ap = argparse.ArgumentParser(); ap.add_argument("--annotations", default="data/coco/coco_karpathy_val.json"); ap.add_argument("--out", default="data/caption_matched"); ap.add_argument("--count", type=int, default=60)
 ap.add_argument("--stage", choices=["real", "fake", "manifest"], default="real"); ap.add_argument("--generator", default="sd15"); ap.add_argument("--seed", type=int, default=2026); ap.add_argument("--steps", type=int, default=25); ap.add_argument("--guidance", type=float, default=7.5); a = ap.parse_args()
 out = Path(a.out); (out / "real").mkdir(parents=True, exist_ok=True); items = json.loads(Path(a.annotations).read_text()); random.Random(a.seed).shuffle(items)
 sel = []; seen = set()

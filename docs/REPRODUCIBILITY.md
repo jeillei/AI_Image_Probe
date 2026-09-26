@@ -70,7 +70,7 @@ client libraries, not the weights themselves.
 ## What datasets are required
 
 Real images: 60 COCO (`coco2014_val2014`) photographs, referenced by image id in
-`data/content_matched/manifest.csv` (regenerate via `scripts/build_content_matched.py`, which downloads only
+`data/caption_matched/manifest.csv` (regenerate via `scripts/build_caption_matched.py`, which downloads only
 the specific 60 COCO images needed, not the full dataset). Generated counterparts are produced locally by this
 project's own generation scripts (`scripts/generate_sdxl.py`, `scripts/generate_pixart_dit.py`, etc.) from the
 same 60 human COCO captions — no external "AI image" dataset is used, by design (see `docs/FINAL_RESULTS.md` §2
@@ -81,21 +81,21 @@ for why naive external corpora were rejected as confounded).
 A manifest is a CSV with (at minimum) `path, label, generator, content_id, caption` columns — `label=0` for real,
 `label=1` for generated, `content_id` shared between a real image and every generator's counterpart for the same
 underlying photo/caption. `scripts/build_*_manifest.py` scripts construct these from the base
-`data/content_matched/manifest.csv`; see each script's docstring for its specific extension (e.g.
+`data/caption_matched/manifest.csv`; see each script's docstring for its specific extension (e.g.
 `build_final_validation_manifest.py` adds transform/transform_value columns for the robustness benchmark,
 applied on-the-fly at extraction time rather than by generating new image files).
 
 ## How to extract the frozen features (full path, heavier — runs on CPU, CUDA, or MPS)
 
 ```bash
-# 1. Build the matched-content dataset (downloads 60 COCO images, ~25MB)
-uv run python scripts/build_content_matched.py
+# 1. Build the caption-matched dataset (downloads 60 COCO images, ~25MB)
+uv run python scripts/build_caption_matched.py
 
 # 2. Generate each additional generator's counterparts (each is its own script; GPU strongly
 #    recommended -- these are full diffusion sampling runs, not cheap)
 uv run python scripts/generate_sdxl.py
 uv run python scripts/generate_pixart_dit.py
-# aMUSEd generation: see scripts/build_content_matched.py (amused is generated inline)
+# aMUSEd generation: see scripts/build_caption_matched.py (amused is generated inline)
 
 # 3. Extract the frozen v2 panel (two passes -- see extract_stage_panel.py's docstring for why
 #    LPIPS and the SD1.5 UNet must run in separate processes on MPS)

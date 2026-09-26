@@ -18,8 +18,8 @@ adds genuinely new information beyond the earlier ones, and for which generator 
 
 1. **Naive AI-image benchmarks are badly confounded.** On this project's own first large-scale benchmark, four
    simple file-geometry numbers beat a 652-feature learned representation, and caption text alone reached
-   AUROC 0.79 with zero image information. Every result below uses a content-matched design specifically built
-   to remove this class of shortcut.
+   AUROC 0.79 with zero image information. Every result below uses a caption-matched design (real and generated
+   images share a COCO caption, not a depicted scene) specifically built to remove this class of shortcut.
 2. **VAE reconstruction error alone is a strong, generator-dependent forensic signal** — from AUROC 0.64 (SD1.5)
    to 0.98 (aMUSEd). This is reconstruction through the frozen **SD1.5 probe's own VAE**, applied identically to
    every generator's output (never each generator's own decoder) — the AUROC gradient tracks how compatible each
@@ -168,11 +168,11 @@ Full preregistration and results: **[`docs/research_history/reviewer_validation/
 ## Research history
 
 SynthImage's strongest methodological result was catching its own first benchmark being confounded (finding
-#1 above) and rebuilding from there: matched-content controls → literature-grounded stage decomposition →
+#1 above) and rebuilding from there: caption-matched controls → literature-grounded stage decomposition →
 architecture disambiguation → mechanism resolution. The full chronological ledger — including that audit, every
 preregistration, and every negative result — is preserved, not hidden, under
 **[`docs/research_history/`](docs/research_history/)**. These narrative documents cite raw intermediate result
-files from superseded experimental phases (early feature sweeps, pre-matched-content baselines, etc.) that were
+files from superseded experimental phases (early feature sweeps, pre-caption-matched baselines, etc.) that were
 removed from the working tree to keep this a portfolio-sized repo; every one of them is still retrievable from
 the `research-history-archive` git tag (e.g. `git show research-history-archive:results/core200/...`).
 

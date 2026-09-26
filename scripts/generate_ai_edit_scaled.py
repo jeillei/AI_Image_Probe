@@ -1,5 +1,5 @@
 """Track B of docs/research_history/FINAL_VALIDATION_PLAN.md: scale the n=8 img2img-strength pilot (scripts/generate_ai_edit_pilot.py)
-to the full 60 matched content ids. Reuses the EXACT same img2img mechanism, strengths, steps, guidance, and
+to the full 60 caption-matched content ids. Reuses the EXACT same img2img mechanism, strengths, steps, guidance, and
 seed policy as the original pilot -- no new editing model, no parameter change. This is a controlled-intervention
 scaling, not a new pilot; see STAGE_DECOMPOSITION_RESULTS.md Phase 7 for why img2img-strength (not localized
 inpainting) was chosen and disclosed as a scope limitation, unchanged here."""
@@ -42,7 +42,7 @@ def img2img(probe, image_hwc: np.ndarray, prompt: str, strength: float, seed: in
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", default="data/ai_edit_scaled"); ap.add_argument("--limit", type=int)
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
-    m = pd.read_csv("data/content_matched/manifest.csv")
+    m = pd.read_csv("data/caption_matched/manifest.csv")
     real = m[m.generator == "real"].sort_values("content_id")
     if a.limit: real = real.head(a.limit)
     from synthimage.probes.sd15 import SD15Probe

@@ -22,7 +22,7 @@ from synthimage.analysis.cv import cohen_paired, boot_ci, paired_grouped_cv, pai
 
 CACHE = Path("results/reviewer_validation/cache"); CACHE.mkdir(parents=True, exist_ok=True)
 OUT = Path("results/reviewer_validation"); PLOTS = OUT / "plots"; PLOTS.mkdir(parents=True, exist_ok=True)
-MANIFEST = "data/content_matched/manifest.csv"
+MANIFEST = "data/caption_matched/manifest.csv"
 CORRECT_SOURCE = "results/stage_decomposition/panel_features_dit.json"
 VAE_FEATS = ["lpips_ae", "pixel_mse_ae", "latent_mse_ae"]
 GENERATORS = ["sd15", "sdxl", "pixart_dit", "amused"]  # primary: sd15, sdxl, pixart_dit; secondary: amused
