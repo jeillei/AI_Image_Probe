@@ -58,3 +58,7 @@ results/prompt_ensemble/*.parquet
 results/self_conditioning/**/*.json
 results/self_conditioning/**/*.parquet
 results/features/*.parquet
+
+# reviewer-validation extension: only the compact summary CSVs + plots are tracked; per-image
+# raw feature tables (one per conditioning mode / probe) are regenerable intermediates
+results/reviewer_validation/cache/
