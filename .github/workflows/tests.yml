@@ -25,3 +25,6 @@ jobs:
 
       - name: Run scientific-correctness test suite
         run: uv run pytest -v
+
+      - name: Reproduce headline results (README's promised reproduction command)
+        run: uv run python scripts/reproduce/final_analysis.py

@@ -8,23 +8,18 @@ import json
 from pathlib import Path
 import numpy as np, pandas as pd
 from scipy import stats
-from sklearn.linear_model import Ridge, LogisticRegression
-from sklearn.metrics import roc_auc_score, log_loss, brier_score_loss
-from sklearn.pipeline import make_pipeline
+from sklearn.linear_model import Ridge
+from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import StandardScaler
 from stage_decomposition_analysis import make, sub, cohen_paired, boot_ci
+from synthimage.analysis.cv import (REPS, FOLDS, SEED, N_BOOT, fold_assignment, cross_fitted_residualize,
+    cohen_paired_array, cv_oof_probs, metric_val, paired_metric_diff_ci)
 
 OUT = Path("results/vae_curvature_redundancy"); OUT.mkdir(parents=True, exist_ok=True)
-REPS, FOLDS, SEED, N_BOOT = 10, 5, 0, 1000
 GENS = ["sd15", "sdxl", "pixart_dit", "amused"]
 VAE_FEATS = ["lpips_ae", "pixel_mse_ae", "latent_mse_ae"]
 SCORE_FEATS = ["lare_t200", "score_norm_step0"]
 CURV = "diffpath_curvature"
-
-def fold_assignment(x, r, folds=FOLDS, seed=SEED):
-    ids = np.array(sorted(x.content_id.unique()))
-    perm = np.random.default_rng(seed + r).permutation(ids)
-    return x.content_id.map({c: i % folds for i, c in enumerate(perm)}).values
 
 # ---------------- Part 1: simple geometry of VAE vs curvature ----------------
 def part1_correlations(d):
@@ -53,21 +48,6 @@ def part3_s_vae(x):
             oof_matrix[r, te] = make().fit(X[~te], y[~te]).predict_proba(X[te])[:, 1]
     return oof_matrix, oof_matrix.mean(axis=0)
 
-# ---------------- Part 4: cross-fitted curvature residualization (label-blind, vs raw VAE feats) ----------------
-def cross_fitted_residualize(x, C_obs, predictor_matrix, alpha=1.0):
-    n = len(x)
-    pred_matrix = np.full((REPS, n), np.nan)
-    for r in range(REPS):
-        fo = fold_assignment(x, r)
-        for k in range(FOLDS):
-            te = fo == k; tr = ~te
-            scaler = StandardScaler().fit(predictor_matrix[tr])
-            Xtr = scaler.transform(predictor_matrix[tr]); Xte = scaler.transform(predictor_matrix[te])
-            ridge = Ridge(alpha=alpha).fit(Xtr, C_obs[tr])
-            pred_matrix[r, te] = ridge.predict(Xte)
-    resid_matrix = C_obs[None, :] - pred_matrix
-    return pred_matrix, resid_matrix, np.nanmean(pred_matrix, axis=0), C_obs - np.nanmean(pred_matrix, axis=0)
-
 # ---------------- Part 7: residualize against S_vae itself (rep-varying predictor) ----------------
 def cross_fitted_residualize_on_svae(x, C_obs, s_vae_oof_matrix, alpha=1.0):
     n = len(x)
@@ -83,12 +63,6 @@ def cross_fitted_residualize_on_svae(x, C_obs, s_vae_oof_matrix, alpha=1.0):
             pred_matrix[r, te] = ridge.predict(Xte)
     resid_matrix = C_obs[None, :] - pred_matrix
     return pred_matrix, resid_matrix, np.nanmean(pred_matrix, axis=0), C_obs - np.nanmean(pred_matrix, axis=0)
-
-def cohen_paired_array(x, values):
-    xx = x.copy(); xx["_val"] = values
-    pw = xx.pivot_table(index="content_id", columns="label", values="_val")
-    diff = (pw[1] - pw[0]).dropna()
-    return float(diff.mean() / (diff.std(ddof=1) + 1e-12)), diff
 
 # ---------------- Part 5+6+7: raw vs residual effect table + regression performance ----------------
 def parts_4_5_6_7(d):
@@ -174,33 +148,6 @@ def parts_4_5_6_7(d):
     return pd.DataFrame(effect_rows), s_vae_store
 
 # ---------------- Part 8: proper scoring rules, nested feature-set comparison ----------------
-def cv_oof_probs(x, cols, reps=REPS, folds=FOLDS):
-    X = np.nan_to_num(x[cols].values); y = x.label.values; n = len(x)
-    oof = np.zeros(n)
-    for r in range(reps):
-        fo = fold_assignment(x, r, folds)
-        p = np.zeros(n)
-        for k in range(folds):
-            te = fo == k
-            p[te] = make().fit(X[~te], y[~te]).predict_proba(X[te])[:, 1]
-        oof += p / reps
-    return oof
-
-def metric_val(metric, y, p):
-    pc = np.clip(p, 1e-6, 1 - 1e-6)
-    if metric == "auroc": return roc_auc_score(y, p)
-    if metric == "logloss": return log_loss(y, pc, labels=[0, 1])
-    if metric == "brier": return brier_score_loss(y, p)
-
-def paired_metric_diff_ci(x, oof_a, oof_b, metric, n=N_BOOT, seed=0):
-    ids = np.array(sorted(x.content_id.unique())); by = {c: np.where(x.content_id.values == c)[0] for c in ids}
-    y = x.label.values; rng = np.random.default_rng(seed)
-    diffs = []
-    for _ in range(n):
-        ix = np.concatenate([by[c] for c in rng.choice(ids, len(ids))])
-        diffs.append(metric_val(metric, y[ix], oof_b[ix]) - metric_val(metric, y[ix], oof_a[ix]))
-    return float(np.mean(diffs)), (float(np.percentile(diffs, 2.5)), float(np.percentile(diffs, 97.5)))
-
 def part8_proper_scoring(d):
     rows = []
     for gen in GENS:

@@ -25,7 +25,9 @@ LPIPS-only, run as a separate process — see that script's docstring for why).
 
 ## Analysis / plots
 
-`stage_decomposition_analysis.py` (the core CV/bootstrap library every later analysis script imports),
+`stage_decomposition_analysis.py` (imports its CV/bootstrap/statistics functions from
+`synthimage.analysis.cv` and re-exports them — every other analysis script below imports from
+`stage_decomposition_analysis.py`/`vae_curvature_redundancy_analysis.py` rather than duplicating this code),
 `stage_decomposition_plots.py`, `pixart_stage_decomposition_analysis.py`, `pixart_stage_decomposition_plots.py`,
 `dit_stage_decomposition_analysis.py`, `dit_stage_decomposition_plots.py`,
 `vae_curvature_redundancy_analysis.py`, `vae_curvature_redundancy_plots.py`,
@@ -39,3 +41,10 @@ substituted after PixArt-Sigma was blocked at the time (disk space; see
 `generate_pixart_dit.py` / `dit_stage_decomposition_*.py` (generator label `pixart_dit` throughout). Every
 result table and figure uses the `sdxl` / `pixart_dit` generator labels unambiguously — only the *filenames* of
 the SDXL-substitute scripts still carry the earlier working name.
+
+## Reviewer validation (post-v1.0 extension)
+
+`reviewer_validation/conditioning_ablation.py` and `reviewer_validation/probe_swap.py` — two stress tests of the
+v1.0 `path_length` result (caption-conditioning ablation; SD1.5-vs-SDXL probe swap), run after the original study
+was tagged `v1.0`. See `docs/research_history/reviewer_validation/REVIEWER_VALIDATION_PLAN.md` for the
+preregistered protocol and `REVIEWER_VALIDATION_RESULTS.md` for the outcome.

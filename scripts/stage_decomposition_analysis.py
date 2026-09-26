@@ -6,78 +6,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import numpy as np, pandas as pd
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
 from synthimage.features.panel_v2 import CORE_FEATURE_NAMES, STAGE_OF, STAGE_ORDER
+from synthimage.analysis.cv import (C, REPS, FOLDS, N_BOOT, make, sub, cohen_paired, boot_ci, grouped_cv_auc,
+    content_boot_ci, paired_grouped_cv, paired_diff_ci)
 
 OUT = Path("results/stage_decomposition"); OUT.mkdir(parents=True, exist_ok=True)
-C = 0.1
-REPS = 10
-FOLDS = 5
-N_BOOT = 1000
-rng_global = np.random.default_rng(0)
-
-def make():
-    return make_pipeline(StandardScaler(), LogisticRegression(C=C, max_iter=5000, class_weight="balanced", random_state=17))
-
-def sub(d, gen):
-    x = d[(d.label == 0) | (d.generator == gen)]
-    ok = x.groupby("content_id").label.nunique()
-    return x[x.content_id.isin(ok[ok == 2].index)].reset_index(drop=True)
-
-def cohen_paired(x, feat):
-    pw = x.pivot_table(index="content_id", columns="label", values=feat)
-    diff = (pw[1] - pw[0]).dropna()
-    return float(diff.mean() / (diff.std(ddof=1) + 1e-12)), diff
-
-def boot_ci(vals, stat_fn, n=N_BOOT, seed=0):
-    rng = np.random.default_rng(seed)
-    arr = [stat_fn(np.random.default_rng(seed + 1 + i).choice(vals, len(vals), replace=True)) for i in range(n)]
-    return float(np.percentile(arr, 2.5)), float(np.percentile(arr, 97.5))
-
-def grouped_cv_auc(x, cols, reps=REPS, folds=FOLDS, seed=0):
-    X = np.nan_to_num(x[cols].values); y = x.label.values; ids = np.array(sorted(x.content_id.unique()))
-    oof = np.zeros(len(x)); aucs = []
-    for r in range(reps):
-        perm = np.random.default_rng(seed + r).permutation(ids)
-        fo = x.content_id.map({c: i % folds for i, c in enumerate(perm)}).values
-        p = np.zeros(len(x))
-        for k in range(folds):
-            te = fo == k
-            p[te] = make().fit(X[~te], y[~te]).predict_proba(X[te])[:, 1]
-        aucs.append(roc_auc_score(y, p)); oof += p / reps
-    return float(np.mean(aucs)), oof
-
-def content_boot_ci(x, score, n=N_BOOT, seed=0):
-    ids = np.array(sorted(x.content_id.unique())); by = {c: np.where(x.content_id.values == c)[0] for c in ids}
-    y = x.label.values; rng = np.random.default_rng(seed)
-    vals = [roc_auc_score(y[ix], score[ix]) for ix in (np.concatenate([by[c] for c in rng.choice(ids, len(ids))]) for _ in range(n))]
-    return float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
-
-def paired_grouped_cv(x, cols_a, cols_b, reps=REPS, folds=FOLDS, seed=0):
-    X_a = np.nan_to_num(x[cols_a].values); X_b = np.nan_to_num(x[cols_b].values); y = x.label.values
-    ids = np.array(sorted(x.content_id.unique())); oof_a = np.zeros(len(x)); oof_b = np.zeros(len(x)); aucs_a = []; aucs_b = []
-    for r in range(reps):
-        perm = np.random.default_rng(seed + r).permutation(ids)
-        fo = x.content_id.map({c: i % folds for i, c in enumerate(perm)}).values
-        pa = np.zeros(len(x)); pb = np.zeros(len(x))
-        for k in range(folds):
-            te = fo == k
-            pa[te] = make().fit(X_a[~te], y[~te]).predict_proba(X_a[te])[:, 1]
-            pb[te] = make().fit(X_b[~te], y[~te]).predict_proba(X_b[te])[:, 1]
-        aucs_a.append(roc_auc_score(y, pa)); aucs_b.append(roc_auc_score(y, pb)); oof_a += pa / reps; oof_b += pb / reps
-    return float(np.mean(aucs_a)), float(np.mean(aucs_b)), oof_a, oof_b
-
-def paired_diff_ci(x, oof_a, oof_b, n=N_BOOT, seed=0):
-    ids = np.array(sorted(x.content_id.unique())); by = {c: np.where(x.content_id.values == c)[0] for c in ids}
-    y = x.label.values; rng = np.random.default_rng(seed)
-    diffs = []
-    for _ in range(n):
-        ix = np.concatenate([by[c] for c in rng.choice(ids, len(ids))])
-        diffs.append(roc_auc_score(y[ix], oof_b[ix]) - roc_auc_score(y[ix], oof_a[ix]))
-    return float(np.mean(diffs)), (float(np.percentile(diffs, 2.5)), float(np.percentile(diffs, 97.5)))
 
 def main():
     rows = json.load(open("results/stage_decomposition/panel_features.json"))
