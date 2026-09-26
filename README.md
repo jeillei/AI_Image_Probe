@@ -33,7 +33,7 @@ adds genuinely new information beyond the earlier ones, and for which generator 
    decomposition.
 5. **`path_length`'s signal is realistic-transformation-robust.** Across 14 transformation conditions
    (JPEG/blur/resize/noise/color-jitter/crop) × SD1.5/SDXL (28 condition/generator combinations), its
-   VAE-independent effect survived in 27/28 and its incremental AUROC contribution survived in all 28 — and a
+   effect (beyond the VAE features) survived in 27/28 and its incremental AUROC contribution survived in all 28 — and a
    classifier trained only on clean images transferred with only modest degradation to every transformed
    condition, no recalibration.
 6. **VAE reconstruction tracks increasing AI-edit strength far more monotonically than the trajectory features
@@ -148,6 +148,18 @@ represents a calibrated "percent AI" score. The `path_length` architecture-depen
 exactly one Diffusion Transformer (PixArt-Sigma) and two UNet models (SD1.5, SDXL) — a real mechanism-level
 finding about these three generators specifically, not yet shown to generalize to Diffusion Transformers in
 general. Full discussion: `docs/FINAL_RESULTS.md` §10.
+
+## Reviewer-validation extension (v1.1)
+
+Two alternative explanations for the `path_length` result — that it reflects caption–image compatibility rather
+than provenance, or SD1.5-probe-specific affinity rather than an image-intrinsic property — were stress-tested
+after the v1.0 study was tagged. Both hold up, with one honest nuance:
+
+| | |
+|---|---|
+| ![conditioning ablation](results/reviewer_validation/plots/conditioning_ablation.png) The effect is essentially unchanged under null or shuffled-caption conditioning | ![probe swap](results/reviewer_validation/plots/probe_swap_matrix.png) A second, independent SDXL probe finds the same qualitative pattern, though raw magnitude is probe-dependent for SDXL |
+
+Full preregistration and results: **[`docs/research_history/reviewer_validation/`](docs/research_history/reviewer_validation/)**.
 
 ## Research history
 

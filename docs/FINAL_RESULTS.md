@@ -2,7 +2,10 @@
 
 This document is the final scientific synthesis of the SynthImage project. It replaces the need to read the
 full chronological research ledger (`docs/research_history/RESEARCH_REPORT.md`, 100+ entries) to understand what
-was found. Methodology detail: `docs/METHODS.md`. Reproduction: `docs/REPRODUCIBILITY.md`.
+was found. Methodology detail: `docs/METHODS.md`. Reproduction: `docs/REPRODUCIBILITY.md`. Two reviewer-motivated
+stress tests of §7's `path_length` result (a caption-conditioning ablation and a cross-probe swap) were run after
+this document was first written; both are folded into §10/§11 below, with full detail in
+`docs/research_history/reviewer_validation/REVIEWER_VALIDATION_RESULTS.md`.
 
 ## 1. Research question
 
@@ -96,8 +99,8 @@ Full detail: `docs/research_history/VAE_CURVATURE_REDUNDANCY.md`.
 The trajectory stage's *other* frozen feature, `path_length`, resolved the SDXL-vs-PixArt discrepancy cleanly:
 
 - **`path_length`'s VAE-redundancy is the inverse of curvature's.** For SD1.5 and SDXL, its real/fake effect
-  *strengthens* after VAE-residualization (173%/186% retention, CI excluding zero) — for SDXL alone, the
-  VAE-independent residual reaches AUROC 0.695. For PixArt-Sigma, its raw positive effect (a sign reversal
+  *strengthens* after VAE-residualization (173%/186% retention, CI excluding zero) — for SDXL alone, its
+  VAE-residualized value reaches AUROC 0.695. For PixArt-Sigma, its raw positive effect (a sign reversal
   relative to SD1.5/SDXL to begin with) collapses to non-significance under residualization.
 - Decomposing SDXL's original trajectory-stage gain feature-by-feature shows **`path_length` alone reproduces
   essentially all of it** (+0.052 of the original +0.053 total AUROC gain); `diffpath_curvature`'s own marginal
@@ -106,8 +109,8 @@ The trajectory stage's *other* frozen feature, `path_length`, resolved the SDXL-
   generator, on any metric — ruling out a "joint trajectory geometry" or "score-conditioned interaction"
   explanation.
 
-**Headline mechanistic finding**: *`path_length` provides a VAE-independent forensic signal for SD1.5/SDXL
-specifically — not for the genuine Diffusion Transformer generator tested (PixArt-Sigma), and not attributable
+**Headline mechanistic finding**: *`path_length` provides predictive information beyond the three frozen VAE
+features for SD1.5/SDXL specifically — not for the genuine Diffusion Transformer generator tested (PixArt-Sigma), and not attributable
 to `diffpath_curvature` or an interaction between the two trajectory features.* This is the most specific,
 decisive result in the project and the point at which feature-level mechanism exploration was deliberately
 stopped (per its own preregistered decision rule). Full detail:
@@ -123,7 +126,7 @@ stopped (per its own preregistered decision rule). Full detail:
 0.5/1.0/2.0, resize round-trip 0.5×/0.25×, Gaussian noise 0.02/0.05/0.10, one color-jitter condition, center crop)
 were extracted through the frozen SD1.5-probe pipeline, plus aMUSEd/PixArt-Sigma as secondary comparisons.
 
-**`path_length`'s VAE-independent signal survives realistic transformation almost universally.** Across the 14
+**`path_length`'s predictive information beyond the VAE features survives realistic transformation almost universally.** Across the 14
 transform conditions × 2 primary generators (28 condition/generator combinations, clean excluded from this
 count since it trivially matches itself), `path_length`'s effect **survived** (CI excludes zero, same sign as
 clean) in **27/28** (SDXL: 14/14; SD1.5: 13/14, only `center_crop_0.8` weakened to a CI crossing zero). In
@@ -144,7 +147,7 @@ throughout: SD1.5 ranges 0.71–0.81 (clean: 0.76), SDXL ranges 0.89–0.95 (cle
 more noticeably at the most aggressive noise condition (σ=0.10) for both generators, consistent with calibration
 drift under heavy distribution shift even where ranking (AUROC) holds up.
 
-**Read together: `path_length`'s VAE-independent forensic signal for SD1.5/SDXL is not a clean-data artifact.**
+**Read together: `path_length`'s predictive information beyond the VAE features, for SD1.5/SDXL, is not a clean-data artifact.**
 It survives realistic JPEG compression, blur, resizing, noise, color jitter, and cropping — both as a standalone
 effect and as incremental classifier information — and a classifier trained only on clean images transfers with
 only modest, expected degradation to every transformed condition tested.
@@ -180,7 +183,17 @@ into a stronger claim than the data supports.
 
 - All generator comparisons use **one frozen probe (SD1.5)** measuring the candidate generator's *output pixels*
   — the candidate generator itself never needs to be a diffusion model, but every measurement is filtered
-  through SD1.5's own VAE/UNet, which is itself one specific, dated checkpoint.
+  through SD1.5's own VAE/UNet, which is itself one specific, dated checkpoint. A reviewer-motivated cross-probe
+  stress test (SD1.5 vs. a second, independent SDXL probe) found that `path_length`'s *raw effect magnitude* is
+  probe-dependent for at least one generator (the SDXL probe finds roughly double the effect on SDXL-generated
+  images that the SD1.5 probe does), though the *qualitative* incremental-value pattern — which generators show
+  trajectory information beyond VAE+score, and which do not — is unchanged across both probes. Full detail:
+  `docs/research_history/reviewer_validation/REVIEWER_VALIDATION_RESULTS.md` (Experiment 2).
+- Every generated image shares its exact generation caption with the caption later supplied to the probe during
+  measurement, raising a caption-conditioning confound. A reviewer-motivated ablation (null and shuffled-caption
+  conditioning) found the effect and its incremental value are essentially unchanged (retention 0.97–1.05 of the
+  correct-caption effect) under both alternative conditioning modes for SD1.5 and SDXL — evidence against this
+  being primarily a prompt-compatibility artifact. Full detail: same document (Experiment 1).
 - The dataset is **60 matched content identities** — enough for the paired-bootstrap statistics used throughout
   to be meaningful, not enough to support population-level detector performance claims.
 - **`path_length`'s architecture-dependence is established for exactly one Diffusion Transformer (PixArt-Sigma)
@@ -201,7 +214,7 @@ carries real, generator-dependent signal on its own. The diffusion trajectory ad
 two UNet-based diffusion generators tested but not for the one Diffusion Transformer tested. Within the trajectory stage
 itself, that added information is attributable specifically to path geometry (`path_length`), not curvature,
 for the generators where it appears at all. **This specific signal is realistic-transformation-robust**:
-`path_length`'s VAE-independent effect and its incremental AUROC contribution both survived essentially every
+`path_length`'s effect and its incremental AUROC contribution beyond the VAE features both survived essentially every
 tested JPEG/blur/resize/noise/color-jitter/crop condition for SD1.5 and SDXL (§8), and a classifier trained only
 on clean images transferred with only modest degradation to every transformed condition. The AI-edit continuum
 (§9) shows the VAE signal tracks increasing edit strength far more monotonically than either trajectory feature
@@ -211,6 +224,17 @@ on clean images transferred with only modest degradation to every transformed co
 **This project does not claim**: a universal AI-image detector, generator-independent deployment performance,
 that raw diffusion-path curvature alone proves diffusion provenance, or that any AI-edit-strength response
 represents a calibrated "percent AI" score.
+
+**Post-v1.0 reviewer validation.** Two alternative explanations for the `path_length` result — that it reflects
+caption–image compatibility rather than provenance, and that it reflects SD1.5-probe-specific affinity rather
+than an image-intrinsic property — were tested directly after this document was first written (§10, and in full
+in `docs/research_history/reviewer_validation/REVIEWER_VALIDATION_RESULTS.md`). Neither test found grounds to
+retract the qualitative claim above: it survives removing or scrambling the conditioning caption, and it survives
+substituting a second, architecturally independent probe. The one genuine refinement is that `path_length`'s raw
+effect *magnitude* — not its sign, and not which generators show incremental value — is probe-dependent for at
+least the SDXL generator/probe pairing, so it is described here as a **generator-dependent trajectory signal
+under a frozen diffusion probe**, not an architecture-intrinsic fingerprint independent of the measuring
+instrument.
 
 ## Future work
 
