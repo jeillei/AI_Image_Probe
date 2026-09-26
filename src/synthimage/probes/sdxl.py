@@ -19,11 +19,11 @@ class SDXLProbe:
     def __init__(self, steps: int = 6, device: str | None = None):
         self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
         self.dtype = torch.float16 if self.device == "mps" else torch.float32
-        self.pipe = StableDiffusionXLPipeline.from_pretrained(MODEL_ID, torch_dtype=self.dtype, local_files_only=True)
+        self.pipe = StableDiffusionXLPipeline.from_pretrained(MODEL_ID, torch_dtype=self.dtype)
         # SDXL's own VAE is documented to be numerically unstable in float16 (produces NaNs); load it separately
         # in float32 while the UNet/text encoders stay at self.dtype -- verified NaN-free in engineering
         # validation (see REVIEWER_VALIDATION_PLAN.md).
-        self.pipe.vae = AutoencoderKL.from_pretrained(MODEL_ID, subfolder="vae", torch_dtype=torch.float32, local_files_only=True)
+        self.pipe.vae = AutoencoderKL.from_pretrained(MODEL_ID, subfolder="vae", torch_dtype=torch.float32)
         self.pipe.scheduler = DDIMScheduler.from_config(self.pipe.scheduler.config, clip_sample=False)
         self.pipe = self.pipe.to(self.device)
         self.pipe.enable_attention_slicing("max")

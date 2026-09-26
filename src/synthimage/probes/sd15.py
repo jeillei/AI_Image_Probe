@@ -11,7 +11,7 @@ class SD15Probe:
         self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
         dtype = torch.float16 if self.device == "mps" else torch.float32
         self.pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, torch_dtype=dtype,
-            safety_checker=None, requires_safety_checker=False, local_files_only=True)
+            safety_checker=None, requires_safety_checker=False)
         self.pipe.scheduler = DDIMScheduler.from_config(self.pipe.scheduler.config, clip_sample=False)
         self.pipe = self.pipe.to(self.device)
         # Keep peak unified-memory use modest on Apple Silicon.

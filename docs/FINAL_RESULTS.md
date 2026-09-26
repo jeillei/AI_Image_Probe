@@ -67,8 +67,11 @@ The same frozen protocol was applied, unmodified, to four generators against the
 
 Two findings stand out:
 - **VAE reconstruction alone is already a strong, generator-dependent forensic signal** — it ranges from
-  moderate (SD1.5) to near-ceiling (aMUSEd), tracking how well each generator's own decoder reconstructs images
-  (a correlation established here, not a controlled causal test of decoder quality in isolation).
+  moderate (SD1.5) to near-ceiling (aMUSEd). This reconstruction is always performed by the **frozen SD1.5
+  probe's own VAE** (encode → decode), applied identically regardless of which generator produced the image —
+  never each generator's own decoder. The AUROC gradient therefore reflects how compatible each generator's
+  output distribution is with *that one frozen VAE* specifically, which is itself evidence for a
+  probe-compatibility effect rather than a decoder-quality property intrinsic to each generator in isolation.
 - **The trajectory stage's contribution is architecture-dependent, not simply diffusion-vs-not-diffusion**: it
   helps both UNet-based diffusion generators tested (SD1.5, SDXL) but not the one Diffusion Transformer tested
   (PixArt-Sigma), despite PixArt-Sigma also being a genuine diffusion model. This ruled out the simplest version
@@ -197,8 +200,10 @@ into a stronger claim than the data supports.
 - The dataset is **60 matched content identities** — enough for the paired-bootstrap statistics used throughout
   to be meaningful, not enough to support population-level detector performance claims.
 - **`path_length`'s architecture-dependence is established for exactly one Diffusion Transformer (PixArt-Sigma)
-  and two UNet models (SD1.5, SDXL)** — it is a real, mechanism-level finding about these three specific
-  generators, not yet shown to generalize to DiT architectures in general.
+  and two UNet models (SD1.5, SDXL)** — it is a real feature-level decomposition (§7 identifies which measured
+  feature carries the incremental signal, and for which of these three generators), not a causal account of why
+  those generators' outputs produce that path geometry, and not yet shown to generalize to DiT architectures in
+  general.
 - PixArt-Sigma's text encoder is a disclosed, community GGUF-quantized adaptation of the official T5-XXL weights
   (used only because the original fp32 weights exceeded available disk space during development) — the
   denoiser and VAE under test are official, unmodified weights; see

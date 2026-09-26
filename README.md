@@ -21,7 +21,10 @@ adds genuinely new information beyond the earlier ones, and for which generator 
    AUROC 0.79 with zero image information. Every result below uses a content-matched design specifically built
    to remove this class of shortcut.
 2. **VAE reconstruction error alone is a strong, generator-dependent forensic signal** — from AUROC 0.64 (SD1.5)
-   to 0.98 (aMUSEd), tracking how well each generator's own decoder reconstructs images.
+   to 0.98 (aMUSEd). This is reconstruction through the frozen **SD1.5 probe's own VAE**, applied identically to
+   every generator's output (never each generator's own decoder) — the AUROC gradient tracks how compatible each
+   generator's images are with *that one frozen VAE*, which is itself a probe-compatibility signal, not a
+   property of the generator in isolation.
 3. **The diffusion trajectory adds real information beyond VAE reconstruction for the two UNet-based diffusion
    generators tested (SD1.5, SDXL) but not for the one Diffusion Transformer tested (PixArt-Sigma)** — ruling out
    the simplest "diffusion models generically show this" hypothesis, though not yet a class-general claim about
@@ -145,9 +148,10 @@ uv run pytest   # scientific-correctness test suite
 This project does not claim a universal AI-image detector, generator-independent deployment performance, that
 raw diffusion-path curvature alone proves diffusion provenance, or that any AI-edit-strength response
 represents a calibrated "percent AI" score. The `path_length` architecture-dependence result is established for
-exactly one Diffusion Transformer (PixArt-Sigma) and two UNet models (SD1.5, SDXL) — a real mechanism-level
-finding about these three generators specifically, not yet shown to generalize to Diffusion Transformers in
-general. Full discussion: `docs/FINAL_RESULTS.md` §10.
+exactly one Diffusion Transformer (PixArt-Sigma) and two UNet models (SD1.5, SDXL) — a real feature-level
+decomposition (which measured feature carries the incremental signal, and for which generators) about these
+three generators specifically, not a causal account of *why* those generators produce that path geometry, and
+not yet shown to generalize to Diffusion Transformers in general. Full discussion: `docs/FINAL_RESULTS.md` §10.
 
 ## Reviewer-validation extension (v1.1)
 
